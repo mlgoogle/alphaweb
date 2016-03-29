@@ -311,6 +311,9 @@ $('#search-input').typeahead({
     callback: {
         onClickAfter: function (node, a, item, event) {
             console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
+        },
+        onSubmit:function (node, a, item, event) {
+            console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
         }
     },
     debug: true
