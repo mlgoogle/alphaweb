@@ -126,6 +126,357 @@ var jindowin = {
             $(".settingnews").removeClass("hide");
             $(".newsinfo").removeClass("hide");
         }
+    },
+    /**
+     * 搜索结果展示
+     * @param name 显示名
+     * @param group 所属类别(股票，行业，概念，热点事件)
+     */
+    searchResultShow: function (name, group) {
+        switch(group){
+            case "股票":
+                var gpHtml=[];
+                gpHtml.push("<div class=\"gp-infos\">");
+                gpHtml.push("                            <div class=\"gp-hotstock\">");
+                gpHtml.push("                                <h3 style=\"font-weight: 600;\">招商银行(SH60036)</h3>");
+                gpHtml.push("                                <div style=\"position: absolute; padding-left: 232px; margin-top: -40px;\">");
+                gpHtml.push("                                    <i class=\"icon iconfont\">&#xf013b;</i>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                                <div class=\"right-btn\">");
+                gpHtml.push("                                    <label>24.2万人订阅</label>");
+                gpHtml.push("                                    <a class=\"btn btn-raised btn-info btn-sm\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">订阅</a>");
+                gpHtml.push("                                    <a class=\"btn btn-raised btn-info btn-sm\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">分享</a>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                                <hr>");
+                gpHtml.push("                                <h3 style=\"padding-bottom: 10px;\">资讯预览</h3>");
+                gpHtml.push("                                <div class=\"container\">");
+                gpHtml.push("                                  <table class=\"table\">");
+                gpHtml.push("                                      <tr>");
+                gpHtml.push("                                          <td>查看热度:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                          <td>搜索热度:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                          <td>关注热度:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                      </tr>");
+                gpHtml.push("                                      <tr>");
+                gpHtml.push("                                          <td>查看增量:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                          <td>搜索增量:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                          <td>关注增量:<span class=\"text-danger\">0.5% ↑</span></td>");
+                gpHtml.push("                                      </tr>");
+                gpHtml.push("                                  </table>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                            </div>");
+                gpHtml.push("                            <div class=\"gp-xw\">");
+                gpHtml.push("                                <div class=\"row\">");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <h4>新闻</h4>");
+                gpHtml.push("                                        <hr style=\"margin-top:0; \">");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <div class=\"col-md-9\">");
+                gpHtml.push("                                            <div class=\"hy-news-top\">");
+                gpHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-content\">");
+                gpHtml.push("                                                <p>");
+                gpHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                gpHtml.push("                                                </p>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-bottom\">");
+                gpHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                gpHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                gpHtml.push("                                                    <label>");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                gpHtml.push("                                                    </label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                gpHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                            </div>");
+                gpHtml.push("                            <div class=\"gp-kx\">");
+                gpHtml.push("                                <div class=\"row\">");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <h4>快讯</h4>");
+                gpHtml.push("                                        <hr style=\"margin-top:0; \">");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <div class=\"col-md-9\">");
+                gpHtml.push("                                            <div class=\"hy-news-top\">");
+                gpHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-content\">");
+                gpHtml.push("                                                <p>");
+                gpHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                gpHtml.push("                                                </p>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-bottom\">");
+                gpHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                gpHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                gpHtml.push("                                                    <label>");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                gpHtml.push("                                                    </label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                gpHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                            </div>");
+                gpHtml.push("                            <div class=\"gp-zmt\">");
+                gpHtml.push("                                <div class=\"row\">");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <h4>自媒体</h4>");
+                gpHtml.push("                                        <hr style=\"margin-top:0; \">");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                    <div class=\"col-md-12\">");
+                gpHtml.push("                                        <div class=\"col-md-9\">");
+                gpHtml.push("                                            <div class=\"hy-news-top\">");
+                gpHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-content\">");
+                gpHtml.push("                                                <p>");
+                gpHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                gpHtml.push("                                                </p>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                            <div class=\"hy-news-bottom\">");
+                gpHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                gpHtml.push("                                                    <label>来源：同花顺 &nbsp;&nbsp;&nbsp;&nbsp;2016-03-21 07:00:00</label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                gpHtml.push("                                                    <label>");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                gpHtml.push("                                                    </label>");
+                gpHtml.push("                                                </div>");
+                gpHtml.push("                                            </div>");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                gpHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                gpHtml.push("                                        </div>");
+                gpHtml.push("                                    </div>");
+                gpHtml.push("                                </div>");
+                gpHtml.push("                            </div>");
+                gpHtml.push("                        </div>");
+                $("#showInfos").html(gpHtml.join(''));
+                break;
+            case "行业":
+                var hyHtml=[];
+                hyHtml.push("<div class=\"hy-infos\">");
+                hyHtml.push("                            <div class=\"hy-hotstock\">");
+                hyHtml.push("                                <h3 style=\"font-weight: 600;\">金融业</h3>");
+                hyHtml.push("                                <div style=\"position: absolute; padding-left: 92px; margin-top: -40px;\">");
+                hyHtml.push("                                    <i class=\"icon iconfont\">&#xf013b;</i>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                                <div class=\"right-btn\">");
+                hyHtml.push("                                    <label>24.2万人订阅</label>");
+                hyHtml.push("                                    <a class=\"btn btn-raised btn-info btn-sm\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">订阅</a>");
+                hyHtml.push("                                    <a class=\"btn btn-raised btn-info btn-sm\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">分享</a>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                                <hr>");
+                hyHtml.push("                                <h3 style=\"padding-bottom: 10px;\">资讯预览</h3>");
+                hyHtml.push("                                <h4>金融热门股票</h4>");
+                hyHtml.push("                                <div class=\"container hot-stock\">");
+                hyHtml.push("                                    <div class=\"col-md-4\">");
+                hyHtml.push("                                        <div class=\"panel panel-default\">");
+                hyHtml.push("                                            <div class=\"panel-heading\">浦发银行 SH001263</div>");
+                hyHtml.push("                                            <div class=\"panel-body\">");
+                hyHtml.push("                                                <table class=\"table text-center\">");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>查看：0.5%</td>");
+                hyHtml.push("                                                        <td>查看增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>搜索：0.5%</td>");
+                hyHtml.push("                                                        <td>搜索增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>关注：0.5%</td>");
+                hyHtml.push("                                                        <td>关注增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                </table>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                    <div class=\"col-md-4\">");
+                hyHtml.push("                                        <div class=\"panel panel-default\">");
+                hyHtml.push("                                            <div class=\"panel-heading\">平安银行 SH001263</div>");
+                hyHtml.push("                                            <div class=\"panel-body\">");
+                hyHtml.push("                                                <table class=\"table text-center\">");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>查看：0.5%</td>");
+                hyHtml.push("                                                        <td>查看增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>搜索：0.5%</td>");
+                hyHtml.push("                                                        <td>搜索增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>关注：0.5%</td>");
+                hyHtml.push("                                                        <td>关注增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                </table>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                    <div class=\"col-md-4\">");
+                hyHtml.push("                                        <div class=\"panel panel-default\">");
+                hyHtml.push("                                            <div class=\"panel-heading\">招商银行 SH001263</div>");
+                hyHtml.push("                                            <div class=\"panel-body\">");
+                hyHtml.push("                                                <table class=\"table text-center\">");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>查看：0.5%</td>");
+                hyHtml.push("                                                        <td>查看增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>搜索：0.5%</td>");
+                hyHtml.push("                                                        <td>搜索增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                    <tr>");
+                hyHtml.push("                                                        <td>关注：0.5%</td>");
+                hyHtml.push("                                                        <td>关注增量：0.5%</td>");
+                hyHtml.push("                                                    </tr>");
+                hyHtml.push("                                                </table>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                            </div>");
+                hyHtml.push("                            <div class=\"hy-xw\">");
+                hyHtml.push("                                <div class=\"row\">");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <h4>新闻</h4>");
+                hyHtml.push("                                        <hr style=\"margin-top:0; \">");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <div class=\"col-md-9\">");
+                hyHtml.push("                                            <div class=\"hy-news-top\">");
+                hyHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-content\">");
+                hyHtml.push("                                                <p>");
+                hyHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                hyHtml.push("                                                </p>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-bottom\">");
+                hyHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                hyHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                hyHtml.push("                                                    <label>");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                hyHtml.push("                                                    </label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                hyHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                            </div>");
+                hyHtml.push("                            <div class=\"hy-kx\">");
+                hyHtml.push("                                <div class=\"row\">");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <h4>快讯</h4>");
+                hyHtml.push("                                        <hr style=\"margin-top:0; \">");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <div class=\"col-md-9\">");
+                hyHtml.push("                                            <div class=\"hy-news-top\">");
+                hyHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-content\">");
+                hyHtml.push("                                                <p>");
+                hyHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                hyHtml.push("                                                </p>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-bottom\">");
+                hyHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                hyHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                hyHtml.push("                                                    <label>");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                hyHtml.push("                                                    </label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                hyHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                            </div>");
+                hyHtml.push("                            <div class=\"hy-zmt\">");
+                hyHtml.push("                                <div class=\"row\">");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <h4>自媒体</h4>");
+                hyHtml.push("                                        <hr style=\"margin-top:0; \">");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                    <div class=\"col-md-12\">");
+                hyHtml.push("                                        <div class=\"col-md-9\">");
+                hyHtml.push("                                            <div class=\"hy-news-top\">");
+                hyHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-content\">");
+                hyHtml.push("                                                <p>");
+                hyHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
+                hyHtml.push("                                                </p>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                            <div class=\"hy-news-bottom\">");
+                hyHtml.push("                                                <div class=\"col-md-6 text-left\">");
+                hyHtml.push("                                                    <label>来源：同花顺 &nbsp;&nbsp;&nbsp;&nbsp;2016-03-21 07:00:00</label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                                <div class=\"col-md-6 text-right\">");
+                hyHtml.push("                                                    <label>");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
+                hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                hyHtml.push("                                                    </label>");
+                hyHtml.push("                                                </div>");
+                hyHtml.push("                                            </div>");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                        <div class=\"col-md-3 hy-news-pic\">");
+                hyHtml.push("                                            <img src=\"imgs/qrcode.png\">");
+                hyHtml.push("                                        </div>");
+                hyHtml.push("                                    </div>");
+                hyHtml.push("                                </div>");
+                hyHtml.push("                            </div>");
+                hyHtml.push("                        </div>");
+                $("#showInfos").html(hyHtml.join(''));
+                break;
+            case "概念":
+                var gnHtml = [];
+                gnHtml.push("<div class=\"gn-infos\">");
+                gnHtml.push("                           当前概念板块下无内容");
+                gnHtml.push("                        </div>");
+                $("#showInfos").html(gnHtml.join(''));
+                break;
+            case "热点事件":
+                var rdHtml = [];
+                rdHtml.push("<div class=\"gn-infos\">");
+                rdHtml.push("                           当前热点事件板块下无内容");
+                rdHtml.push("                        </div>");
+                $("#showInfos").html(rdHtml.join(''));
+                break;
+        }
     }
 };
 
@@ -275,24 +626,26 @@ $("#search-input").typeahead({
     group: [true, "{{group}}"],
     maxItemPerGroup: 5,
     backdrop: false,
-    dynamic:true,
+    dynamic: true,
     emptyTemplate: '未找到 "{{query}}" 的相关信息',
     source: {
-        "股票": {url:["ajax/ajax_search.php?message={{query}}","stock"]},
-        "行业": {url:["ajax/ajax_search.php?message={{query}}","hy"]},
-        "概念": {url:["ajax/ajax_search.php?message={{query}}","gn"]},
-        "热点事件": {url:["ajax/ajax_search.php?message={{query}}","rd"]}
+        "股票": {url: ["ajax/ajax_search.php?message={{query}}", "stock"]},
+        "行业": {url: ["ajax/ajax_search.php?message={{query}}", "hy"]},
+        "概念": {url: ["ajax/ajax_search.php?message={{query}}", "gn"]},
+        "热点事件": {url: ["ajax/ajax_search.php?message={{query}}", "rd"]}
     },
     callback: {
         onClickAfter: function (node, a, item, event) {
             if (item.display !== "") {
                 jindowin.toggleIndexInfo(false);
+                jindowin.searchResultShow(item.display,item.group);
                 console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
             }
         },
         onSubmit: function (node, a, item, event) {
             if (item.display !== "") {
                 jindowin.toggleIndexInfo(false);
+                jindowin.searchResultShow(item.display,item.group);
                 console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
             }
         }

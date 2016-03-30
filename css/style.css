@@ -160,7 +160,8 @@ footer > div {
 .hot-stock div[class='panel panel-default'] .panel-heading{ background-color: #f0f4fa;  border-top: 2px solid #2856b6; border-radius: 0;text-align: center;}
 .hot-stock table{font-size: 12px;margin:5px 0 5px 0;color: #666666;}
 .hot-stock table tr td{padding: 5px 0 5px 0;border:none;}
-.hy-hotstock,.hy-xw,.hy-kx,.hy-zmt h4{color:#767676;}
+.hy-hotstock,.hy-xw,.hy-kx,.hy-zmt,.gp-hotstock,.gp-xw,.gp-kx,.gp-zmt h4{color:#767676;}
+.gp-hotstock table>tbody>tr>td{border: none;}
 /*.hy-news-top{color: #545454;}*/
 .hy-news-top h4{color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
 .hy-news-content p{font-size: 14px;color: #545454;text-align: justify;font-family: "黑体","microsoft yahei", sans-serif;margin-bottom: 0;}
