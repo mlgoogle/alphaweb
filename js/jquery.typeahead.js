@@ -7,6 +7,7 @@
  * @version 2.4.0 (2016-3-26)
  * @link http://www.runningcoder.org/jquerytypeahead/
  */
+
 ;
 (function (factory) {
     if (typeof define === 'function' && define.amd) {

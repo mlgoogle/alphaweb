@@ -1,3 +1,7 @@
+/**
+ * 时间选择数据
+ * @type {{times: selectTime.times}}
+ */
 var selectTime = {
     times: function () {
         return [

@@ -1,3 +1,6 @@
+/**
+ * 元素固定插件
+ */
 (function ($) {
     $.extend($.fn, {
         posfixed: function (configSettings) {
@@ -21,11 +24,10 @@
             var obj = this;
             var initPos = $(obj).offset().top;
             var initPosLeft = $(obj).offset().left;
-            var anchoredPos = settings.distance;
 
             if (settings.type == "while") {
                 if (!$.support.leadingWhitespace) {
-                    $("body").scroll(function (event) {
+                    $("body").scroll(function () {
                         var objTop = $(obj).offset().top - $("body").scrollTop();
                         if (objTop <= settings.distance) {
                             $(obj).css("position", "absolute");
@@ -38,8 +40,7 @@
                     });
 
                 } else {
-                    $(window).scroll(function (event) {
-
+                    $(window).scroll(function () {
                         if (settings.direction == "top") {
                             var objTop = $(obj).offset().top - $(window).scrollTop();
 
@@ -75,7 +76,7 @@
                     if (settings.hide) {
                         $(obj).hide();
                     }
-                    $("body").scroll(function (event) {
+                    $("body").scroll(function () {
                         if ($("body").scrollTop() > 300) {
                             $(obj).fadeIn(200);
                         } else {
@@ -115,8 +116,7 @@
                             $(obj).fadeOut(200);
                         }
                     });
-                    var objLeft = $(obj).offset().left;
-
+                    
                     $(obj).css("position", "fixed");
                     $(obj).css(settings.direction, settings.distance + "px");
                     if (settings.tag != null) {

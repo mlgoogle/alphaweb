@@ -46,18 +46,6 @@ var jindowin = {
     },
 
     /**
-     * 搜索框的清空按钮操作
-     */
-    clearIconShowHide: function () {
-        var val = $("#search-input").val();
-        if (val !== "") {
-            $("#search-clear").removeClass("hide");
-        } else {
-            $("#search-clear").addClass("hide");
-        }
-    },
-
-    /**
      * 接收时间复选框事件
      * @param $this 复选框对象
      */
@@ -120,6 +108,23 @@ var jindowin = {
             $(".show-all-news").hide();
         } else {
             $("#myNewsCount").html("我的快讯(" + myNews + ")");
+        }
+    },
+    /**
+     * 首页信息展示切换
+     * @param show 切换首页展示(true)和信息展示(false)
+     */
+    toggleIndexInfo: function (show) {
+        if (show) {
+            $(".mynews").removeClass("hide");
+            $(".recommendnews").removeClass("hide");
+            $(".settingnews").addClass("hide");
+            $(".newsinfo").addClass("hide");
+        } else {
+            $(".mynews").addClass("hide");
+            $(".recommendnews").addClass("hide");
+            $(".settingnews").removeClass("hide");
+            $(".newsinfo").removeClass("hide");
         }
     }
 };
@@ -206,16 +211,9 @@ $("#cbSummary").change(function () {
  * 搜索框改变事件
  */
 $("#search-input").bind("input propertychange", function () {
-    jindowin.clearIconShowHide();
-});
-
-/**
- * 搜索框清空按钮事件
- */
-$("#search-clear").bind("click", function () {
-    $("#search-input").val("");
-    $("#search-input").focus();
-    jindowin.clearIconShowHide();
+    if ($(this).val() === "") {
+        jindowin.toggleIndexInfo(true);
+    }
 });
 
 /**
@@ -266,54 +264,37 @@ $("#allrecommend table tbody tr td .fa-plus").each(function () {
     })
 });
 
-var data = {
-    "stock": [
-        "招商银行(600036)","这是招商","银行666666","建设银行","招商"
-    ],
-    "industry": [
-        "招商银行(600036)"
-    ],
-    "concept": [
-        "招商银行(600036)"
-    ],
-    "hotevent": [
-        "上海市招商银行", "招商银行倒闭了", "杭州招商银行啦啦啦"
-    ]
-};
-$('#search-input').typeahead({
+/**
+ * 搜索框自动完成
+ */
+$("#search-input").typeahead({
     minLength: 1,
     maxItem: 20,
     order: "asc",
     hint: true,
     group: [true, "{{group}}"],
     maxItemPerGroup: 5,
-    // backdrop: {
-    //     "background-color": "#fff"
-    // },
     backdrop: false,
-    //href: "/beers/{{group}}/{{display}}/",
-    dropdownFilter: "all beers",
+    dynamic:true,
     emptyTemplate: '未找到 "{{query}}" 的相关信息',
     source: {
-        "股票": {
-            data: data.stock
-        },
-        "行业": {
-            data: data.industry
-        },
-        "概念": {
-            data: data.concept
-        },
-        "热点事件": {
-            data: data.hotevent
-        }
+        "股票": {url:["ajax/ajax_search.php?message={{query}}","stock"]},
+        "行业": {url:["ajax/ajax_search.php?message={{query}}","hy"]},
+        "概念": {url:["ajax/ajax_search.php?message={{query}}","gn"]},
+        "热点事件": {url:["ajax/ajax_search.php?message={{query}}","rd"]}
     },
     callback: {
         onClickAfter: function (node, a, item, event) {
-            console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
+            if (item.display !== "") {
+                jindowin.toggleIndexInfo(false);
+                console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
+            }
         },
-        onSubmit:function (node, a, item, event) {
-            console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
+        onSubmit: function (node, a, item, event) {
+            if (item.display !== "") {
+                jindowin.toggleIndexInfo(false);
+                console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
+            }
         }
     },
     debug: true

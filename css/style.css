@@ -125,7 +125,6 @@ footer > div {
     position: absolute;
     top: 35px;
     right: 0;
-    z-index: 100;
     font-weight: bold;
     padding: 5px 42px;
 }
@@ -141,7 +140,7 @@ footer > div {
     width: 100%;
 }
 .search-box label{color: #0055aa;font-size: 14px;}
-.search-box .typeahead-container{height: 90px;padding-top: 20px;}
+.search-box .typeahead-container{height: 90px;padding-top: 20px;z-index: 99;}
 #settings .form-group,.form-control{
     margin: 0;
 }
@@ -149,9 +148,27 @@ footer > div {
 #settings input{font-size:small;}
 .right-btn{
     position: absolute;
-    top: 35px;
+    top: 20px;
     right: 0;
-    z-index: 100;
     font-weight: bold;
     padding: 5px 42px;
 }
+.right-btn a[class='btn btn-raised btn-info btn-sm']{margin-right: 10px;}
+.right-btn label{padding-right: 10px;font-size: 12px;}
+.hot-stock{padding-left: 0px;padding-right: 0px;}
+.hot-stock div[class='panel panel-default'] { border-left: 1px dashed #b5b5b5;border-right: 1px dashed #b5b5b5;border-bottom: 1px dashed #b5b5b5; text-align: center;}
+.hot-stock div[class='panel panel-default'] .panel-heading{ background-color: #f0f4fa;  border-top: 2px solid #2856b6; border-radius: 0;text-align: center;}
+.hot-stock table{font-size: 12px;margin:5px 0 5px 0;color: #666666;}
+.hot-stock table tr td{padding: 5px 0 5px 0;border:none;}
+.hy-hotstock,.hy-xw,.hy-kx,.hy-zmt h4{color:#767676;}
+/*.hy-news-top{color: #545454;}*/
+.hy-news-top h4{color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
+.hy-news-content p{font-size: 14px;color: #545454;text-align: justify;font-family: "黑体","microsoft yahei", sans-serif;margin-bottom: 0;}
+.hy-news-pic {padding-left: 0;padding-right: 0;}
+.hy-news-pic img{width: 180px;  height: 160px;}
+.hy-news-bottom div:first-child{padding-top: 10px;padding-left: 0;}
+.hy-news-bottom label:first-child{font-size: 12px;color:#aaaaaa;font-family: "黑体", "microsoft yahei", sans-serif;}
+.hy-news-bottom label:last-child i{padding-left: 20px;}
+.hy-news-bottom label i:first-child{color: #f44336}
+.hy-news-bottom label i:nth-of-type(2){color: #009688}
+.hy-news-bottom label i:last-child{color: #3890eb}
