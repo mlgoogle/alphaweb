@@ -15,8 +15,8 @@ class Request
      * @param null $cookiefile COOKIE 请求所用的COOKIE文件位置
      * @param null $cookiesavepath 请求完成的COOKIE保存位置
      * @param bool $encode 是否对请求参数进行 urlencode 处理
-     * @return mixed
-     * @throws Exception
+     * @return mixed 返回结果
+     * @throws Exception 抛出异常
      */
     public static function get($url, $data = array(), $cookie = null, $cookiefile = null, $cookiesavepath = null, $encode = true)
     {
@@ -30,7 +30,8 @@ class Request
             curl_setopt($ch, CURLOPT_URL, $url);
         }
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36');
+        curl_setopt($ch, CURLOPT_ENCODING, "");
         //设置cookie
         if (isset($cookie)) curl_setopt($ch, CURLOPT_COOKIE, $cookie);
         //设置cookie请求文件
@@ -54,19 +55,26 @@ class Request
      * @param null $cookie 请求COOKIE
      * @param null $cookiefile 请求时cookie文件位置
      * @param null $cookiesavepath 请求完成的COOKIE保存位置
-     * @return string
-     * @throws Exception
+     * @return string 返回结果
+     * @throws Exception 抛出异常
      */
     public static function post($url, $data = array(), $cookie = null, $cookiefile = null, $cookiesavepath = null)
     {
         //初始化请求句柄
         $ch = curl_init();
+        //设置头信息
+        $this_header = array(
+            "content-type: application/x-www-form-urlencoded; 
+             charset=UTF-8"
+        );
         //参数设置
+        curl_setopt($ch, CURLOPT_HTTPHEADER,$this_header);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36');
+        curl_setopt($ch, CURLOPT_ENCODING, "");
         //cookie设置
         if (isset($cookie)) curl_setopt($ch, CURLOPT_COOKIE, $cookie);
         //请求cookie设置

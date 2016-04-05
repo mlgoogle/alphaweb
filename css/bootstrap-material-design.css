@@ -2793,26 +2793,26 @@ fieldset[disabled] .navbar .btn-link:focus {
 .nav-tabs > li.disabled > a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
-.popover,
-.tooltip-inner {
-  color: #ececec;
-  line-height: 1em;
-  background: rgba(101, 101, 101, 0.9);
-  border: none;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-}
-.tooltip,
-.tooltip.in {
-  opacity: 1;
-}
-.popover .arrow,
-.tooltip .arrow,
-.popover .tooltip-arrow,
-.tooltip .tooltip-arrow {
-  display: none;
-}
+/*.popover,*/
+/*.tooltip-inner {*/
+  /*color: #ececec;*/
+  /*line-height: 1em;*/
+  /*background: rgba(101, 101, 101, 0.9);*/
+  /*border: none;*/
+  /*border-radius: 2px;*/
+  /*-webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);*/
+          /*box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);*/
+/*}*/
+/*.tooltip,*/
+/*.tooltip.in {*/
+  /*opacity: 1;*/
+/*}*/
+/*.popover .arrow,*/
+/*.tooltip .arrow,*/
+/*.popover .tooltip-arrow,*/
+/*.tooltip .tooltip-arrow {*/
+  /*display: none;*/
+/*}*/
 .card {
   /***** Make height equal to width (http://stackoverflow.com/a/6615994) ****/
   display: inline-block;
