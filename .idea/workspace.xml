@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93e3b95c-ed7a-4f2f-a9cb-508937597a52" name="Default" comment="cookie公共操作类">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_get_news.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_news_detail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_news_transmit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_set_news.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_user_login.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_user_register.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/CheckUserLogin.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/Cookies.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/ajax_login.php" afterPath="" />
+    <list default="true" id="93e3b95c-ed7a-4f2f-a9cb-508937597a52" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/lee.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_add_subscribe.php" afterPath="$PROJECT_DIR$/ajax/ajax_add_subscribe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_delete_subscribe.php" afterPath="$PROJECT_DIR$/ajax/ajax_delete_subscribe.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_query_industry.php" afterPath="$PROJECT_DIR$/ajax/ajax_query_industry.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_query_section.php" afterPath="$PROJECT_DIR$/ajax/ajax_query_section.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_query_stock.php" afterPath="$PROJECT_DIR$/ajax/ajax_query_stock.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_search.php" afterPath="$PROJECT_DIR$/ajax/ajax_search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/JindowinConfig.class.php" afterPath="$PROJECT_DIR$/common/JindowinConfig.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/Request.class.php" afterPath="$PROJECT_DIR$/common/Request.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.min.css" afterPath="$PROJECT_DIR$/css/style.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/CheckUserLogin.class.php" afterPath="$PROJECT_DIR$/common/CheckUserLogin.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jindowin-index.js" afterPath="$PROJECT_DIR$/js/jindowin-index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jindowin-index.min.js" afterPath="$PROJECT_DIR$/js/jindowin-index.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/stickUp.js" afterPath="$PROJECT_DIR$/js/stickUp.js" />
     </list>
     <ignored path="jindouwinweb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,88 +33,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ajax_query_stock.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckUserLogin.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common/CheckUserLogin.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_query_industry.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_query_section.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Request.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_search.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ajax_search.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cookies.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
+      <file leaf-file-name="ajax_add_subscribe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_add_subscribe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+            <state relative-caret-position="165">
+              <caret line="11" column="11" selection-start-line="10" selection-start-column="3" selection-end-line="11" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Helper.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/Helper.class.php">
+      <file leaf-file-name="ajax_get_news.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_get_news.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -140,11 +63,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JindowinConfig.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
+      <file leaf-file-name="ajax_news_detail.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_news_detail.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_query_industry.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_query_section.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_query_stock.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -153,60 +106,19 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
-      </GitPushTagMode>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/bootstrap.js" />
-        <option value="$PROJECT_DIR$/js/jquery.dropdown.js" />
-        <option value="$PROJECT_DIR$/js/jquery.typeahead.js" />
-        <option value="$PROJECT_DIR$/js/jquery-1.10.2.js" />
-        <option value="$PROJECT_DIR$/js/material.js" />
-        <option value="$PROJECT_DIR$/js/posfixed.js" />
-        <option value="$PROJECT_DIR$/js/ripples.js" />
-        <option value="$PROJECT_DIR$/js/selecttime.js" />
-        <option value="$PROJECT_DIR$/css/animate.css" />
-        <option value="$PROJECT_DIR$/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/css/bootstrap-theme.css" />
-        <option value="$PROJECT_DIR$/css/font-awesome.css" />
-        <option value="$PROJECT_DIR$/css/iconfont.css" />
-        <option value="$PROJECT_DIR$/css/jquery.dropdown.css" />
-        <option value="$PROJECT_DIR$/css/jquery.typeahead.css" />
-        <option value="$PROJECT_DIR$/css/ripples.css" />
-        <option value="$PROJECT_DIR$/ajax/search.php" />
-        <option value="$PROJECT_DIR$/common/Helper.class.php" />
-        <option value="$PROJECT_DIR$/css/style.min.css" />
-        <option value="$PROJECT_DIR$/common/Cookies.class.php" />
-        <option value="$PROJECT_DIR$/css/bootstrap-material-design.css" />
-        <option value="$PROJECT_DIR$/js/stickUp.js" />
-        <option value="$PROJECT_DIR$/ajax/ajax_get_news.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_news_detail.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_set_news.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_news_transmit.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_user_register.php" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/ajax/ajax_login.php" />
-        <option value="$PROJECT_DIR$/js/jindowin-index.js" />
-        <option value="$PROJECT_DIR$/common/JindowinConfig.class.php" />
-        <option value="$PROJECT_DIR$/common/Request.class.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_user_login.php" />
+        <option value="$PROJECT_DIR$/js/stickUp.js" />
+        <option value="$PROJECT_DIR$/common/CheckUserLogin.class.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_add_subscribe.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_delete_subscribe.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_query_industry.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_query_section.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_search.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_query_stock.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/common/CheckUserLogin.class.php" />
+        <option value="$PROJECT_DIR$/ajax/ajax_search.php" />
       </list>
     </option>
   </component>
@@ -217,16 +129,14 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="localhost" id="4c0f0ba3-6908-4ac6-baf9-f3ee1cecea80" name="phpdebug" />
+      <server host="localhost" id="f67d5044-5e21-4c63-9e8e-ff19e561a57b" name="xdebug" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
-  <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="9000" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6.10" />
+  <component name="PhpXdebugProxy" ide_key="lee" host="localhost" port="80" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -236,58 +146,7 @@
             <id />
           </State>
           <State>
-            <id>CSS</id>
-          </State>
-          <State>
-            <id>Code quality toolsJavaScript</id>
-          </State>
-          <State>
-            <id>CoffeeScript</id>
-          </State>
-          <State>
-            <id>Cucumber</id>
-          </State>
-          <State>
-            <id>File Watchers</id>
-          </State>
-          <State>
-            <id>General</id>
-          </State>
-          <State>
-            <id>GeneralCoffeeScript</id>
-          </State>
-          <State>
-            <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>HTML</id>
-          </State>
-          <State>
-            <id>Internationalization issues</id>
-          </State>
-          <State>
-            <id>Invalid elementsCSS</id>
-          </State>
-          <State>
-            <id>JSON</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-          <State>
-            <id>RELAX NG</id>
-          </State>
-          <State>
-            <id>Sass/SCSS</id>
-          </State>
-          <State>
             <id>Spelling</id>
-          </State>
-          <State>
-            <id>XML</id>
-          </State>
-          <State>
-            <id>XPath</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -305,7 +164,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -376,42 +235,30 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.php.tools.quality.phpcs.PhpCSConfigurable" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="D:/WebstormProjects/iwookong_test" />
+    <property name="last_opened_file_path" value="$USER_HOME$/lib/yuicompressor-2.4.8.jar" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="252" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="106" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="282" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="107" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="281" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1075" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="905" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="271" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="106" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="272" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="107" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="277" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="111" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1070" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="905" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FullScreen" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MyProject\jindouwinweb" />
-      <recent name="D:\MyProject\jindouwinweb\imgs" />
-      <recent name="D:\MyProject\jindouwinweb\js" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JavaScript Debug.CheckUserLogin.class.php">
-    <configuration default="false" name="CheckUserLogin.class.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/jindouwinweb/common/CheckUserLogin.class.php">
-      <method />
-    </configuration>
-    <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/jindouwinweb/index.php">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="PHP Web Application.xdebug">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -445,26 +292,15 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="phpdebug" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="phpdebug" start_url="/jindouwinweb/index.php">
+    <configuration default="false" name="xdebug" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="xdebug">
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.CheckUserLogin.class.php" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Web Application.phpdebug" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.xdebug" />
     </list>
-    <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.CheckUserLogin.class.php" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -473,278 +309,209 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1459258325545</updated>
-      <workItem from="1459258327711" duration="296000" />
-      <workItem from="1459300883604" duration="11172000" />
-      <workItem from="1459314075989" duration="72000" />
-      <workItem from="1459314155970" duration="934000" />
-      <workItem from="1459315101727" duration="109000" />
-      <workItem from="1459315228728" duration="1473000" />
-      <workItem from="1459316734060" duration="31000" />
-      <workItem from="1459316768920" duration="8416000" />
-      <workItem from="1459325228410" duration="36000" />
-      <workItem from="1459325275973" duration="9000" />
-      <workItem from="1459325293494" duration="3000" />
-      <workItem from="1459325304393" duration="3664000" />
-      <workItem from="1459328978564" duration="182000" />
-      <workItem from="1459329167294" duration="991000" />
-      <workItem from="1459330828786" duration="11370000" />
-      <workItem from="1459385063796" duration="31950000" />
-      <workItem from="1459474245312" duration="2545000" />
-      <workItem from="1459486529487" duration="5235000" />
-      <workItem from="1459741449155" duration="620000" />
-      <workItem from="1459816410111" duration="1134000" />
-      <workItem from="1459820000095" duration="35000" />
-      <workItem from="1459820044768" duration="6000" />
-      <workItem from="1459820064288" duration="18488000" />
-      <workItem from="1459841004400" duration="22560000" />
-      <workItem from="1459864826935" duration="1000" />
-      <workItem from="1459903979258" duration="2746000" />
+      <workItem from="1459258327711" duration="1117000" />
+      <workItem from="1459907762815" duration="408000" />
+      <workItem from="1459908346089" duration="3235000" />
     </task>
-    <task id="LOCAL-00001" summary="1、增加远程调用接口处理&#10;2、增加首页搜索处理&#10;3、增加行业详情页&#10;4、对接搜索接口">
-      <created>1459335639744</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1459335639744</updated>
-    </task>
-    <task id="LOCAL-00002" summary="1、增加远程调用接口处理&#10;2、增加首页搜索处理&#10;3、增加行业详情页&#10;4、对接搜索接口">
-      <created>1459335823663</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1459335823663</updated>
-    </task>
-    <task id="LOCAL-00003" summary="1、增加股票页面交互&#10;2、优化搜索框获取数据时的交互方式&#10;3、部分按钮的交互动画">
-      <created>1459342150825</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1459342150825</updated>
-    </task>
-    <task id="LOCAL-00004" summary="增加用户订阅的相关操作接口，增加查询股票，行业，概念信息的接口">
-      <created>1459824740438</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1459824740438</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124722000" />
+    <option name="totallyTimeSpent" value="4760000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1890625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32713178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35058078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.496875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
-  </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="1、增加远程调用接口处理" />
-    <MESSAGE value="1、增加远程调用接口处理&#10;2、增加首页搜索处理&#10;3、增加行业详情页&#10;4、对接搜索接口" />
-    <MESSAGE value="1、增加股票页面交互&#10;2、优化搜索框获取数据时的交互方式&#10;3、部分按钮的交互动画" />
-    <MESSAGE value="增加用户订阅的相关操作接口，增加查询股票，行业，概念信息的接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加用户订阅的相关操作接口，增加查询股票，行业，概念信息的接口" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Helper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Helper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        <state relative-caret-position="4500">
+          <caret line="300" column="49" selection-start-line="300" selection-start-column="49" selection-end-line="300" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/CheckUserLogin.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="Copyright.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4500">
+          <caret line="300" column="49" selection-start-line="300" selection-start-column="49" selection-end-line="300" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-130">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/stickUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/CheckUserLogin.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_delete_subscribe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_get_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_news_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_add_subscribe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="11" selection-start-line="10" selection-start-column="3" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_user_register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_user_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_set_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

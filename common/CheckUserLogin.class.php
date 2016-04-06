@@ -31,15 +31,13 @@ class CheckLogin
                 ));
             $jsonresult = json_decode($result, true);
 
-            $_SESSION['user_id'] = $jsonresult->result->user_info->user_id;   //用户ID
-            $_SESSION['token'] = $jsonresult->result->user_info->token;    //token
+            $_SESSION['user_id'] = $jsonresult['result']['user_info']['user_id'];   //用户ID
+            $_SESSION['token'] = $jsonresult['result']['user_info']['token'];    //token
             return 0;
-        }
-        /**
-         * 正常登录用户
-         */
-        if (!empty($user_id) && !empty($token) && $user_type == 1) {
+        } else if (!empty($user_id) && !empty($token) && $user_type == 1) {
             return 1;
+        } else {
+            return -1;
         }
     }
 }
