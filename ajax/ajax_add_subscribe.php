@@ -4,11 +4,13 @@
  * Date: 2016/4/5 0005 9:35
  * Description: 添加用户订阅
  */
-require(dirname(__FILE__) . "/../ajax/ajax_login.php");
-require(dirname(__FILE__) . "/../common/Request.class.php");
-require(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
-$user_id = 1;
-$token = "";
+require_once (dirname(__FILE__) . "/../common/Request.class.php");
+require_once (dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once (dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
+if (!CheckLogin::check() != 1) {
+    print_r(json_encode(array("status" => -1, "result" => "用户未登录")));
+    return;
+}
 $start_time = isset($_POST["start_time"]) ? $_POST["start_time"] : "";  //每天订阅开始时间
 $end_time = isset($_POST["end_time"]) ? $_POST["end_time"] : "";        //每天订阅结束时间
 $time_inval = isset($_POST["time_inval"]) ? $_POST["time_inval"] : "";  //订阅的时间间隔
@@ -17,22 +19,22 @@ $section = isset($_POST["section"]) ? $_POST["section"] : "";           //关注
 $industry = isset($_POST["industry"]) ? $_POST["industry"] : "";        //关注的行业名称
 
 if (empty($start_time)) {
-    print_r(json_encode(array("code" => 0, "message" => "订阅开始时间为空")));
+    print_r(json_encode(array("status" => 0, "result" => "订阅开始时间为空")));
     return;
 }
 if (empty($end_time)) {
-    print_r(json_encode(array("code" => 0, "message" => "订阅结束时间为空")));
+    print_r(json_encode(array("status" => 0, "result" => "订阅结束时间为空")));
     return;
 }
 if (empty($stock_code) && empty($section) && empty($industry)) {
-    print_r(json_encode(array("code" => 0, "message" => "关注项为空")));
+    print_r(json_encode(array("status" => 0, "result" => "关注项为空")));
     return;
 }
 $url = JindowinConfig::$requireUrl . "subscribe/1/add_subscribe.fcgi";
-$result = Request::post($url,
+$result = RequestUtil::get($url,
     array(
-        "user_id" => $user_id,
-        "token" => $token,
+        "user_id" => $_SESSION['user_id'],
+        "token" => $_SESSION['token'],
         "start_time" => $start_time,
         "end_time" => $end_time,
         "time_inval" => $time_inval,

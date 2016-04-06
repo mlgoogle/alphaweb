@@ -5,7 +5,7 @@
  * Date: 2016/3/30 0030 13:49
  * Description:网络请求封装
  */
-class Request
+class RequestUtil
 {
     /**
      * HTTP GET 请求

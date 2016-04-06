@@ -4,15 +4,14 @@
  * Date: 2016/4/5 0005 9:36
  * Description:查询股票相关信息
  */
-require(dirname(__FILE__) . "/../ajax/ajax_login.php");
-require(dirname(__FILE__) . "/../common/Request.class.php");
-require(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
-$user_id = 1;
-$token = "";
+require_once (dirname(__FILE__) . "/../common/Request.class.php");
+require_once (dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once (dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
+CheckLogin::check();
 $url = JindowinConfig::$requireUrl . "subscribe/1/query_stock.fcgi";
-$result = Request::post($url,
+$result = RequestUtil::get($url,
     array(
-        "user_id" => $user_id,
-        "token" => $token
+        "user_id" => $_SESSION['user_id'],
+        "token" => $_SESSION["token"]
     ));
 print_r($result);

@@ -131,7 +131,15 @@ var jindowin = {
             if ($this.attr("id") === "showMyAll") {
                 $("#myNewsHead>tbody>tr:gt(4)").removeClass("hide");
             }
-
+            if ($this.attr("id") === "rec-gp-all") {
+                $("#gp-container div:hidden").removeClass("hide");
+            }
+            if ($this.attr("id") === "rec-hy-all") {
+                $("#hy-container div:hidden").removeClass("hide");
+            }
+            if ($this.attr("id") === "rec-gn-all") {
+                $("#gn-container div:hidden").removeClass("hide");
+            }
             return;
         }
         if ($($this).attr("data-show-all") === "true") {
@@ -140,6 +148,15 @@ var jindowin = {
             $($this).attr("data-show-all", "false");
             if ($this.attr("id") === "showMyAll") {
                 $("#myNewsHead>tbody>tr:gt(4)").addClass("hide");
+            }
+            if ($this.attr("id") === "rec-gp-all") {
+                $("#gp-container div:gt(2)").addClass("hide");
+            }
+            if ($this.attr("id") === "rec-hy-all") {
+                $("#hy-container div:gt(2)").addClass("hide");
+            }
+            if ($this.attr("id") === "rec-gn-all") {
+                $("#gn-container div:gt(2)").addClass("hide");
             }
             return;
         }
@@ -412,9 +429,39 @@ var jindowin = {
             dataType: "json",
             type: "post",
             beforeSend: function () {
+
             },
             success: function (result) {
-                console.log(result);
+                if (result && result.status === 1) {
+                    if (result.stock.length > 0) {
+                        var split_len = 3;//分割数量大小
+                        if (result != null && result.stock != null) {
+                            var stockHtml = '<div class="container">';
+                            var table_len = result.stock.length / split_len;
+                            if (result.stock.length % split_len > 0) {
+                                table_len += 1;
+                            }
+                            for (var i = 0; i < table_len; i++) {
+                                var pageStart = (i * split_len);
+                                var pageEnd = i == 0 ? split_len : ((i + 1) * split_len)
+                                if (pageStart > result.stock.length) break;
+                                stockHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
+                                for (var j = pageStart; j < pageEnd; j++) {
+                                    if (!result.stock[j]) break;
+                                    stockHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.stock[j].stock_name + '(' + result.stock[j].stock_code + ')</td><td><i class="fa fa-plus"></i></td></tr>';
+                                }
+                                stockHtml += '</tbody></table></div>';
+                            }
+                            if (result.stock.length > 6) {
+                                $("#rec-gp-all").show();
+                            }
+                            $('#gp-container').html(stockHtml);
+                            jindowin.stockFollowInfo();
+                        }
+                    }
+                } else {
+                    $("#gp-container").next().hide();
+                }
             }
         });
     },
@@ -429,7 +476,36 @@ var jindowin = {
             beforeSend: function () {
             },
             success: function (result) {
-                console.log(result);
+                if (result && result.status === 1) {
+                    if (result.industry.length > 0) {
+                        var split_len = 3;//分割数量大小
+                        if (result != null && result.industry != null) {
+                            var industryHtml = '<div class="container">';
+                            var table_len = result.industry.length / split_len;
+                            if (result.industry.length % split_len > 0) {
+                                table_len += 1;
+                            }
+                            for (var i = 0; i < table_len; i++) {
+                                var pageStart = (i * split_len);
+                                var pageEnd = i == 0 ? split_len : ((i + 1) * split_len)
+                                if (pageStart > result.industry.length) break;
+                                industryHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
+                                for (var j = pageStart; j < pageEnd; j++) {
+                                    if (!result.industry[j]) break;
+                                    industryHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.industry[j].hy_name + '</td><td><i class="fa fa-plus"></i></td></tr>';
+                                }
+                                industryHtml += '</tbody></table></div>';
+                            }
+                            if (result.industry.length > 6) {
+                                $("#rec-hy-all").show();
+                            }
+                            $('#hy-container').html(industryHtml);
+                            jindowin.industryFollowInfo();
+                        }
+                    }
+                } else {
+                    $("#hy-container").next().hide();
+                }
             }
         });
     },
@@ -444,9 +520,128 @@ var jindowin = {
             beforeSend: function () {
             },
             success: function (result) {
-                console.log(result);
+                if (result && result.status === 1) {
+                    if (result.section.length > 0) {
+                        var split_len = 3;//分割数量大小
+                        if (result != null && result.section != null) {
+                            var sectionHtml = '<div class="container">';
+                            var table_len = result.section.length / split_len;
+                            if (result.section.length % split_len > 0) {
+                                table_len += 1;
+                            }
+                            for (var i = 0; i < table_len; i++) {
+                                var pageStart = (i * split_len);
+                                var pageEnd = i == 0 ? split_len : ((i + 1) * split_len)
+                                if (pageStart > result.section.length) break;
+                                sectionHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
+                                for (var j = pageStart; j < pageEnd; j++) {
+                                    if (!result.section[j]) break;
+                                    sectionHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.section[j].gn_name + '</td><td><i class="fa fa-plus"></i></td></tr>';
+                                }
+                                sectionHtml += '</tbody></table></div>';
+                            }
+                            if (result.section.length > 6) {
+                                $("#rec-gn-all").show();
+                            }
+                            $('#gn-container').html(sectionHtml);
+                            jindowin.sectionFollowInfo();
+                        }
+                    }
+                } else {
+                    $("#gn-container").next().hide();
+                }
             }
         });
+    },
+
+    /**
+     * 股票订阅/取消订阅
+     * 注:此代码可以和行业、概念重构为一套代码，目前由于数据量大，循环时大量执行循环查找操作，性能不高，暂时舍弃
+     */
+    stockFollowInfo: function () {
+        $("#gp-container table i").each(function () {
+            $(this).click(function () {
+                if ($(this).hasClass("fa-check")) {
+                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
+                    $(this).parent().parent().css("background-color", "#ffffff");
+                    return;
+                } else {
+                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
+                    $(this).parent().parent().css("background-color", "#f5f5f5");
+                    return;
+                }
+            })
+        });
+    },
+    /**
+     * 行业订阅/取消订阅
+     * 注:此代码可以和股票、概念重构为一套代码，目前由于数据量大，循环时大量执行循环查找操作，性能不高，暂时舍弃
+     */
+    industryFollowInfo: function () {
+        $("#hy-container table i").each(function () {
+            $(this).click(function () {
+                if ($(this).hasClass("fa-check")) {
+                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
+                    $(this).parent().parent().css("background-color", "#ffffff");
+                    return;
+                } else {
+                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
+                    $(this).parent().parent().css("background-color", "#f5f5f5");
+                    return;
+                }
+            })
+        });
+    },
+    /**
+     * 概念订阅/取消订阅
+     * 注:此代码可以和股票、行业重构为一套代码，目前由于数据量大，循环时大量执行循环查找操作，性能不高，暂时舍弃
+     */
+    sectionFollowInfo: function () {
+        $("#gn-container table i").each(function () {
+            $(this).click(function () {
+                if ($(this).hasClass("fa-check")) {
+                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
+                    $(this).parent().parent().css("background-color", "#ffffff");
+                    return;
+                } else {
+                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
+                    $(this).parent().parent().css("background-color", "#f5f5f5");
+                    return;
+                }
+            })
+        });
+    },
+    /**
+     * 用户登录
+     */
+    userLogin: function () {
+        $.ajax({
+            url: "ajax/ajax_user_login.php",
+            dataType: "json",
+            type: "post",
+            data: {},
+            beforeSend: function () {
+            },
+            success: function (result) {
+
+            }
+        })
+    },
+    /**
+     * 用户注册
+     */
+    userRegister: function () {
+        $.ajax({
+            url: "ajax/ajax_user_register.php",
+            dataType: "json",
+            type: "post",
+            data: {},
+            beforeSend: function () {
+            },
+            success: function (result) {
+
+            }
+        })
     }
 };
 
@@ -464,15 +659,6 @@ $.fn.extend({
     }
 });
 
-/**
- * 初始化material
- */
-$.material.init();
-jindowin.getIndexStock();
-jindowin.getIndexIndustry();
-jindowin.getIndexSection();
-jindowin.initSelectTimes();
-jindowin.getMyNewsCount();
 /**
  * 我的快讯-查看所有
  */
@@ -573,20 +759,6 @@ $("#myNewsHead>tbody>tr>td>.fa-pencil").each(function () {
     })
 });
 
-/**
- *快讯推荐-订阅
- */
-$("#allrecommend table tbody tr td .fa-plus").each(function () {
-    $(this).click(function () {
-        if ($(this).hasClass("fa-check")) {
-            $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
-            $(this).parent().parent().css("background-color", "#ffffff");
-        } else {
-            $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
-            $(this).parent().parent().css("background-color", "#f5f5f5");
-        }
-    })
-});
 
 /**
  * 显示选项按钮事件
