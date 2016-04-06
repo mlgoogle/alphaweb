@@ -6027,6 +6027,9 @@ button.close {
   .modal-lsm {
     width: 400px;
   }
+  .modal-msm {
+    width: 500px;
+  }
 }
 @media (min-width: 992px) {
   .modal-lg {

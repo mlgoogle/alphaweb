@@ -1,4 +1,9 @@
-﻿
+﻿<?php
+require_once(dirname(__FILE__) . "../common/Cookies.class.php");
+$myCookie = new Cookies();
+$uid = $myCookie->get("uid");
+$uname = $myCookie->get("uname");
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -33,7 +38,13 @@
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)"><i class="icon iconfont">&#xe60b;</i>&nbsp;登录</a></li>
+                <li>
+                    <a href="javascript:void(0)"><i class="icon iconfont">&#xe60b;</i>&nbsp;
+                        <span id="top-user-name">
+                            <?php echo empty($uname) ? "登录" : $uname; ?>
+                        </span>
+                    </a>
+                </li>
                 <li><a href="javascript:void(0)"><i class="icon iconfont">&#xe73b;</i>&nbsp;悟空官网</a></li>
                 <li><a href="javascript:void(0)" id="wechat"> <i class="icon iconfont">&#xe679;</i>&nbsp;微信关注</a></li>
             </ul>
@@ -64,7 +75,7 @@
     </div>
 </div>
 <!--提示框-->
-<div class="container" id="allTips">
+<div class="container hide" id="allTips">
     <div class="bs-docs-section">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -299,7 +310,7 @@
                         </div>
                         <div class="form-group hide" id="userDefineBox">
                             <div class="col-md-9 col-md-offset-3">
-                                <input type="number" min="0" class="form-control" id="userDefineTimes"
+                                <input class="form-control" type="number" min="0" max="96" id="userDefineTimes"
                                        placeholder="自定义接收频次(小时/次)">
                             </div>
                         </div>
@@ -327,6 +338,93 @@
             </div>
             <div class="modal-body text-center">
                 <img src="imgs/qrcode.png">
+            </div>
+        </div>
+    </div>
+</div>
+<!--登录&&注册-弹框-->
+<div id="login-dialog" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-msm">
+        <div class="modal-content">
+            <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <span href="#user-login" id="home-tab" role="tab" data-toggle="tab" aria-controls="user-login"
+                          aria-expanded="true">用户登录</span>
+                </li>
+                <li role="presentation" class="">
+                    <span href="#user-register" role="tab" id="profile-tab" data-toggle="tab"
+                          aria-controls="user-register" aria-expanded="false">邮箱注册</span>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="user-login" aria-labelledby="home-tab">
+                    <div class="row-content">
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="email" id="login-email" class="form-control" placeholder="请输入登录邮箱"
+                                               maxlength="18">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="login-pwd" class="form-control" placeholder="请输入登录密码"
+                                               maxlength="16">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <div class="checkbox">
+                                            <label style="font-size: 12px;">
+                                                <input type="checkbox" id="cb-autologin">&nbsp;&nbsp;&nbsp;&nbsp;自动登录
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-info" type="button" id="btn-login"
+                                           value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="user-register" aria-labelledby="profile-tab">
+                    <div class="row-content">
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="email" id="register-email" class="form-control"
+                                               placeholder="请输入注册邮箱">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="register-pwd-1" class="form-control"
+                                               placeholder="请输入注册密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="register-pwd-2" class="form-control"
+                                               placeholder="请再次输入注册密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-info" type="button" id="btn-register"
+                                           value="注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

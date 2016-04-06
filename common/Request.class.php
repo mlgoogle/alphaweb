@@ -18,7 +18,7 @@ class RequestUtil
      * @return mixed 返回结果
      * @throws Exception 抛出异常
      */
-    public static function get($url, $data = array(), $cookie = null, $cookiefile = null, $cookiesavepath = null, $encode = true)
+    public static function get($url, $data = array(), $cookie = null, $cookiefile = null, $cookiesavepath = null, $encode = false)
     {
         //初始化句柄
         $ch = curl_init();
