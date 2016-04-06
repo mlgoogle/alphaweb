@@ -1,8 +1,8 @@
-/**
- * 首页操作
- * @type {{docHeight: number, docWidth: number, fixedTop: jindowin.fixedTop, initSelectTimes: jindowin.initSelectTimes, receiveTimeChange: jindowin.receiveTimeChange, summaryChange: jindowin.summaryChange, receiveTimesSelectChange: jindowin.receiveTimesSelectChange, settings: jindowin.settings, getMyNewsCount: jindowin.getMyNewsCount, toggleIndexInfo: jindowin.toggleIndexInfo, searchResultShow: jindowin.searchResultShow, showorhide: jindowin.showorhide, buildStockInfo: jindowin.buildStockInfo, buildIndustryInfo: jindowin.buildIndustryInfo, buildConceptInfo: jindowin.buildConceptInfo, buildHoteventInfo: jindowin.buildHoteventInfo}}
- */
 var jindowin = {
+    /**
+     * 订阅ID/文字 临时变量
+     */
+    tempid: 0,
     /**
      * 可见文档高度
      */
@@ -429,7 +429,7 @@ var jindowin = {
             dataType: "json",
             type: "post",
             beforeSend: function () {
-
+                jindowin.showLoading($('#gp-container'));
             },
             success: function (result) {
                 if (result && result.status === 1) {
@@ -448,7 +448,7 @@ var jindowin = {
                                 stockHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.stock[j]) break;
-                                    stockHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.stock[j].stock_name + '(' + result.stock[j].stock_code + ')</td><td><i class="fa fa-plus"></i></td></tr>';
+                                    stockHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.stock[j].stock_name + '(' + result.stock[j].stock_code + ')</td><td><i class="fa fa-plus" data-user-set="' + result.stock[j].stock_code + '"></i></td></tr>';
                                 }
                                 stockHtml += '</tbody></table></div>';
                             }
@@ -474,6 +474,7 @@ var jindowin = {
             dataType: "json",
             type: "post",
             beforeSend: function () {
+                jindowin.showLoading($('#hy-container'));
             },
             success: function (result) {
                 if (result && result.status === 1) {
@@ -492,7 +493,7 @@ var jindowin = {
                                 industryHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.industry[j]) break;
-                                    industryHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.industry[j].hy_name + '</td><td><i class="fa fa-plus"></i></td></tr>';
+                                    industryHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.industry[j].hy_name + '</td><td><i class="fa fa-plus" data-user-set="' + result.industry[j].hy_name + '"></i></td></tr>';
                                 }
                                 industryHtml += '</tbody></table></div>';
                             }
@@ -518,6 +519,7 @@ var jindowin = {
             dataType: "json",
             type: "post",
             beforeSend: function () {
+                jindowin.showLoading($('#gn-container'));
             },
             success: function (result) {
                 if (result && result.status === 1) {
@@ -536,7 +538,7 @@ var jindowin = {
                                 sectionHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.section[j]) break;
-                                    sectionHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.section[j].gn_name + '</td><td><i class="fa fa-plus"></i></td></tr>';
+                                    sectionHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.section[j].gn_name + '</td><td><i class="fa fa-plus" data-user-set="' + result.section[j].gn_name + '"></i></td></tr>';
                                 }
                                 sectionHtml += '</tbody></table></div>';
                             }
@@ -560,16 +562,22 @@ var jindowin = {
      */
     stockFollowInfo: function () {
         $("#gp-container table i").each(function () {
-            $(this).click(function () {
-                if ($(this).hasClass("fa-check")) {
-                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
-                    $(this).parent().parent().css("background-color", "#ffffff");
-                    return;
-                } else {
-                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
-                    $(this).parent().parent().css("background-color", "#f5f5f5");
-                    return;
-                }
+            var $this = $(this);
+            $($this).click(function () {
+                jindowin.addSubscribe("", "", "", "", "", "", function () {
+                    $($this).addClass("fa-spin");
+                }, function (result) {
+                    $($this).removeClass("fa-spin");
+                    if (result.status === -1) {
+                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                        jindowin.tempid = $($this).attr("data-user-set").val();
+                        return;
+                    }
+                    if (result.status === 1) {
+                        jindowin.checkOrNot($($this));
+                    }
+                });
+
             })
         });
     },
@@ -615,15 +623,24 @@ var jindowin = {
      * 用户登录
      */
     userLogin: function () {
+        var userEmail = $("#login-email").val();
+        var userPwd = $("#login-pwd").val();
+        var autoLogin = $("#cb-autologin").is(":checked");
         $.ajax({
             url: "ajax/ajax_user_login.php",
             dataType: "json",
             type: "post",
-            data: {},
+            cache:false,
+            data: {user_name: userEmail, password: userPwd, autologin: autoLogin, user_type: "user"},
             beforeSend: function () {
             },
-            success: function (result) {
-
+            success: function (resultData) {
+                if (resultData.status !== 1) {
+                    alert(resultData.result);
+                } else {
+                    $("#login-dialog").modal("hide");
+                    $("#top-user-name").html(resultData.result.user_name);
+                }
             }
         })
     },
@@ -642,9 +659,89 @@ var jindowin = {
 
             }
         })
-    }
-};
+    },
+    /**
+     * 显示加载图形
+     * @param obj
+     */
+    showLoading: function (obj) {
+        $(obj).html("<div class=\"spinner\"><div class=\"double-bounce1\"></div><div class=\"double-bounce2\"></div></div><style>.spinner{width:30px;height:30px;position:relative;margin:100px auto}.double-bounce1,.double-bounce2{width:100%;height:100%;border-radius:50%;background-color:#005cb7;opacity:0.6;position:absolute;top:0;left:0;-webkit-animation:bounce 2.0s infinite ease-in-out;animation:bounce 2.0s infinite ease-in-out}.double-bounce2{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0.0)}50%{-webkit-transform:scale(1.0)}}@keyframes bounce{0%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}50%{transform:scale(1.0);-webkit-transform:scale(1.0)}}</style>");
+    },
+    /**
+     * 添加用户订阅
+     * @param stime     每天订阅开始时间
+     * @param etime     每天订阅结束时间
+     * @param timeinval 订阅的时间间隔
+     * @param stockcode 关注的股票代码
+     * @param section   关注的概念信息
+     * @param industry  关注的行业信息
+     */
+    addSubscribe: function (stime, etime, timeinval, stockcode, section, industry, beforeFn, backFn) {
+        var submitData = {
+            start_time: stime,
+            end_time: etime,
+            time_inval: timeinval,
+            stock_code: stockcode,
+            section: section,
+            industry: industry
+        }
+        $.ajax({
+            url: "ajax/ajax_add_subscribe.php",
+            dataType: "json",
+            type: "post",
+            data: submitData,
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (result) {
+                backFn && backFn(result);
+            }
+        });
+    },
+    /**
+     * 取消用户订阅
+     * @param stockcode 关注的股票代码
+     * @param section   关注的概念信息
+     * @param industry  关注的行业信息
+     */
+    delSubscribe: function (stockcode, section, industry) {
+        var submitData = {
+            stock_code: stockcode,
+            section: section,
+            industry: industry
+        }
+        $.ajax({
+            url: "ajax/ajax_delete_subscribe.php",
+            dataType: "json",
+            type: "post",
+            data: submitData,
+            beforeSend: function () {
 
+            },
+            success: function (result) {
+                if (result === -1) {
+                    $("#login-dialog").modal({backdrop: 'static', keyboard: false});
+                    return;
+                }
+            }
+        });
+    },
+    /**
+     * 订阅按钮的订阅与非订阅状态
+     * @param $i
+     */
+    checkOrNot: function ($i) {
+        if ($($i).hasClass("fa-check")) {
+            $($i).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
+            $($i).parent().parent().css("background-color", "#ffffff");
+            return;
+        } else {
+            $($i).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
+            $($i).parent().parent().css("background-color", "#f5f5f5");
+            return;
+        }
+    }
+}
 /**
  * 扩展animatecss
  */
@@ -793,7 +890,24 @@ $(".list-news-bottom>.col-sm-6.text-right>label>i").each(function (i) {
         }
     })
 })
-
+/**
+ * 绑定登录按钮事件
+ */
+$("#btn-login").bind("click", function () {
+    jindowin.userLogin();
+});
+/**
+ * 绑定注册按钮事件
+ */
+$("#btn-register").bind("click", function () {
+    jindowin.userRegister();
+});
+/**
+ * 绑定头部登录按钮
+ */
+$("#top-user-name").bind("click",function(){
+    $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+})
 /**
  * 搜索框自动完成
  */

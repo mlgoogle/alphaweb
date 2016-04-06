@@ -41,7 +41,7 @@ footer > div { cursor: pointer; color: lightgray; }
 #search-input{font-size: 14px;border: 1px solid gray;color: #727272;height: 50px;width: 100%;font-weight: 400;margin-bottom: 20px;}
 #search label:first-child{margin-top: 9px; margin-left: 9px;  }
 #search i:first-child{ color:#0f0f0f; padding-left: 5px;}
-#search #search-input, #search .hint { padding-left: 43px; padding-right: 43px; }
+#search #search-input, #search .hint { padding-left: 42px; padding-right: 43px; }
 #search .hint { color: #FFF; }
 #search #search-clear { text-decoration: none; position: absolute; right: 18px; top: 58px; color: #b3b3b3; }
 #search #search-clear:hover { color: #8f8f8f; }
@@ -96,5 +96,20 @@ footer > div { cursor: pointer; color: lightgray; }
 
 /*新闻列表宽度比较小时隐藏图片*/
 @media (max-width: 768px) {
-   .hy-news-pic{display: none;}
+   .list-news-pic{display: none;}
 }
+
+/*登录和注册弹框*/
+#myTabs{background: #FAFBFC; height: 70px;text-align: center;}
+#myTabs>li{float: left; font-size: 18px;margin: 0 45px 0 45px;width: 160px;cursor: pointer;color: #3a3a3a;height: 70px;padding-top: 30px;}
+#myTabs>li:active{border-bottom: 2px solid #3D82F0;}
+#myTabs>li.active{border-bottom: 2px solid #3D82F0;}
+#myTabContent{padding: 20px 70px 0 70px;}
+#myTabContent .form-group{margin: 8px 0 0 0;padding-bottom: 0;}
+#myTabContent .form-group:last-child{margin-bottom: 30px;}
+#myTabContent .check{height: 14px;width: 14px;}
+#myTabContent .check:before{margin-top: -7px;margin-left: 4px;}
+#myTabContent .checkbox:before{height: 14px;width: 14px;}
+#myTabContent .checkbox-material:before{height: 14px;width: 14px;}
+#myTabContent i{color:#aaaaaa;}
+#btn-login,#btn-register{width: 100%;background-color: #3d82f0;color: #FFFFFF;}

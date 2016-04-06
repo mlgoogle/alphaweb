@@ -16,4 +16,12 @@ $result = RequestUtil::get($url,
     array("user_id" => $_SESSION['user_id'],
         "token" => $_SESSION['token']
     ));
-print_r($result);
+$jsonresult = json_decode($result, true);
+
+if ($jsonresult['status'] != "0") {
+    print_r($result);
+    return;
+} else {
+    print_r(json_encode(array("status" => 0, "result" => $jsonresult['msg'])));
+    return;
+}

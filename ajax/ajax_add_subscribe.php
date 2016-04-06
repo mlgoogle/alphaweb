@@ -4,10 +4,10 @@
  * Date: 2016/4/5 0005 9:35
  * Description: 添加用户订阅
  */
-require_once (dirname(__FILE__) . "/../common/Request.class.php");
-require_once (dirname(__FILE__) . "/../common/JindowinConfig.class.php");
-require_once (dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
-if (!CheckLogin::check() != 1) {
+require_once(dirname(__FILE__) . "/../common/Request.class.php");
+require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
+if (CheckLogin::check() != 1) {
     print_r(json_encode(array("status" => -1, "result" => "用户未登录")));
     return;
 }
