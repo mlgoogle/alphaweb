@@ -11,7 +11,7 @@ footer > div { cursor: pointer; color: lightgray; }
 /*我的快讯模块*/
 #myNewsHead > tbody > tr > td { border: none; font-size: 16px; color: #666666; font-weight: 400; }
 #myNewsHead > tbody > tr > td:first-child{ padding-left: 0; }
-#myNewsHead > tbody > tr > td > i { padding-left: 25px; }
+#myNewsHead > tbody > tr > td > i { margin-left: 25px; }
 #myNewsHead > tbody > tr > td > i:last-child:hover { color: #ff5722; }
 #myNewsHead > tbody > tr > td > i:first-child:hover { color: #03a9f4; }
 #myNewsHead a{text-decoration: none;color: #666;cursor: pointer;}

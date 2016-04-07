@@ -1,3 +1,21 @@
+/**
+ * 用户订阅设置
+ * @type {{startTime: string, endTime: string, timeinval: string}}
+ */
+var userSubSetting = {
+    /**
+     * 接收订阅开始时间
+     */
+    startTime: "540",
+    /**
+     *接收订阅结束时间
+     */
+    endTime: "540",
+    /**
+     * 接收订阅频次(1:实时，2:每半小时一次,3:每小时一次,4:每两小时一次,0:自定义)
+     */
+    timeinval: "1"
+}
 var jindowin = {
     /**
      * 订阅ID/文字 临时变量
@@ -29,7 +47,7 @@ var jindowin = {
         $("#startTime").html(timeHtml.join(''));
         $("#endTime").html(timeHtml.join(''));
         $("#endTime").dropdown({"autoinit": ".select"});
-        $("#startTime").dropdown();
+        $("#startTime").dropdown({"autoinit": ".select"});
         $("#receiveTimes").dropdown();
     },
 
@@ -94,10 +112,17 @@ var jindowin = {
         if (myNews.length == 0) {
             $("#myNewsCount").html("我的快讯");
             $(".bs-docs-section.mynews").hide();
-        } else if (myNews.length == 5) {
-            $(".show-all-news").hide();
-        } else {
+        }
+        if (myNews.length > 0) {
+            $(".bs-docs-section.mynews").show();
+        }
+        if (myNews.length <= 5) {
+            $(".show-all-news").addClass("hide");
+        }
+        if (myNews.length > 5) {
             $("#myNewsCount").html("我的快讯(" + myNews.length + ")");
+            $("#myNewsHead").find("tr:gt(4)").addClass("hide");
+            $(".show-all-news").removeClass("hide");
         }
     },
 
@@ -168,18 +193,19 @@ var jindowin = {
      * @param group 所属类别(股票，行业，概念，热点事件)
      */
     searchResultShow: function (name, group) {
+        jindowin.toggleIndexInfo(false);
         switch (group) {
             case "股票":
-                this.buildStockInfo();
+                this.buildStockInfo(name);
                 break;
             case "行业":
-                this.buildIndustryInfo();
+                this.buildIndustryInfo(name);
                 break;
             case "概念":
-                this.buildConceptInfo();
+                this.buildConceptInfo(name);
                 break;
             case "热点事件":
-                this.buildHoteventInfo();
+                this.buildHoteventInfo(name);
                 break;
             default:
                 $("#showInfos").html('');
@@ -190,13 +216,14 @@ var jindowin = {
     /**
      * 构建股票信息
      */
-    buildStockInfo: function () {
+    buildStockInfo: function (name) {
         var gpHtml = [];
+        var stockcode = name.substring(name.indexOf("(") + 1, name.indexOf(")"));
         gpHtml.push("<div class=\"gp-infos\">");
         gpHtml.push("<div class=\"gp-hotstock\">");
 
         //<editor-fold desc="股票头信息">
-        gpHtml.push("<h3 style=\"font-weight: 600;\">招商银行(SH60036)</h3>");
+        gpHtml.push("<h3 style=\"font-weight: 600;\">" + name + "</h3>");
         gpHtml.push("<div style=\"position: absolute; padding-left: 232px; margin-top: -40px;\"><i class=\"icon iconfont\">&#xf013b;</i></div>");
         gpHtml.push("<div class=\"right-btn\"><label>24.2万人订阅</label>");
         gpHtml.push("<a class=\"btn btn-raised btn-info btn-sm info-subscription\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">订阅</a>");
@@ -225,53 +252,61 @@ var jindowin = {
         //</editor-fold>
 
         gpHtml.push("</div>");
-
-        //<editor-fold desc="循环生成新闻">
-        gpHtml.push("                            <div class=\"gp-xw\">");
-        gpHtml.push("                                <div class=\"row\">");
-        gpHtml.push("                                    <div class=\"col-md-12\">");
-        gpHtml.push("                                        <h4>新闻</h4>");
-        gpHtml.push("                                        <hr style=\"margin-top:0; \">");
-        gpHtml.push("                                    </div>");
-        gpHtml.push("                                    <div class=\"col-md-12\">");
-        gpHtml.push("                                        <div class=\"col-md-9\">");
-        gpHtml.push("                                            <div class=\"list-news-top\">");
-        gpHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
-        gpHtml.push("                                            </div>");
-        gpHtml.push("                                            <div class=\"list-news-content\">");
-        gpHtml.push("                                                <p>");
-        gpHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
-        gpHtml.push("                                                </p>");
-        gpHtml.push("                                            </div>");
-        gpHtml.push("                                            <div class=\"list-news-bottom\">");
-        gpHtml.push("                                                <div class=\"col-sm-6 text-left\">");
-        gpHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
-        gpHtml.push("                                                </div>");
-        gpHtml.push("                                                <div class=\"col-sm-6 text-right\">");
-        gpHtml.push("                                                    <label>");
-        gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
-        gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
-        gpHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
-        gpHtml.push("                                                    </label>");
-        gpHtml.push("                                                </div>");
-        gpHtml.push("                                            </div>");
-        gpHtml.push("                                        </div>");
-        gpHtml.push("                                        <div class=\"col-md-3 list-news-pic\">");
-        gpHtml.push("                                            <img src=\"imgs/qrcode.png\">");
-        gpHtml.push("                                        </div>");
-        gpHtml.push("                                    </div>");
-        gpHtml.push("                                </div>");
-        gpHtml.push("                            </div>");
-        //</editor-fold>
+        gpHtml.push("<div class=\"gp-xw\"></div>");
 
         gpHtml.push("</div>");
         $("#showInfos").html(gpHtml.join(''));
+        jindowin.getIndexStockDetail(stockcode, 0, function () {
+            jindowin.showLoading($(".gp-xw"));
+        }, function (resultData) {
+            if (resultData.status === 1) {
+                var html = [];
+                if (resultData.result.length > 0) {
+                    for (var i = 0; i < resultData.result.length; i++) {
+                        html.push("                                <div class=\"row\">");
+                        html.push("                                    <div class=\"col-md-12\">");
+                        html.push("                                        <h4>新闻</h4>");
+                        html.push("                                        <hr style=\"margin-top:0; \">");
+                        html.push("                                    </div>");
+                        html.push("                                    <div class=\"col-md-12\">");
+                        html.push("                                        <div class=\"col-md-9\">");
+                        html.push("                                            <div class=\"list-news-top\">");
+                        html.push("                                                <h4>" + resultData.result[i].title + "</h4>");
+                        html.push("                                            </div>");
+                        html.push("                                            <div class=\"list-news-content\">");
+                        html.push("                                                <p></p>");
+                        html.push("                                            </div>");
+                        html.push("                                            <div class=\"list-news-bottom\">");
+                        html.push("                                                <div class=\"col-sm-6 text-left\">");
+                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp;&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
+                        html.push("                                                </div>");
+                        html.push("                                                <div class=\"col-sm-6 text-right\">");
+                        html.push("                                                    <label>");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>" + resultData.result[i].up + "");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>" + resultData.result[i].down + "");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                        html.push("                                                    </label>");
+                        html.push("                                                </div>");
+                        html.push("                                            </div>");
+                        html.push("                                        </div>");
+                        html.push("                                        <div class=\"col-md-3 list-news-pic\">");
+                        html.push("                                            <img src=\"imgs/qrcode.png\">");
+                        html.push("                                        </div>");
+                        html.push("                                    </div>");
+                        html.push("                                </div>");
+                    }
+                } else {
+                    html.push('');
+                }
+                $(".gp-xw").html(html.join(''));
+            }
+        });
     },
 
     /**
      * 构建行业信息
      */
-    buildIndustryInfo: function () {
+    buildIndustryInfo: function (name) {
         var hyHtml = [];
         hyHtml.push("<div class=\"hy-infos\">");
         hyHtml.push("<div class=\"hy-hotstock\">");
@@ -361,47 +396,56 @@ var jindowin = {
         //</editor-fold>
 
         hyHtml.push("</div>");
-
-        //<editor-fold desc="循环生成新闻">
-        hyHtml.push("                            <div class=\"hy-xw\">");
-        hyHtml.push("                                <div class=\"row\">");
-        hyHtml.push("                                    <div class=\"col-md-12\">");
-        hyHtml.push("                                        <h4>新闻</h4>");
-        hyHtml.push("                                        <hr style=\"margin-top:0; \">");
-        hyHtml.push("                                    </div>");
-        hyHtml.push("                                    <div class=\"col-md-12\">");
-        hyHtml.push("                                        <div class=\"col-md-9\">");
-        hyHtml.push("                                            <div class=\"list-news-top\">");
-        hyHtml.push("                                                <h4>\"未来银行\"紧贴互联网 招行零售金融再谋升级</h4>");
-        hyHtml.push("                                            </div>");
-        hyHtml.push("                                            <div class=\"list-news-content\">");
-        hyHtml.push("                                                <p>");
-        hyHtml.push("                                                    早在2004年，招商银行（600036）便率先把零售银行作为“一次转型”的战略方向。田惠宇就任招行行长以来，招行的零售银行战略地位有增无减,在2014年提出的”一体两翼“战略定位中，零售金融作为“一体”，在招商银行的战略支点地位日益凸显...详情");
-        hyHtml.push("                                                </p>");
-        hyHtml.push("                                            </div>");
-        hyHtml.push("                                            <div class=\"list-news-bottom\">");
-        hyHtml.push("                                                <div class=\"col-md-6 text-left\">");
-        hyHtml.push("                                                    <label>来源：同花顺&nbsp;&nbsp;&nbsp;&nbsp; 2016-03-21 07:00:00</label>");
-        hyHtml.push("                                                </div>");
-        hyHtml.push("                                                <div class=\"col-md-6 text-right\">");
-        hyHtml.push("                                                    <label>");
-        hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>20");
-        hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>10");
-        hyHtml.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
-        hyHtml.push("                                                    </label>");
-        hyHtml.push("                                                </div>");
-        hyHtml.push("                                            </div>");
-        hyHtml.push("                                        </div>");
-        hyHtml.push("                                        <div class=\"col-md-3 list-news-pic\">");
-        hyHtml.push("                                            <img src=\"imgs/qrcode.png\">");
-        hyHtml.push("                                        </div>");
-        hyHtml.push("                                    </div>");
-        hyHtml.push("                                </div>");
-        hyHtml.push("                            </div>");
-        //</editor-fold>
-
+        hyHtml.push("<div class=\"hy-xw\"></div>");
         hyHtml.push("</div>");
         $("#showInfos").html(hyHtml.join(''));
+
+        jindowin.getIndexIndustryDetail(name, 0, function () {
+            jindowin.showLoading($(".hy-xw"));
+        }, function (resultData) {
+            if (resultData.status === 1) {
+                var html = [];
+                if (resultData.result.length > 0) {
+                    for (var i = 0; i < resultData.result.length; i++) {
+                        html.push("                                <div class=\"row\">");
+                        html.push("                                    <div class=\"col-md-12\">");
+                        html.push("                                        <h4>新闻</h4>");
+                        html.push("                                        <hr style=\"margin-top:0; \">");
+                        html.push("                                    </div>");
+                        html.push("                                    <div class=\"col-md-12\">");
+                        html.push("                                        <div class=\"col-md-9\">");
+                        html.push("                                            <div class=\"list-news-top\">");
+                        html.push("                                                <h4>" + resultData.result[i].title + "</h4>");
+                        html.push("                                            </div>");
+                        html.push("                                            <div class=\"list-news-content\">");
+                        html.push("                                                <p></p>");
+                        html.push("                                            </div>");
+                        html.push("                                            <div class=\"list-news-bottom\">");
+                        html.push("                                                <div class=\"col-md-6 text-left\">");
+                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp;&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
+                        html.push("                                                </div>");
+                        html.push("                                                <div class=\"col-md-6 text-right\">");
+                        html.push("                                                    <label>");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>" + resultData.result[i].up + "");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>" + resultData.result[i].down + "");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                        html.push("                                                    </label>");
+                        html.push("                                                </div>");
+                        html.push("                                            </div>");
+                        html.push("                                        </div>");
+                        html.push("                                        <div class=\"col-md-3 list-news-pic\">");
+                        html.push("                                            <img src=\"imgs/qrcode.png\">");
+                        html.push("                                        </div>");
+                        html.push("                                    </div>");
+                        html.push("                                </div>");
+                    }
+                }
+                else {
+                    html.push('');
+                }
+                $(".hy-xw").html(html.join(''));
+            }
+        });
     },
 
     /**
@@ -466,6 +510,30 @@ var jindowin = {
         });
     },
     /**
+     * 获取股票详细信息
+     * @param name
+     * @param beforeFn
+     * @param backFn
+     */
+    getIndexStockDetail: function (name, page, beforeFn, backFn) {
+        $.ajax({
+            url: "ajax/ajax_get_news.php",
+            dataType: "json",
+            type: "post",
+            data: {
+                stock_code: name,
+                news_type: 1,
+                page: page
+            },
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
+    },
+    /**
      * 获取首页推荐行业
      */
     getIndexIndustry: function () {
@@ -507,6 +575,31 @@ var jindowin = {
                 } else {
                     $("#hy-container").next().hide();
                 }
+            }
+        });
+    },
+    /**
+     * 获取行业详细信息
+     * @param name 行业名
+     * @param page 页数
+     * @param beforeFn 请求前执行函数
+     * @param backFn   请求完成执行函数
+     */
+    getIndexIndustryDetail: function (name, page, beforeFn, backFn) {
+        $.ajax({
+            url: "ajax/ajax_get_news.php",
+            dataType: "json",
+            type: "post",
+            data: {
+                hy_name: name,
+                news_type: 2,
+                page: page
+            },
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
             }
         });
     },
@@ -564,20 +657,35 @@ var jindowin = {
         $("#gp-container table i").each(function () {
             var $this = $(this);
             $($this).click(function () {
-                jindowin.addSubscribe("", "", "", "", "", "", function () {
+                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, $($this).attr("data-user-set"), null, null, function () {
                     $($this).addClass("fa-spin");
-                }, function (result) {
+                }, function (resultData) {
                     $($this).removeClass("fa-spin");
-                    if (result.status === -1) {
+                    if (resultData.status === -1) {
                         $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
-                        jindowin.tempid = $($this).attr("data-user-set").val();
+                        jindowin.tempid = $($this).attr("data-user-set").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
                         return;
                     }
-                    if (result.status === 1) {
+                    if (resultData.status === 1) {
+                        var html = [];
+                        html.push("<tr>");
+                        html.push("<td><a>" + $($this).parent().prev().html() + "</a></td>");
+                        html.push("<td class=\"text-right\">");
+                        html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("</td>");
+                        html.push("</tr>");
+                        if ($("#myNewsHead tbody tr").length === 0) {
+                            $("#myNewsHead tbody").html(html.join(''));
+                        } else {
+                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                        }
+
                         jindowin.checkOrNot($($this));
+                        jindowin.getMyNewsCount();
+                        jindowin.bindSubscribeDel();
                     }
                 });
-
             })
         });
     },
@@ -587,16 +695,37 @@ var jindowin = {
      */
     industryFollowInfo: function () {
         $("#hy-container table i").each(function () {
-            $(this).click(function () {
-                if ($(this).hasClass("fa-check")) {
-                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
-                    $(this).parent().parent().css("background-color", "#ffffff");
-                    return;
-                } else {
-                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
-                    $(this).parent().parent().css("background-color", "#f5f5f5");
-                    return;
-                }
+            var $this = $(this);
+            $($this).click(function () {
+                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, $($this).attr("data-user-set"), null, function () {
+                    $($this).addClass("fa-spin");
+                }, function (result) {
+                    $($this).removeClass("fa-spin");
+                    if (result.status === -1) {
+                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                        jindowin.tempid = $($this).attr("data-user-set").val();
+                        return;
+                    }
+                    if (result.status === 1) {
+                        var html = [];
+                        html.push("<tr>");
+                        html.push("<td><a>" + $($this).attr("data-user-set") + "</a></td>");
+                        html.push("<td class=\"text-right\">");
+                        html.push("<i class=\"fa fa-pencil\" data-set-type='industry' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("<i class=\"fa fa-times\" data-set-type='industry' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("</td>");
+                        html.push("</tr>");
+                        if ($("#myNewsHead tbody tr").length === 0) {
+                            $("#myNewsHead tbody").html(html.join(''));
+                        } else {
+                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                        }
+                        jindowin.checkOrNot($($this));
+                        jindowin.getMyNewsCount();
+                        jindowin.bindSubscribeDel();
+                    }
+                });
+
             })
         });
     },
@@ -606,16 +735,37 @@ var jindowin = {
      */
     sectionFollowInfo: function () {
         $("#gn-container table i").each(function () {
-            $(this).click(function () {
-                if ($(this).hasClass("fa-check")) {
-                    $(this).removeClass("fa-check").addClass("fa-plus").css("color", "lightgray");
-                    $(this).parent().parent().css("background-color", "#ffffff");
-                    return;
-                } else {
-                    $(this).removeClass("fa-plus").addClass("fa-check").css("color", "gray");
-                    $(this).parent().parent().css("background-color", "#f5f5f5");
-                    return;
-                }
+            var $this = $(this);
+            $($this).click(function () {
+                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, null, $($this).attr("data-user-set"), function () {
+                    $($this).addClass("fa-spin");
+                }, function (result) {
+                    $($this).removeClass("fa-spin");
+                    if (result.status === -1) {
+                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                        jindowin.tempid = $($this).attr("data-user-set").val();
+                        return;
+                    }
+                    if (result.status === 1) {
+                        var html = [];
+                        html.push("<tr>");
+                        html.push("<td><a>" + $($this).attr("data-user-set") + "</a></td>");
+                        html.push("<td class=\"text-right\">");
+                        html.push("<i class=\"fa fa-pencil\" data-set-type='section' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("<i class=\"fa fa-times\" data-set-type='section' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
+                        html.push("</td>");
+                        html.push("</tr>");
+                        if ($("#myNewsHead tbody tr").length === 0) {
+                            $("#myNewsHead tbody").html(html.join(''));
+                        } else {
+                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                        }
+                        jindowin.checkOrNot($($this));
+                        jindowin.getMyNewsCount();
+                        jindowin.bindSubscribeDel();
+                    }
+                });
+
             })
         });
     },
@@ -630,8 +780,13 @@ var jindowin = {
             url: "ajax/ajax_user_login.php",
             dataType: "json",
             type: "post",
-            cache:false,
-            data: {user_name: userEmail, password: userPwd, autologin: autoLogin, user_type: "user"},
+            cache: false,
+            data: {
+                user_name: userEmail,
+                password: userPwd,
+                autologin: autoLogin,
+                user_type: 1
+            },
             beforeSend: function () {
             },
             success: function (resultData) {
@@ -640,6 +795,7 @@ var jindowin = {
                 } else {
                     $("#login-dialog").modal("hide");
                     $("#top-user-name").html(resultData.result.user_name);
+                    jindowin.getMyNewsCount();
                 }
             }
         })
@@ -648,11 +804,18 @@ var jindowin = {
      * 用户注册
      */
     userRegister: function () {
+        var userEmail = $("#register-email").val();
+        var userPwd1 = $("#register-pwd-1").val();
+        var userPwd2 = $("#register-pwd-2").val();
+        if (userPwd1 !== userPwd2) {
+            alert("无UI弹框：两次密码不同");
+            return;
+        }
         $.ajax({
             url: "ajax/ajax_user_register.php",
             dataType: "json",
             type: "post",
-            data: {},
+            data: {username: userEmail, password1: userPwd1, password2: userPwd2},
             beforeSend: function () {
             },
             success: function (result) {
@@ -676,7 +839,7 @@ var jindowin = {
      * @param section   关注的概念信息
      * @param industry  关注的行业信息
      */
-    addSubscribe: function (stime, etime, timeinval, stockcode, section, industry, beforeFn, backFn) {
+    addSubscribe: function (stime, etime, timeinval, stockcode, industry, section, beforeFn, backFn) {
         var submitData = {
             start_time: stime,
             end_time: etime,
@@ -704,25 +867,89 @@ var jindowin = {
      * @param section   关注的概念信息
      * @param industry  关注的行业信息
      */
-    delSubscribe: function (stockcode, section, industry) {
-        var submitData = {
-            stock_code: stockcode,
-            section: section,
-            industry: industry
+    delSubscribe: function (deltype, delval, beforeFn, backFn) {
+        var submitData = {stock_code: "", industry: "", section: ""};
+        switch (deltype) {
+            case "stock":
+                submitData.stock_code = delval;
+                break;
+            case "industry":
+                submitData.industry = delval;
+                break;
+            case "section":
+                submitData.section = delval;
+                break;
         }
+
         $.ajax({
             url: "ajax/ajax_delete_subscribe.php",
             dataType: "json",
             type: "post",
             data: submitData,
             beforeSend: function () {
-
+                beforeFn();
             },
-            success: function (result) {
-                if (result === -1) {
-                    $("#login-dialog").modal({backdrop: 'static', keyboard: false});
-                    return;
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
+    },
+    /**
+     * 查询当前登录用户的所有订阅
+     */
+    querySubscribe: function () {
+        $.ajax({
+            url: "ajax/ajax_query_subscribe.php",
+            dataType: "json",
+            type: "post",
+            async: false,
+            beforeSend: function () {
+                jindowin.showLoading($("#myNewsHead"));
+            }, success: function (resultData) {
+                console.info(resultData);
+                var html = [];
+                if (resultData.status === 1) {
+                    html.push("<tbody>")
+                    if (resultData.stock.length > 0) {
+                        for (var i = 0; i < resultData.stock.length; i++) {
+                            html.push("<tr>");
+                            html.push("<td><a>" + resultData.stock[i].stock_name + "(" + resultData.stock[i].stock_code + ")</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + resultData.stock[i].stock_code + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + resultData.stock[i].stock_code + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                        }
+                    }
+                    if (resultData.industry.length > 0) {
+                        for (var i = 0; i < resultData.industry.length; i++) {
+                            html.push("<tr>");
+                            html.push("<td><a>" + resultData.industry[i].industry_name + "</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='industry' data-set-val='" + resultData.industry[i].industry_name + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='industry' data-set-val='" + resultData.industry[i].industry_name + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                        }
+                    }
+                    if (resultData.section.length > 0) {
+                        for (var i = 0; i < resultData.section.length; i++) {
+                            html.push("<tr>");
+                            html.push("<td><a>" + resultData.section[i].section_name + "</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='section' data-set-val='" + resultData.section[i].section_name + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='section' data-set-val='" + resultData.section[i].section_name + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                        }
+                    }
+                    html.push("</tbody>");
+                } else {
+                    html.push('');
                 }
+                $("#myNewsHead").html(html.join(''));
+
+                jindowin.bindSubscribeDel();
             }
         });
     },
@@ -740,6 +967,32 @@ var jindowin = {
             $($i).parent().parent().css("background-color", "#f5f5f5");
             return;
         }
+    },
+    /**
+     * 绑定我的订阅中的删除事件
+     */
+    bindSubscribeDel: function () {
+        $("#myNewsHead tbody tr td:last-child i[class='fa fa-times']").on("click", function () {
+            var $this = $(this);
+            var dataSetType = $($this).attr("data-set-type");
+            var dataSetVal = $($this).attr("data-set-val");
+            jindowin.delSubscribe(dataSetType, dataSetVal, function () {
+                $($this).addClass("fa-spin");
+            }, function (resultData) {
+                $($this).removeClass("fa-spin");
+                if (resultData.status === -1) {
+                    $("#login-dialog").modal({backdrop: 'static', keyboard: false});
+                    return;
+                }
+                if (resultData.status === 1) {
+                    $($this).parent().parent().fadeOut("normal", function () {
+                        $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
+                        $(this).remove();
+                        jindowin.getMyNewsCount();
+                    })
+                }
+            });
+        })
     }
 }
 /**
@@ -830,32 +1083,6 @@ $("#wechat").bind("click", function () {
     $("#wechat-dialog").modal();
 });
 
-/**
- * 我的快讯-删除
- */
-$("#myNewsHead>tbody>tr>td>.fa-times").each(function () {
-    $(this).click(function () {
-        var deltrElement = $(this).parent().parent();
-        var delId = deltrElement.attr("id");
-
-        $("#" + delId).fadeOut("normal", function () {
-            deltrElement.parent().find("tr").eq(5).removeClass("hide");
-            $(this).remove();
-            jindowin.getMyNewsCount();
-        })
-    })
-});
-
-/**
- * 我的快讯-编辑
- */
-$("#myNewsHead>tbody>tr>td>.fa-pencil").each(function () {
-    $(this).click(function () {
-        var delId = $(this).parent().parent().attr("id");
-        $("#complete-dialog").modal();
-    })
-});
-
 
 /**
  * 显示选项按钮事件
@@ -905,7 +1132,7 @@ $("#btn-register").bind("click", function () {
 /**
  * 绑定头部登录按钮
  */
-$("#top-user-name").bind("click",function(){
+$("#top-user-name").bind("click", function () {
     $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
 })
 /**
@@ -928,18 +1155,15 @@ $("#search-input").typeahead({
         "热点事件": {url: ["ajax/ajax_search.php?message={{query}},", "rd"]}
     },
     callback: {
-        onClickAfter: function (node, a, item, event) {
+        onClickAfter: function (node, a, item) {
             if (item.display !== "") {
-                jindowin.toggleIndexInfo(false);
                 jindowin.searchResultShow(item.display, item.group);
-                console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
             }
         },
-        onSubmit: function (node, a, item, event) {
+        onSubmit: function (node, a, item) {
             if (item.display !== "") {
-                jindowin.toggleIndexInfo(false);
+
                 jindowin.searchResultShow(item.display, item.group);
-                console.log("你选择了\"" + item.group + "\"下的\"" + item.display + "\"");
             }
         }
     },

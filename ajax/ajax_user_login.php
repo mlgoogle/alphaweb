@@ -2,7 +2,7 @@
 /**
  * Created by Lee.
  * Date: 2016/4/5 0005 9:37
- * Description:用户登录 user_type为visitor时是游客登录
+ * Description:用户登录 user_type为0时是游客登录
  */
 //模拟去请求接口
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
@@ -11,7 +11,7 @@ $platform_id = isset($_POST['platform_id']) ? $_POST['platform_id'] : 1;
 $user_name = isset($_POST['user_name']) ? $_POST['user_name'] : "";
 $password = isset($_POST['password']) ? $_POST['password'] : "";
 $autologin = isset($_POST['autologin']) ? $_POST['autologin'] : "false";
-$user_type = isset($_POST['user_type']) ? $_POST['user_type'] : "visitor";
+$user_type = isset($_POST['user_type']) ? $_POST['user_type'] : 0;
 $url = JindowinConfig::$requireUrl . "/user/1/user_login.fcgi";
 if (empty($user_name) || empty($password)) {
     print_r(json_encode(array("status" => 0, "result" => "账号或密码为空")));

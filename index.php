@@ -1,5 +1,5 @@
 ﻿<?php
-require_once(dirname(__FILE__) . "../common/Cookies.class.php");
+require_once(dirname(__FILE__) . "/common/Cookies.class.php");
 $myCookie = new Cookies();
 $uid = $myCookie->get("uid");
 $uname = $myCookie->get("uname");
@@ -39,11 +39,13 @@ $uname = $myCookie->get("uname");
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="javascript:void(0)"><i class="icon iconfont">&#xe60b;</i>&nbsp;
-                        <span id="top-user-name">
-                            <?php echo empty($uname) ? "登录" : $uname; ?>
-                        </span>
-                    </a>
+                    <?php
+                    if (empty($uname)) {
+                        echo " <a id=\"top-user-name\" href=\"javascript:void(0)\"><i class=\"icon iconfont\">&#xe60b;</i>&nbsp;<span>登录</span></a>";
+                    } else {
+                        echo " <a id=\"top-user-exit\" href=\"javascript:void(0)\"><i class=\"icon iconfont\">&#xe60b;</i>&nbsp;<span>" . $uname . "</span></a>";
+                    }
+                    ?>
                 </li>
                 <li><a href="javascript:void(0)"><i class="icon iconfont">&#xe73b;</i>&nbsp;悟空官网</a></li>
                 <li><a href="javascript:void(0)" id="wechat"> <i class="icon iconfont">&#xe679;</i>&nbsp;微信关注</a></li>
@@ -95,87 +97,14 @@ $uname = $myCookie->get("uname");
 <!--主体内容-->
 <div class="container">
     <!--我的快讯模块-->
-    <div class="bs-docs-section mynews">
+    <div class="bs-docs-section mynews" style="display: none;">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="bs-component">
                     <div class="jumbotron">
                         <h4 style="font-weight: 600;" id="myNewsCount">我的快讯</h4>
-                        <table id="myNewsHead" class="table">
-                            <tbody>
-                            <tr id="mynews_1">
-                                <td><a>招商银行(SH60036-1)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_2">
-                                <td><a>招商银行(SH60036-2)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_3">
-                                <td><a>招商银行(SH60036-3)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_4">
-                                <td><a>招商银行(SH60036-4)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_5">
-                                <td><a>招商银行(SH60036-5)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_6" class="hide">
-                                <td><a>招商银行(SH60036-6)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_7" class="hide">
-                                <td><a>招商银行(SH60036-7)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_8" class="hide">
-                                <td><a>招商银行(SH60036-8)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_9" class="hide">
-                                <td><a>招商银行(SH60036-9)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            <tr id="mynews_10" class="hide">
-                                <td><a>招商银行(SH60036-10)</a></td>
-                                <td class="text-right">
-                                    <i class="fa fa-pencil"></i>
-                                    <i class="fa fa-times"></i>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <footer class="text-center show-all-news">
+                        <table id="myNewsHead" class="table"></table>
+                        <footer class="text-center show-all-news hide">
                             <div id="showMyAll" data-show-all="false">
                                 <div class="text-muted">点击展开更多</div>
                                 <i class="fa fa-angle-down fa-2x"></i>
@@ -237,7 +166,8 @@ $uname = $myCookie->get("uname");
             <div class="col-md-8 col-md-offset-2">
                 <div class="bs-component">
                     <div class="jumbotron">
-                        <h5 style="padding-bottom: 10px; font-weight: 600;">将为您“flaght@gmail.com”创建每天早上09:00的快讯</h5>
+                        <h5 style="padding-bottom: 10px; font-weight: 600;">将为您“<?php echo $uname; ?>
+                            ”创建每天早上09:00的快讯</h5>
                         <a class="btn btn-raised btn-info" href="javascript:void(0)" style="background-color: #0068b7;">创建快讯</a>
                         <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
                     </div>
@@ -446,8 +376,10 @@ $uname = $myCookie->get("uname");
         jindowin.getIndexStock();
         jindowin.getIndexIndustry();
         jindowin.getIndexSection();
+        jindowin.querySubscribe();
         jindowin.initSelectTimes();
         jindowin.getMyNewsCount();
+
         $(document).ready(function () {
             $('.search-box').stickUp({
                 marginTop: 'auto'

@@ -35,17 +35,15 @@ class CheckLogin
          */
         if (empty($user_id) || empty($token) || $user_type == 0) {
             $url = JindowinConfig::$requireUrl . "/user/1/user_login.fcgi";
-
             $result = RequestUtil::get($url,
                 array(
-                    "platform_id" => 1,
-                    "user_name" => "user" . mt_rand(),
-                    "password" => mt_rand() . ",",
-                    "user_type" => "visitor"
+                    "user_type" => 0
                 ));
             $jsonresult = json_decode($result, true);
             $_SESSION['user_id'] = $jsonresult['result']['user_info']['user_id'];   //用户ID
             $_SESSION['token'] = $jsonresult['result']['user_info']['token'];    //token
+            $_SESSION['user_name'] = $jsonresult['result']['user_info']['user_name'];    //user_name
+            $_SESSION['user_type'] = 0;
             return 0;
         } else if (!empty($user_id) && !empty($token) && $user_type == 1) {
             return 1;
