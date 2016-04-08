@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once(dirname(__FILE__) . "/common/Cookies.class.php");
 $myCookie = new Cookies();
 $uid = $myCookie->get("uid");
@@ -370,17 +370,18 @@ $uname = $myCookie->get("uname");
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
 <script src="js/stickUp.min.js?v=1.0"></script>
 <script src="js/jindowin-index.min.js?v=1.0"></script>
+<script src="js/jquery.tips.min.js?v=1.0"></script>
 <script>
     jQuery(function ($) {
         $.material.init();
+        jindowin.initSelectTimes();
         jindowin.getIndexStock();
         jindowin.getIndexIndustry();
         jindowin.getIndexSection();
         jindowin.querySubscribe();
-        jindowin.initSelectTimes();
-        jindowin.getMyNewsCount();
 
         $(document).ready(function () {
+
             $('.search-box').stickUp({
                 marginTop: 'auto'
             });

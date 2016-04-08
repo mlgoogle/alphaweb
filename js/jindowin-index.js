@@ -15,7 +15,44 @@ var userSubSetting = {
      * 接收订阅频次(1:实时，2:每半小时一次,3:每小时一次,4:每两小时一次,0:自定义)
      */
     timeinval: "1"
-}
+};
+/**
+ *
+ * @type {{
+ * tempid: number,
+ * docHeight: number,
+ * docWidth: number,
+ * initSelectTimes: jindowin.initSelectTimes,
+ * receiveTimeChange: jindowin.receiveTimeChange,
+ * summaryChange: jindowin.summaryChange,
+ * receiveTimesSelectChange: jindowin.receiveTimesSelectChange,
+ * settings: jindowin.settings,
+ * getMyNewsCount: jindowin.getMyNewsCount,
+ * toggleIndexInfo: jindowin.toggleIndexInfo,
+ * showorhide: jindowin.showorhide,
+ * searchResultShow: jindowin.searchResultShow,
+ * buildStockInfo: jindowin.buildStockInfo,
+ * buildIndustryInfo: jindowin.buildIndustryInfo,
+ * buildConceptInfo: jindowin.buildConceptInfo,
+ * buildHoteventInfo: jindowin.buildHoteventInfo,
+ * getIndexStock: jindowin.getIndexStock,
+ * getIndexStockDetail: jindowin.getIndexStockDetail,
+ * getIndexIndustry: jindowin.getIndexIndustry,
+ * getIndexIndustryDetail: jindowin.getIndexIndustryDetail,
+ * getIndexSection: jindowin.getIndexSection,
+ * stockFollowInfo: jindowin.stockFollowInfo,
+ * industryFollowInfo: jindowin.industryFollowInfo,
+ * sectionFollowInfo: jindowin.sectionFollowInfo,
+ * userLogin: jindowin.userLogin,
+ * userRegister: jindowin.userRegister,
+ * showLoading: jindowin.showLoading,
+ * addSubscribe: jindowin.addSubscribe,
+ * delSubscribe: jindowin.delSubscribe,
+ * querySubscribe: jindowin.querySubscribe,
+ * checkOrNot: jindowin.checkOrNot,
+ * bindSubscribeDel: jindowin.bindSubscribeDel
+ * }}
+ */
 var jindowin = {
     /**
      * 订阅ID/文字 临时变量
@@ -117,6 +154,7 @@ var jindowin = {
             $(".bs-docs-section.mynews").show();
         }
         if (myNews.length <= 5) {
+            $("#myNewsCount").html("我的快讯(" + myNews.length + ")");
             $(".show-all-news").addClass("hide");
         }
         if (myNews.length > 5) {
@@ -193,18 +231,23 @@ var jindowin = {
      * @param group 所属类别(股票，行业，概念，热点事件)
      */
     searchResultShow: function (name, group) {
+        $("#search-input").val(name);
         jindowin.toggleIndexInfo(false);
         switch (group) {
             case "股票":
+            case "stock":
                 this.buildStockInfo(name);
                 break;
             case "行业":
+            case "industry":
                 this.buildIndustryInfo(name);
                 break;
             case "概念":
+            case "section":
                 this.buildConceptInfo(name);
                 break;
             case "热点事件":
+            case "hotevent":
                 this.buildHoteventInfo(name);
                 break;
             default:
@@ -224,7 +267,7 @@ var jindowin = {
 
         //<editor-fold desc="股票头信息">
         gpHtml.push("<h3 style=\"font-weight: 600;\">" + name + "</h3>");
-        gpHtml.push("<div style=\"position: absolute; padding-left: 232px; margin-top: -40px;\"><i class=\"icon iconfont\">&#xf013b;</i></div>");
+        gpHtml.push("<div style=\"position: absolute; padding-left: 232px; margin-top: -40px;\"><i class=\"icon iconfont\" id='stock_emotion'>&#xf013b;</i></div>");
         gpHtml.push("<div class=\"right-btn\"><label>24.2万人订阅</label>");
         gpHtml.push("<a class=\"btn btn-raised btn-info btn-sm info-subscription\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">订阅</a>");
         gpHtml.push("<a class=\"btn btn-raised btn-info btn-sm info-share\" href=\"javascript:void(0)\" style=\"background-color: #0068b7;\">分享</a>");
@@ -261,6 +304,7 @@ var jindowin = {
         }, function (resultData) {
             if (resultData.status === 1) {
                 var html = [];
+                var emotionTips = "<div class='stock_emo_tips'><div><img src='imgs/em_up.png'><span>12</span></div><div><img src='imgs/em_down.png'><span>12</span></div><div><img src='imgs/em_nochange.png'><span>12</span></div></div>";
                 if (resultData.result.length > 0) {
                     for (var i = 0; i < resultData.result.length; i++) {
                         html.push("                                <div class=\"row\">");
@@ -274,23 +318,24 @@ var jindowin = {
                         html.push("                                                <h4>" + resultData.result[i].title + "</h4>");
                         html.push("                                            </div>");
                         html.push("                                            <div class=\"list-news-content\">");
-                        html.push("                                                <p></p>");
+                        html.push("                                                <p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100) : resultData.result[i].detail) + "");
+                        html.push("                                                <a href='detail.php?id=" + resultData.result[i].id + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         html.push("                                            </div>");
                         html.push("                                            <div class=\"list-news-bottom\">");
-                        html.push("                                                <div class=\"col-sm-6 text-left\">");
-                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp;&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
+                        html.push("                                                <div class=\"col-sm-7 text-left\">");
+                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
                         html.push("                                                </div>");
-                        html.push("                                                <div class=\"col-sm-6 text-right\">");
+                        html.push("                                                <div class=\"col-sm-5 text-right\">");
                         html.push("                                                    <label>");
                         html.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>" + resultData.result[i].up + "");
                         html.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>" + resultData.result[i].down + "");
-                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>" + resultData.result[i].transmit_count + "");
                         html.push("                                                    </label>");
                         html.push("                                                </div>");
                         html.push("                                            </div>");
                         html.push("                                        </div>");
                         html.push("                                        <div class=\"col-md-3 list-news-pic\">");
-                        html.push("                                            <img src=\"imgs/qrcode.png\">");
+                        html.push("                                            <img src=\"" + resultData.result[i].imgsrc + "\">");
                         html.push("                                        </div>");
                         html.push("                                    </div>");
                         html.push("                                </div>");
@@ -299,6 +344,12 @@ var jindowin = {
                     html.push('');
                 }
                 $(".gp-xw").html(html.join(''));
+                $("img").one("error", function () {
+                    $(this).attr("src", "imgs/default.png");
+                });
+                $("#stock_emotion").bind("mouseenter", function () {
+                    jindowin.showTips($(this), {msg: emotionTips, side: 3, time: 1});
+                })
             }
         });
     },
@@ -418,23 +469,24 @@ var jindowin = {
                         html.push("                                                <h4>" + resultData.result[i].title + "</h4>");
                         html.push("                                            </div>");
                         html.push("                                            <div class=\"list-news-content\">");
-                        html.push("                                                <p></p>");
+                        html.push("                                               <p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100) : resultData.result[i].detail) + "");
+                        html.push("                                                <a href='detail.php?id=" + resultData.result[i].id + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         html.push("                                            </div>");
                         html.push("                                            <div class=\"list-news-bottom\">");
-                        html.push("                                                <div class=\"col-md-6 text-left\">");
-                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp;&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
+                        html.push("                                                <div class=\"col-md-7 text-left\">");
+                        html.push("                                                    <label>来源：" + resultData.result[i].from + "&nbsp;&nbsp; " + resultData.result[i].time + "</label>");
                         html.push("                                                </div>");
-                        html.push("                                                <div class=\"col-md-6 text-right\">");
+                        html.push("                                                <div class=\"col-md-5 text-right\">");
                         html.push("                                                    <label>");
                         html.push("                                                        <i class=\"icon iconfont\">&#xe61e;</i>" + resultData.result[i].up + "");
                         html.push("                                                        <i class=\"icon iconfont\">&#xe61d;</i>" + resultData.result[i].down + "");
-                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>");
+                        html.push("                                                        <i class=\"icon iconfont\">&#xe610;</i>" + resultData.result[i].transmit_count + "");
                         html.push("                                                    </label>");
                         html.push("                                                </div>");
                         html.push("                                            </div>");
                         html.push("                                        </div>");
                         html.push("                                        <div class=\"col-md-3 list-news-pic\">");
-                        html.push("                                            <img src=\"imgs/qrcode.png\">");
+                        html.push("                                            <img src=\"" + resultData.result[i].imgsrc + "\">");
                         html.push("                                        </div>");
                         html.push("                                    </div>");
                         html.push("                                </div>");
@@ -444,6 +496,9 @@ var jindowin = {
                     html.push('');
                 }
                 $(".hy-xw").html(html.join(''));
+                $("img").one("error", function () {
+                    $(this).attr("src", "imgs/default.png");
+                });
             }
         });
     },
@@ -492,7 +547,7 @@ var jindowin = {
                                 stockHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.stock[j]) break;
-                                    stockHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.stock[j].stock_name + '(' + result.stock[j].stock_code + ')</td><td><i class="fa fa-plus" data-user-set="' + result.stock[j].stock_code + '"></i></td></tr>';
+                                    stockHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.stock[j].stock_name + "(" + result.stock[j].stock_code + ")','stock')\"><span>" + result.stock[j].stock_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.stock[j].stock_name + "' data-user-type='stock'></i></td></tr>";
                                 }
                                 stockHtml += '</tbody></table></div>';
                             }
@@ -561,7 +616,7 @@ var jindowin = {
                                 industryHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.industry[j]) break;
-                                    industryHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.industry[j].hy_name + '</td><td><i class="fa fa-plus" data-user-set="' + result.industry[j].hy_name + '"></i></td></tr>';
+                                    industryHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.industry[j].hy_name + "','industry')\"><span>" + result.industry[j].hy_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.industry[j].hy_name + "' data-user-type='industry'></i></td></tr>";
                                 }
                                 industryHtml += '</tbody></table></div>';
                             }
@@ -631,7 +686,7 @@ var jindowin = {
                                 sectionHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.section[j]) break;
-                                    sectionHtml += '<tr><td><img src="imgs/icon.png"></td><td>' + result.section[j].gn_name + '</td><td><i class="fa fa-plus" data-user-set="' + result.section[j].gn_name + '"></i></td></tr>';
+                                    sectionHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.section[j].gn_name + "','section')\"><span>" + result.section[j].gn_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.section[j].gn_name + "' data-user-type='section'></i></td></tr>";
                                 }
                                 sectionHtml += '</tbody></table></div>';
                             }
@@ -657,35 +712,54 @@ var jindowin = {
         $("#gp-container table i").each(function () {
             var $this = $(this);
             $($this).click(function () {
-                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, $($this).attr("data-user-set"), null, null, function () {
-                    $($this).addClass("fa-spin");
-                }, function (resultData) {
-                    $($this).removeClass("fa-spin");
-                    if (resultData.status === -1) {
-                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
-                        jindowin.tempid = $($this).attr("data-user-set").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
-                        return;
-                    }
-                    if (resultData.status === 1) {
-                        var html = [];
-                        html.push("<tr>");
-                        html.push("<td><a>" + $($this).parent().prev().html() + "</a></td>");
-                        html.push("<td class=\"text-right\">");
-                        html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("</td>");
-                        html.push("</tr>");
-                        if ($("#myNewsHead tbody tr").length === 0) {
-                            $("#myNewsHead tbody").html(html.join(''));
-                        } else {
-                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                if ($($this).hasClass("fa-check")) {
+                    jindowin.delSubscribe($($this).attr("data-user-type"), $($this).attr("data-user-val"), function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
                         }
-
-                        jindowin.checkOrNot($($this));
-                        jindowin.getMyNewsCount();
-                        jindowin.bindSubscribeDel();
-                    }
-                });
+                        if (resultData.status === 1) {
+                            jindowin.checkOrNot($($this));
+                            $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
+                            $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
+                            jindowin.getMyNewsCount();
+                        }
+                    });
+                    return;
+                } else {
+                    jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, $($this).attr("data-user-val"), null, null, function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
+                            return;
+                        }
+                        if (resultData.status === 1) {
+                            var html = [];
+                            html.push("<tr>");
+                            html.push("<td><a>" + $($this).parent().prev().html() + "</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                            if ($("#myNewsHead tbody tr").length === 0) {
+                                $("#myNewsHead tbody").html(html.join(''));
+                            } else {
+                                $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                            }
+                            jindowin.checkOrNot($($this));
+                            jindowin.getMyNewsCount();
+                            jindowin.bindSubscribeDel();
+                        }
+                    });
+                    return;
+                }
             })
         });
     },
@@ -697,35 +771,54 @@ var jindowin = {
         $("#hy-container table i").each(function () {
             var $this = $(this);
             $($this).click(function () {
-                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, $($this).attr("data-user-set"), null, function () {
-                    $($this).addClass("fa-spin");
-                }, function (result) {
-                    $($this).removeClass("fa-spin");
-                    if (result.status === -1) {
-                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
-                        jindowin.tempid = $($this).attr("data-user-set").val();
-                        return;
-                    }
-                    if (result.status === 1) {
-                        var html = [];
-                        html.push("<tr>");
-                        html.push("<td><a>" + $($this).attr("data-user-set") + "</a></td>");
-                        html.push("<td class=\"text-right\">");
-                        html.push("<i class=\"fa fa-pencil\" data-set-type='industry' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("<i class=\"fa fa-times\" data-set-type='industry' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("</td>");
-                        html.push("</tr>");
-                        if ($("#myNewsHead tbody tr").length === 0) {
-                            $("#myNewsHead tbody").html(html.join(''));
-                        } else {
-                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                if ($($this).hasClass("fa-check")) {
+                    jindowin.delSubscribe($($this).attr("data-user-type"), $($this).attr("data-user-val"), function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
                         }
-                        jindowin.checkOrNot($($this));
-                        jindowin.getMyNewsCount();
-                        jindowin.bindSubscribeDel();
-                    }
-                });
-
+                        if (resultData.status === 1) {
+                            jindowin.checkOrNot($($this));
+                            $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
+                            $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
+                            jindowin.getMyNewsCount();
+                        }
+                    });
+                    return;
+                } else {
+                    jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, $($this).attr("data-user-val"), null, function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
+                            return;
+                        }
+                        if (resultData.status === 1) {
+                            var html = [];
+                            html.push("<tr>");
+                            html.push("<td><a>" + $($this).parent().prev().html() + "</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                            if ($("#myNewsHead tbody tr").length === 0) {
+                                $("#myNewsHead tbody").html(html.join(''));
+                            } else {
+                                $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                            }
+                            jindowin.checkOrNot($($this));
+                            jindowin.getMyNewsCount();
+                            jindowin.bindSubscribeDel();
+                        }
+                    });
+                    return;
+                }
             })
         });
     },
@@ -737,35 +830,54 @@ var jindowin = {
         $("#gn-container table i").each(function () {
             var $this = $(this);
             $($this).click(function () {
-                jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, null, $($this).attr("data-user-set"), function () {
-                    $($this).addClass("fa-spin");
-                }, function (result) {
-                    $($this).removeClass("fa-spin");
-                    if (result.status === -1) {
-                        $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
-                        jindowin.tempid = $($this).attr("data-user-set").val();
-                        return;
-                    }
-                    if (result.status === 1) {
-                        var html = [];
-                        html.push("<tr>");
-                        html.push("<td><a>" + $($this).attr("data-user-set") + "</a></td>");
-                        html.push("<td class=\"text-right\">");
-                        html.push("<i class=\"fa fa-pencil\" data-set-type='section' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("<i class=\"fa fa-times\" data-set-type='section' data-set-val='" + $($this).attr("data-user-set") + "'></i>");
-                        html.push("</td>");
-                        html.push("</tr>");
-                        if ($("#myNewsHead tbody tr").length === 0) {
-                            $("#myNewsHead tbody").html(html.join(''));
-                        } else {
-                            $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                if ($($this).hasClass("fa-check")) {
+                    jindowin.delSubscribe($($this).attr("data-user-type"), $($this).attr("data-user-val"), function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
                         }
-                        jindowin.checkOrNot($($this));
-                        jindowin.getMyNewsCount();
-                        jindowin.bindSubscribeDel();
-                    }
-                });
-
+                        if (resultData.status === 1) {
+                            jindowin.checkOrNot($($this));
+                            $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
+                            $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
+                            jindowin.getMyNewsCount();
+                        }
+                    });
+                    return;
+                } else {
+                    jindowin.addSubscribe(userSubSetting.startTime, userSubSetting.endTime, userSubSetting.timeinval, null, null, $($this).attr("data-user-val"), function () {
+                        $($this).addClass("fa-spin");
+                    }, function (resultData) {
+                        $($this).removeClass("fa-spin");
+                        if (resultData.status === -1) {
+                            $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+                            jindowin.tempid = $($this).attr("data-user-val").val();//记录未登录时点击订阅，登录完成后处理登录之前要操作的订阅
+                            return;
+                        }
+                        if (resultData.status === 1) {
+                            var html = [];
+                            html.push("<tr>");
+                            html.push("<td><a>" + $($this).parent().prev().html() + "</a></td>");
+                            html.push("<td class=\"text-right\">");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + $($this).attr("data-user-val") + "'></i>");
+                            html.push("</td>");
+                            html.push("</tr>");
+                            if ($("#myNewsHead tbody tr").length === 0) {
+                                $("#myNewsHead tbody").html(html.join(''));
+                            } else {
+                                $("#myNewsHead tbody tr:first-child").before(html.join(''));
+                            }
+                            jindowin.checkOrNot($($this));
+                            jindowin.getMyNewsCount();
+                            jindowin.bindSubscribeDel();
+                        }
+                    });
+                    return;
+                }
             })
         });
     },
@@ -795,6 +907,7 @@ var jindowin = {
                 } else {
                     $("#login-dialog").modal("hide");
                     $("#top-user-name").html(resultData.result.user_name);
+                    $("#top-user-name").attr("id", "top-user-exit");
                     jindowin.getMyNewsCount();
                 }
             }
@@ -902,45 +1015,51 @@ var jindowin = {
             url: "ajax/ajax_query_subscribe.php",
             dataType: "json",
             type: "post",
-            async: false,
             beforeSend: function () {
                 jindowin.showLoading($("#myNewsHead"));
             }, success: function (resultData) {
                 console.info(resultData);
                 var html = [];
                 if (resultData.status === 1) {
-                    html.push("<tbody>")
+                    html.push("<tbody>");
                     if (resultData.stock.length > 0) {
                         for (var i = 0; i < resultData.stock.length; i++) {
+                            var stockName = resultData.stock[i].stock_name;
+                            var stockCode = resultData.stock[i].stock_code;
                             html.push("<tr>");
-                            html.push("<td><a>" + resultData.stock[i].stock_name + "(" + resultData.stock[i].stock_code + ")</a></td>");
+                            html.push("<td><a onclick=\"jindowin.searchResultShow('" + stockName + "(" + stockCode + ")','stock')\">" + stockName + "(" + stockCode + ")</a></td>");
                             html.push("<td class=\"text-right\">");
-                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + resultData.stock[i].stock_code + "'></i>");
-                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + resultData.stock[i].stock_code + "'></i>");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='stock' data-set-val='" + stockCode + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='stock' data-set-val='" + stockCode + "'></i>");
                             html.push("</td>");
                             html.push("</tr>");
+                            $("#gp-container").find("i[data-user-val='" + stockCode + "']").removeClass("fa-plus").addClass("fa-check").css("color", "gray").parent().parent().css("background-color", "#f5f5f5");
                         }
                     }
                     if (resultData.industry.length > 0) {
                         for (var i = 0; i < resultData.industry.length; i++) {
+                            var industryName = resultData.industry[i].industry_name;
                             html.push("<tr>");
-                            html.push("<td><a>" + resultData.industry[i].industry_name + "</a></td>");
+                            html.push("<td><a onclick=\"jindowin.searchResultShow('" + industryName + "','industry')\">" + industryName + "</a></td>");
                             html.push("<td class=\"text-right\">");
-                            html.push("<i class=\"fa fa-pencil\" data-set-type='industry' data-set-val='" + resultData.industry[i].industry_name + "'></i>");
-                            html.push("<i class=\"fa fa-times\" data-set-type='industry' data-set-val='" + resultData.industry[i].industry_name + "'></i>");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='industry' data-set-val='" + industryName + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='industry' data-set-val='" + industryName + "'></i>");
                             html.push("</td>");
                             html.push("</tr>");
+                            $("#hy-container").find("i[data-user-val='" + industryName + "']").removeClass("fa-plus").addClass("fa-check").css("color", "gray").parent().parent().css("background-color", "#f5f5f5");
                         }
                     }
                     if (resultData.section.length > 0) {
                         for (var i = 0; i < resultData.section.length; i++) {
+                            var sectionName = resultData.section[i].section_name;
                             html.push("<tr>");
-                            html.push("<td><a>" + resultData.section[i].section_name + "</a></td>");
+                            html.push("<td><a onclick=\"jindowin.searchResultShow('" + sectionName + "','section')\">" + sectionName + "</a></td>");
                             html.push("<td class=\"text-right\">");
-                            html.push("<i class=\"fa fa-pencil\" data-set-type='section' data-set-val='" + resultData.section[i].section_name + "'></i>");
-                            html.push("<i class=\"fa fa-times\" data-set-type='section' data-set-val='" + resultData.section[i].section_name + "'></i>");
+                            html.push("<i class=\"fa fa-pencil\" data-set-type='section' data-set-val='" + sectionName + "'></i>");
+                            html.push("<i class=\"fa fa-times\" data-set-type='section' data-set-val='" + sectionName + "'></i>");
                             html.push("</td>");
                             html.push("</tr>");
+                            $("#gn-container").find("i[data-user-val='" + sectionName + "']").removeClass("fa-plus").addClass("fa-check").css("color", "gray").parent().parent().css("background-color", "#f5f5f5");
                         }
                     }
                     html.push("</tbody>");
@@ -950,6 +1069,7 @@ var jindowin = {
                 $("#myNewsHead").html(html.join(''));
 
                 jindowin.bindSubscribeDel();
+                jindowin.getMyNewsCount();
             }
         });
     },
@@ -992,6 +1112,22 @@ var jindowin = {
                     })
                 }
             });
+        })
+    },
+    /**
+     * 显示Tips
+     * @param obj
+     * @param option
+     */
+    showTips: function (obj, option) {
+        $(obj).tips({   //selector 为jquery选择器
+            msg: option.msg,    //你的提示消息  必填
+            side: option.side,  //提示窗显示位置  1，2，3，4 分别代表 上右下左 默认为1（上） 可选
+            color: option.color, //提示文字色 默认为白色 可选
+            bg: option.bg,//提示窗背景色 默认为白色 可选
+            time: option.time,//自动关闭时间 默认2秒 设置0则不自动关闭 可选
+            x: option.x,//横向偏移  正数向右偏移 负数向左偏移 默认为0 可选
+            y: option.y,//纵向偏移  正数向下偏移 负数向上偏移 默认为0 可选
         })
     }
 }
@@ -1162,14 +1298,12 @@ $("#search-input").typeahead({
         },
         onSubmit: function (node, a, item) {
             if (item.display !== "") {
-
                 jindowin.searchResultShow(item.display, item.group);
             }
         }
     },
     debug: true
 });
-
 
 $(function () {
     /**
