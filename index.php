@@ -13,6 +13,9 @@ $uname = $myCookie->get("uname");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css?v=1.0" rel="stylesheet">
     <link href="css/bootstrap-material-design.min.css?v=1.0" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/messenger/css/messenger.min.css?v=1.0">
+    <link rel="stylesheet" href="plugins/messenger/css/messenger-spinner.min.css?v=1.0">
+    <link rel="stylesheet" href="plugins/messenger/css/messenger-theme-air.min.css?v=1.0">
     <link href="css/ripples.min.css?v=1.0" rel="stylesheet">
     <link href="css/jquery.dropdown.min.css?v=1.0" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css?v=1.0">
@@ -47,11 +50,10 @@ $uname = $myCookie->get("uname");
                     }
                     ?>
                 </li>
-                <li><a href="javascript:void(0)"><i class="icon iconfont">&#xe73b;</i>&nbsp;悟空官网</a></li>
                 <li><a href="javascript:void(0)" id="wechat"> <i class="icon iconfont">&#xe679;</i>&nbsp;微信关注</a></li>
             </ul>
         </div>
-        <div class="col-xs-8 col-xs-offset-2" style="padding-left: 0; padding-right: 0;">
+        <div class="col-md-10 col-md-offset-1" style="padding-left: 0; padding-right: 0;">
             <h2>快讯</h2>
             <p class="toptips">
                 随时跟踪网上是否由您感兴趣的股票新内容
@@ -60,7 +62,7 @@ $uname = $myCookie->get("uname");
     </div>
     <div class="col-md-12 search-box">
         <div class="container">
-            <div class="col-md-8 col-md-offset-2" style="padding-left: 5px; padding-right: 5px">
+            <div class="col-md-10 col-md-offset-1" style="padding-left: 5px; padding-right: 5px">
                 <div class="typeahead-container">
                     <div class="typeahead-field">
                         <section id="search">
@@ -80,7 +82,7 @@ $uname = $myCookie->get("uname");
 <div class="container hide" id="allTips">
     <div class="bs-docs-section">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="alert alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -99,7 +101,7 @@ $uname = $myCookie->get("uname");
     <!--我的快讯模块-->
     <div class="bs-docs-section mynews" style="display: none;">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="jumbotron">
                         <h4 style="font-weight: 600;" id="myNewsCount">我的快讯</h4>
@@ -121,7 +123,7 @@ $uname = $myCookie->get("uname");
     <!--快讯推荐模块-->
     <div class="bs-docs-section recommendnews">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="jumbotron" id="allrecommend">
                         <h4 style="padding-bottom: 10px; font-weight: 600;">快讯推荐</h4>
@@ -163,12 +165,12 @@ $uname = $myCookie->get("uname");
     <!--创建快讯以及设置接收模块-->
     <div class="bs-docs-section settingnews hide">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="jumbotron">
                         <h5 style="padding-bottom: 10px; font-weight: 600;">将为您“<?php echo $uname; ?>
                             ”创建每天早上09:00的快讯</h5>
-                        <a class="btn btn-raised btn-info" href="javascript:void(0)" style="background-color: #0068b7;">创建快讯</a>
+                        <a class="btn btn-raised btn-info" id="create-mynews" href="javascript:void(0)" style="background-color: #0068b7;">创建快讯</a>
                         <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
                     </div>
                 </div>
@@ -178,7 +180,7 @@ $uname = $myCookie->get("uname");
     <!--快讯列表模块-->
     <div class="bs-docs-section newsinfo hide">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="jumbotron" id="showInfos">
                     </div>
@@ -363,6 +365,8 @@ $uname = $myCookie->get("uname");
 </html>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
+<script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
+<script src="plugins/messenger/js/messenger-theme-future.min.js?v=1.0"></script>
 <script src="js/ripples.min.js?v=1.0"></script>
 <script src="js/material.min.js?v=1.0"></script>
 <script src="js/selecttime.min.js?v=1.0"></script>
@@ -371,6 +375,7 @@ $uname = $myCookie->get("uname");
 <script src="js/stickUp.min.js?v=1.0"></script>
 <script src="js/jindowin-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
+
 <script>
     jQuery(function ($) {
         $.material.init();

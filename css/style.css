@@ -3,6 +3,7 @@ i { cursor: pointer; color: lightgray; }
 
 /*头部背景*/
 .top-pic{background: url("../imgs/top-pic.png")}
+.top-detail-pic{background: url("../imgs/top-pic-search.png")}
 .navbar-right i{color: #FFF;}
 
 /*每个模块的脚部分*/
@@ -75,18 +76,42 @@ footer > div { cursor: pointer; color: lightgray; }
 .hot-stock table tr td{padding: 5px 0 5px 0;border:none;}
 .hy-hotstock,.gp-hotstock,.hy-xw,.gp-xw h4{color:#767676;}
 .gp-hotstock table>tbody>tr>td{border: none;}
+.gp-hotstock hr{margin: 0;}
+.gp-hotstock .container{padding-left: 0;}
+.gp-hotstock .container .col-md-1{padding-left: 0;padding-right: 0;}
+.gp-hotstock .container .col-md-4{padding-left: 0;padding-right: 0;}
+.gp-hotstock .container .col-md-3:first-child{padding-left: 0;padding-right: 0;}
+.gp-hotstock .container .col-md-2:last-child{padding-left: 0;padding-right: 0;margin-top: 5px;}
+.gp-hotstock .container .col-md-2:first-child{padding-left: 0;padding-right: 0;}
+.gp-hotstock .container .col-md-2.text-right h5{margin-top: 25px;}
+.gp-hotstock .container h4{padding-left: 0;}
+
+.hy-hotstock table>tbody>tr>td{border: none;}
+.hy-hotstock hr{margin: 0;}
+.hy-hotstock .container{padding-left: 0;}
+.hy-hotstock .container .col-md-1{padding-left: 0;padding-right: 0;}
+.hy-hotstock .container .col-md-4{padding-left: 0;padding-right: 0;}
+.hy-hotstock .container .col-md-3:first-child{padding-left: 0;padding-right: 0;}
+.hy-hotstock .container .col-md-2:last-child{padding-left: 0;padding-right: 0;margin-top: 5px;}
+.hy-hotstock .container .col-md-2:first-child{padding-left: 0;padding-right: 0;}
+.hy-hotstock .container .col-md-2.text-right h5{margin-top: 25px;}
+.hy-hotstock .container h4{padding-left: 0;}
+.stock-money{font-weight: 600;}
+
+
 
 /*详情中的新闻列表*/
 .list-news-top h4{color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
+.list-news-top a{text-decoration: none;}
 .list-news-content p{font-size: 14px;color: #545454;text-align: justify;font-family: "黑体","microsoft yahei", sans-serif;margin-bottom: 0;line-height: 1.6;}
 .list-news-pic {padding-left: 0;padding-right: 0;}
-.list-news-pic img{width: 100%;max-width: 180px; height: 120px;max-height: 120px;margin-top: 15px;}
+.list-news-pic img{width: 100%;max-width: 160px; height: 128px;max-height: 128px;margin-top: 15px;}
 .list-news-bottom div:first-child{padding-top: 10px;padding-left: 0;}
 .list-news-bottom label:first-child{font-size: 12px;color:#aaaaaa;font-family: "黑体", "microsoft yahei", sans-serif;}
 .list-news-bottom label:last-child i{padding-left: 20px;}
-.list-news-bottom label i:first-child{color: #f44336;}
-.list-news-bottom label i:nth-of-type(2){color: #009688;}
-.list-news-bottom label i:last-child{color: #3890eb;}
+.list-news-bottom label i.look-up{color: #f44336;}
+.list-news-bottom label i.look-down{color: #009688;}
+.list-news-bottom label i.transmit-news{color: #3890eb;}
 
 /*文章中的悬浮分享按钮*/
 .allshare i{font-size: 22px;padding: 0 5px 0 5px;}
@@ -115,6 +140,50 @@ footer > div { cursor: pointer; color: lightgray; }
 #btn-login,#btn-register{width: 100%;background-color: #3d82f0;color: #FFFFFF;}
 
 
-/*股票心情*/
-.stock_emo_tips{width: 200px;}
-.stock_emo_tips img{width: 26px;height: 26px;}
+/*新闻详情*/
+.detail-right{width: 260px; margin-left: 20px;}
+.detail-title,.detail-content,.detail-from,.news-tip-gp,.news-tip-hy,.news-tip-gn,.detail-link,.detail-link-title{font-family: "黑体", "microsoft yahei", sans-serif;}
+.detail-title{font-size: 20px;color: #545454;}
+.detail-from{font-size: 14px;color:#AAAAAA;}
+.detail-content{font-size: 14px;color:#767676;text-indent:2em;margin-bottom: 80px;margin-top: 20px;text-align:justify; text-justify:inter-ideograph;}
+.detail-content p{font-size: 14px;}
+.news-tip-gp{color:#A50310;font-size: 12px;}
+.news-tip-gp>span{color:#767676;font-size: 12px;}
+.news-tip-hy{color:#0000AA;font-size: 12px;}
+.news-tip-hy>span{color:#767676;font-size: 12px;}
+.news-tip-gn{color:#623A93;font-size: 12px;}
+.news-tip-gn>span{color:#767676;font-size: 12px;}
+.detail-link{font-size: 16px;color: #545454;font-weight: 600;}
+.detail-link-title{font-size: 12px;color: #767676;margin-bottom: 6px;}
+.up-and-down{margin-top: 30px;}
+.up-and-down i{font-size: 48px;padding: 10px;border: 1px solid #eee;border-radius: 50px;}
+.up-and-down .look-down i:hover{color: #7BC549;}
+.look-down-hover{color: #7BC549;}
+.up-and-down .look-up p{font-size: 12px;color: #545454;margin-top: 15px;}
+.up-and-down .look-down p{font-size: 12px;color: #545454;margin-top: 15px;}
+.up-and-down .look-up i:hover{color: #f44336;}
+.look-up-hover{color: #f44336;}
+.news-bottom-btn i{margin-left: 10px;}
+
+/*新闻详情右侧关联新闻/股票*/
+.detail-right>.panel.panel-default>.panel-heading{padding:15px 15px 0 0;border-bottom: 2px solid #08237a;background-color: #FFFFFF;font-size: 18px;color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
+.panel-heading img{vertical-align: baseline;margin-right: 5px;}
+.panel.panel-default{box-shadow: none;margin-bottom: 0;}
+.detail-right .panel-body{padding: 15px 0 0 0;}
+.detail-right .panel-body div{background: url("../imgs/gl_1.png");height: 30px;width: 216px;margin-bottom: 10px;padding-left: 10px;line-height: 30px;cursor: pointer;}
+.detail-right .panel-body .col-md-9{padding-left: 0;}
+.detail-right .panel-body .col-md-3{padding-left: 0;}
+.detail-right .panel-body .container i:hover{color: gray;}
+
+/*股票情感值*/
+.stock_emo_tips span{width: 400px;font-family:Arial;font-size:18px;font-weight: 600;vertical-align:sub;}
+.stock_emo_tips img{width: 22px;height: 22px;}
+.stock_emo_tips label{padding: 5px 5px 0 5px;}
+.stock_emo_tips .em_up{color: #f44336;}
+.stock_emo_tips .em_down{color: #7BC549;}
+.stock_emo_tips .em_nochange{color: #3D82F0;}
+
+/*新闻详情底部按钮*/
+.news-bottom-btn .news-like:hover{color: yellow;}
+.news-bottom-btn .news-unlike:hover{color:orangered;}
+.news-bottom-btn .news-share:hover{color: blue;}

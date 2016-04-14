@@ -2,18 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93e3b95c-ed7a-4f2f-a9cb-508937597a52" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/em_down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/em_nochange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/em_up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/detail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery.tips.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/gl_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/news_default_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/news_default_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/news_default_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/rec.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_industry_headinfo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ajax/ajax_stock_headinfo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jindowin-detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-spinner.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-air.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-block.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-flat.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-future.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-ice.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/css/messenger.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/js/messenger-theme-flat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/js/messenger-theme-future.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/js/messenger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/messenger/js/messenger.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/style.min.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/ajax_set_news.php" afterPath="$PROJECT_DIR$/ajax/ajax_set_news.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.min.css" afterPath="$PROJECT_DIR$/css/style.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail.php" afterPath="$PROJECT_DIR$/detail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jindowin-index.js" afterPath="$PROJECT_DIR$/js/jindowin-index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jindowin-index.min.js" afterPath="$PROJECT_DIR$/js/jindowin-index.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.tips.js" afterPath="$PROJECT_DIR$/js/jquery.tips.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/stickUp.js" afterPath="$PROJECT_DIR$/js/stickUp.js" />
     </list>
     <ignored path="jindouwinweb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,22 +52,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ajax_query_stock.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_query_industry.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
+      <file leaf-file-name="jindowin-index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-              <folding />
+              <caret line="169" column="43" selection-start-line="169" selection-start-column="43" selection-end-line="169" selection-end-column="43" />
+              <folding>
+                <element signature="e#21357#22788#0" expanded="false" />
+                <element signature="e#22953#22964#0" expanded="false" />
+                <element signature="e#24831#27279#0" expanded="false" />
+                <element signature="e#27612#27670#0" expanded="false" />
+                <element signature="e#27737#33326#0" expanded="false" />
+                <element signature="e#33553#34984#0" expanded="false" />
+                <element signature="e#35149#35160#0" expanded="false" />
+                <element signature="e#36826#36853#0" expanded="false" />
+                <element signature="e#37121#39657#0" expanded="false" />
+                <element signature="e#53381#55707#0" expanded="false" />
+                <marker date="1460643285023" expanded="true" signature="11742:11759" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="13262:13283" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="15492:15506" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="18764:18798" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="19109:19143" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="23143:23160" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="24553:24574" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="28666:28680" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="35390:35407" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="36895:36916" placeholder="..." />
+                <marker date="1460643285023" expanded="true" signature="41033:41047" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,118 +87,18 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="372" column="40" selection-start-line="372" selection-start-column="40" selection-end-line="372" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_add_subscribe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_add_subscribe.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="4692">
+              <caret line="276" column="16" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cookies.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-              <folding>
-                <element signature="e#7#429#0#PHP" expanded="false" />
-                <element signature="n#authcode#0;n#Cookies#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jindowin-index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="306" column="61" selection-start-line="306" selection-start-column="47" selection-end-line="306" selection-end-column="61" />
-              <folding>
-                <element signature="e#2012#2660#0" expanded="false" />
-                <element signature="e#2762#2932#0" expanded="false" />
-                <element signature="e#3030#3373#0" expanded="false" />
-                <element signature="e#3453#3681#0" expanded="false" />
-                <element signature="e#3740#4032#0" expanded="false" />
-                <element signature="e#4099#4773#0" expanded="false" />
-                <element signature="e#4889#5327#0" expanded="false" />
-                <element signature="e#5422#7060#0" expanded="false" />
-                <element signature="e#7201#7886#0" expanded="false" />
-                <element signature="e#8919#8946#0" expanded="false" />
-                <element signature="e#10596#10654#0" expanded="false" />
-                <element signature="e#16334#16361#0" expanded="false" />
-                <element signature="e#22536#22594#0" expanded="false" />
-                <element signature="e#27370#29703#0" expanded="false" />
-                <element signature="e#29865#30312#0" expanded="false" />
-                <element signature="e#30380#32725#0" expanded="false" />
-                <element signature="e#32935#33379#0" expanded="false" />
-                <element signature="e#33446#35772#0" expanded="false" />
-                <element signature="e#35902#39146#0" expanded="false" />
-                <element signature="e#42653#45897#0" expanded="false" />
-                <element signature="e#45954#46937#0" expanded="false" />
-                <element signature="e#46997#47584#0" expanded="false" />
-                <element signature="e#47666#48413#0" expanded="false" />
-                <element signature="e#48740#49316#0" expanded="false" />
-                <element signature="e#49507#50265#0" expanded="false" />
-                <element signature="e#50336#54464#0" expanded="false" />
-                <element signature="e#54550#54983#0" expanded="false" />
-                <element signature="e#56659#57052#0" expanded="false" />
-                <element signature="e#58327#58365#0" expanded="false" />
-                <element signature="e#58437#58551#0" expanded="false" />
-                <element signature="e#58625#58911#0" expanded="false" />
-                <element signature="e#59306#60229#0" expanded="false" />
-                <marker date="1460105286490" expanded="true" signature="8236:8253" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="8311:8370" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="8634:8660" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="8785:8811" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="9012:9033" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="11482:11496" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="15605:15622" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="15671:15729" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="16049:16075" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="16200:16226" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="16395:16416" placeholder="..." />
-                <marker date="1460105286490" expanded="true" signature="23186:23200" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_delete_subscribe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_delete_subscribe.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_query_subscribe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_query_subscribe.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            <state relative-caret-position="2839">
+              <caret line="167" column="17" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -181,6 +110,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -197,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/js/jquery.dropdown.js" />
         <option value="$PROJECT_DIR$/js/jquery.typeahead.js" />
         <option value="$PROJECT_DIR$/js/jquery-1.10.2.js" />
@@ -215,12 +144,9 @@
         <option value="$PROJECT_DIR$/ajax/search.php" />
         <option value="$PROJECT_DIR$/common/Helper.class.php" />
         <option value="$PROJECT_DIR$/css/style.min.css" />
-        <option value="$PROJECT_DIR$/js/stickUp.js" />
         <option value="$PROJECT_DIR$/ajax/ajax_news_detail.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_set_news.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_news_transmit.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_login.php" />
-        <option value="$PROJECT_DIR$/common/JindowinConfig.class.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/css/bootstrap-material-design.css" />
@@ -232,16 +158,26 @@
         <option value="$PROJECT_DIR$/ajax/ajax_user_login.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_query_industry.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_user_register.php" />
-        <option value="$PROJECT_DIR$/ajax/ajax_get_news.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_query_subscribe.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_add_subscribe.php" />
         <option value="$PROJECT_DIR$/ajax/ajax_delete_subscribe.php" />
         <option value="$PROJECT_DIR$/common/Cookies.class.php" />
-        <option value="$PROJECT_DIR$/detail.php" />
+        <option value="$PROJECT_DIR$/ajax/ajax_industry_headinfo.php" />
+        <option value="$PROJECT_DIR$/common/JindowinConfig.class.php" />
+        <option value="$PROJECT_DIR$/ajax/ajax_set_news.php" />
         <option value="$PROJECT_DIR$/js/jquery.tips.js" />
+        <option value="$PROJECT_DIR$/js/jindowin-detail.js" />
+        <option value="$PROJECT_DIR$/ajax/ajax_stock_headinfo.php" />
+        <option value="$PROJECT_DIR$/ajax/ajax_get_news.php" />
+        <option value="$PROJECT_DIR$/detail.php" />
+        <option value="$PROJECT_DIR$/css/messenger-theme-air.css" />
+        <option value="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-block.css" />
+        <option value="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-air.css" />
+        <option value="$PROJECT_DIR$/plugins/messenger/css/messenger-theme-ice.css" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/js/jindowin-index.js" />
+        <option value="$PROJECT_DIR$/js/stickUp.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/js/jindowin-index.js" />
       </list>
     </option>
   </component>
@@ -327,7 +263,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>SpellCheckingInspection</id>
+            <id>CssInvalidPropertyValue</id>
           </State>
         </selected-state>
       </profile-state>
@@ -386,7 +322,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,7 +336,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="imgs" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,16 +354,30 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jindouwinweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jindouwinweb" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ajax" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="D:/WebstormProjects/iwookong_test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="252" />
@@ -446,12 +396,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1070" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyProject\jindouwinweb\plugins" />
+      <recent name="D:\MyProject\jindouwinweb\css" />
+      <recent name="D:\MyProject\jindouwinweb\js" />
       <recent name="D:\MyProject\jindouwinweb\imgs" />
       <recent name="D:\MyProject\jindouwinweb" />
-      <recent name="D:\MyProject\jindouwinweb\js" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -549,7 +502,15 @@
       <workItem from="1459864826935" duration="1000" />
       <workItem from="1459903979258" duration="35726000" />
       <workItem from="1459990251060" duration="38111000" />
-      <workItem from="1460076886954" duration="24771000" />
+      <workItem from="1460076886954" duration="25102000" />
+      <workItem from="1460336313765" duration="38849000" />
+      <workItem from="1460423150204" duration="3584000" />
+      <workItem from="1460428581032" duration="16271000" />
+      <workItem from="1460450546559" duration="5812000" />
+      <workItem from="1460509045950" duration="26036000" />
+      <workItem from="1460595641328" duration="12227000" />
+      <workItem from="1460612369308" duration="25500000" />
+      <workItem from="1460643472678" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="1、增加远程调用接口处理&#10;2、增加首页搜索处理&#10;3、增加行业详情页&#10;4、对接搜索接口">
       <created>1459335639744</created>
@@ -600,35 +561,42 @@
       <option name="project" value="LOCAL" />
       <updated>1460037735951</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1、完善股票、行业详细&#10;2、一些细节交互修改">
+      <created>1460108742952</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1460108742952</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220584000" />
+    <option name="totallyTimeSpent" value="349201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15884861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35058078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35058078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -653,268 +621,16 @@
     <MESSAGE value="增加获取新闻接口、新闻详情接口、新闻看涨看跌、新闻转发统计" />
     <MESSAGE value="1、登录、注册页面交互设计&#10;2、登录功能的完善&#10;3、首页快讯推荐的订阅以及取消订阅&#10;" />
     <MESSAGE value="1、完善订阅&#10;2、完善我的快讯&#10;3、部分详情页接口对接" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、完善订阅&#10;2、完善我的快讯&#10;3、部分详情页接口对接" />
+    <MESSAGE value="1、完善股票、行业详细&#10;2、一些细节交互修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、完善股票、行业详细&#10;2、一些细节交互修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-          <folding>
-            <element signature="e#7#429#0#PHP" expanded="false" />
-            <element signature="n#authcode#0;n#Cookies#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2012#2660#0" expanded="false" />
-            <element signature="e#2762#2932#0" expanded="false" />
-            <element signature="e#3030#3373#0" expanded="false" />
-            <element signature="e#3453#3681#0" expanded="false" />
-            <element signature="e#3740#4032#0" expanded="false" />
-            <element signature="e#4099#4773#0" expanded="false" />
-            <element signature="e#4889#5327#0" expanded="false" />
-            <element signature="e#5422#7060#0" expanded="false" />
-            <element signature="e#7201#7886#0" expanded="false" />
-            <element signature="e#8919#8946#0" expanded="false" />
-            <element signature="e#10596#10654#0" expanded="false" />
-            <element signature="e#16334#16361#0" expanded="false" />
-            <element signature="e#22536#22594#0" expanded="false" />
-            <element signature="e#27370#29703#0" expanded="false" />
-            <element signature="e#29865#30312#0" expanded="false" />
-            <element signature="e#30380#32725#0" expanded="false" />
-            <element signature="e#32935#33379#0" expanded="false" />
-            <element signature="e#33446#35772#0" expanded="false" />
-            <element signature="e#35902#39146#0" expanded="false" />
-            <element signature="e#42653#45897#0" expanded="false" />
-            <element signature="e#45954#46937#0" expanded="false" />
-            <element signature="e#46997#47584#0" expanded="false" />
-            <element signature="e#47666#48413#0" expanded="false" />
-            <element signature="e#48740#49316#0" expanded="false" />
-            <element signature="e#49507#50265#0" expanded="false" />
-            <element signature="e#50336#54464#0" expanded="false" />
-            <element signature="e#54550#54983#0" expanded="false" />
-            <element signature="e#56659#57052#0" expanded="false" />
-            <element signature="e#58327#58365#0" expanded="false" />
-            <element signature="e#58437#58551#0" expanded="false" />
-            <element signature="e#58625#58911#0" expanded="false" />
-            <element signature="e#59306#60229#0" expanded="false" />
-            <marker date="1460105286490" expanded="true" signature="8236:8253" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8311:8370" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8634:8660" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8785:8811" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="9012:9033" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="11482:11496" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15605:15622" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15671:15729" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16049:16075" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16200:16226" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16395:16416" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="23186:23200" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_delete_subscribe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_subscribe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_get_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_user_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#429#0#PHP" expanded="false" />
-            <element signature="n#authcode#0;n#Cookies#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/CheckUserLogin.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4539">
-          <caret line="633" column="56" selection-start-line="633" selection-start-column="56" selection-end-line="633" selection-end-column="56" />
-          <folding>
-            <element signature="e#2012#2660#0" expanded="false" />
-            <element signature="e#2762#2932#0" expanded="false" />
-            <element signature="e#3030#3373#0" expanded="false" />
-            <element signature="e#3453#3681#0" expanded="false" />
-            <element signature="e#3740#4032#0" expanded="false" />
-            <element signature="e#4099#4773#0" expanded="false" />
-            <element signature="e#4889#5327#0" expanded="false" />
-            <element signature="e#5422#7060#0" expanded="false" />
-            <element signature="e#7201#7886#0" expanded="false" />
-            <element signature="e#8919#8946#0" expanded="false" />
-            <element signature="e#10596#10654#0" expanded="false" />
-            <element signature="e#16334#16361#0" expanded="false" />
-            <element signature="e#22536#22594#0" expanded="false" />
-            <element signature="e#27370#29703#0" expanded="false" />
-            <element signature="e#29865#30312#0" expanded="false" />
-            <element signature="e#30380#32725#0" expanded="false" />
-            <element signature="e#32935#33379#0" expanded="false" />
-            <element signature="e#33446#35772#0" expanded="false" />
-            <element signature="e#35902#39146#0" expanded="false" />
-            <element signature="e#42653#45897#0" expanded="false" />
-            <element signature="e#45954#46937#0" expanded="false" />
-            <element signature="e#46997#47584#0" expanded="false" />
-            <element signature="e#47666#48413#0" expanded="false" />
-            <element signature="e#48740#49316#0" expanded="false" />
-            <element signature="e#49507#50265#0" expanded="false" />
-            <element signature="e#50336#54464#0" expanded="false" />
-            <element signature="e#54550#54983#0" expanded="false" />
-            <element signature="e#56659#57052#0" expanded="false" />
-            <element signature="e#58327#58365#0" expanded="false" />
-            <element signature="e#58437#58551#0" expanded="false" />
-            <element signature="e#58625#58911#0" expanded="false" />
-            <element signature="e#59306#60229#0" expanded="false" />
-            <marker date="1460105286490" expanded="true" signature="8236:8253" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8311:8370" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8634:8660" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8785:8811" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="9012:9033" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="11482:11496" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15605:15622" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15671:15729" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16049:16075" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16200:16226" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16395:16416" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="23186:23200" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_section.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Cookies.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding>
-            <element signature="e#7#429#0#PHP" expanded="false" />
-            <element signature="n#authcode#0;n#Cookies#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Helper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -929,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="334" column="30" selection-start-line="334" selection-start-column="29" selection-end-line="334" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap-material-design.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1408">
@@ -947,9 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5286">
           <caret line="1243" column="4" selection-start-line="1243" selection-start-column="4" selection-end-line="1243" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/ajax_user_register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1002,20 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_set_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/ajax_user_login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1023,51 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_get_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/ajax_query_subscribe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_add_subscribe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/ajax_delete_subscribe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,34 +726,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-          <folding>
-            <element signature="e#7#429#0#PHP" expanded="false" />
-            <element signature="n#authcode#0;n#Cookies#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.project" />
     <entry file="file://$PROJECT_DIR$/js/jindowin-index.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="140" selection-start-line="0" selection-start-column="140" selection-end-line="0" selection-end-column="140" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,86 +741,251 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="1992" column="18" selection-start-line="1992" selection-start-column="18" selection-end-line="1992" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_news_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_industry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_query_stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/Request.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/JindowinConfig.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.typeahead.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="362" column="0" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_set_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_add_subscribe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_industry_headinfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_stock_headinfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_get_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery.tips.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
+        <state relative-caret-position="0">
+          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jindowin-detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="69" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="234" column="34" selection-start-line="234" selection-start-column="34" selection-end-line="234" selection-end-column="34" />
+          <folding>
+            <marker date="1460620426000" expanded="true" signature="2744:12287" placeholder="..." />
+            <marker date="1460620426000" expanded="true" signature="3536:12279" placeholder="..." />
+            <marker date="1460620426000" expanded="true" signature="7785:7848" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/messenger.js" />
+    <entry file="file://$PROJECT_DIR$/js/messenger-theme-future.js" />
+    <entry file="file://$PROJECT_DIR$/css/messenger-theme-air.css" />
+    <entry file="file://$PROJECT_DIR$/css/messenger.css" />
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/js/messenger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21165">
+          <caret line="1245" column="24" selection-start-line="1245" selection-start-column="24" selection-end-line="1245" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-theme-ice.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-theme-future.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="375" column="1" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-theme-flat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2992">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-theme-block.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="92" column="55" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-theme-air.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger-spinner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/messenger/css/messenger.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ajax_delete_subscribe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="372" column="40" selection-start-line="372" selection-start-column="40" selection-end-line="372" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="4692">
+          <caret line="276" column="16" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
+    <entry file="file://$PROJECT_DIR$/js/stickUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="306" column="61" selection-start-line="306" selection-start-column="47" selection-end-line="306" selection-end-column="61" />
-          <folding>
-            <element signature="e#2012#2660#0" expanded="false" />
-            <element signature="e#2762#2932#0" expanded="false" />
-            <element signature="e#3030#3373#0" expanded="false" />
-            <element signature="e#3453#3681#0" expanded="false" />
-            <element signature="e#3740#4032#0" expanded="false" />
-            <element signature="e#4099#4773#0" expanded="false" />
-            <element signature="e#4889#5327#0" expanded="false" />
-            <element signature="e#5422#7060#0" expanded="false" />
-            <element signature="e#7201#7886#0" expanded="false" />
-            <element signature="e#8919#8946#0" expanded="false" />
-            <element signature="e#10596#10654#0" expanded="false" />
-            <element signature="e#16334#16361#0" expanded="false" />
-            <element signature="e#22536#22594#0" expanded="false" />
-            <element signature="e#27370#29703#0" expanded="false" />
-            <element signature="e#29865#30312#0" expanded="false" />
-            <element signature="e#30380#32725#0" expanded="false" />
-            <element signature="e#32935#33379#0" expanded="false" />
-            <element signature="e#33446#35772#0" expanded="false" />
-            <element signature="e#35902#39146#0" expanded="false" />
-            <element signature="e#42653#45897#0" expanded="false" />
-            <element signature="e#45954#46937#0" expanded="false" />
-            <element signature="e#46997#47584#0" expanded="false" />
-            <element signature="e#47666#48413#0" expanded="false" />
-            <element signature="e#48740#49316#0" expanded="false" />
-            <element signature="e#49507#50265#0" expanded="false" />
-            <element signature="e#50336#54464#0" expanded="false" />
-            <element signature="e#54550#54983#0" expanded="false" />
-            <element signature="e#56659#57052#0" expanded="false" />
-            <element signature="e#58327#58365#0" expanded="false" />
-            <element signature="e#58437#58551#0" expanded="false" />
-            <element signature="e#58625#58911#0" expanded="false" />
-            <element signature="e#59306#60229#0" expanded="false" />
-            <marker date="1460105286490" expanded="true" signature="8236:8253" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8311:8370" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8634:8660" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="8785:8811" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="9012:9033" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="11482:11496" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15605:15622" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="15671:15729" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16049:16075" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16200:16226" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="16395:16416" placeholder="..." />
-            <marker date="1460105286490" expanded="true" signature="23186:23200" placeholder="..." />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+        <state relative-caret-position="2839">
+          <caret line="167" column="17" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jindowin-detail.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jindowin-index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="169" column="43" selection-start-line="169" selection-start-column="43" selection-end-line="169" selection-end-column="43" />
+          <folding>
+            <element signature="e#21357#22788#0" expanded="false" />
+            <element signature="e#22953#22964#0" expanded="false" />
+            <element signature="e#24831#27279#0" expanded="false" />
+            <element signature="e#27612#27670#0" expanded="false" />
+            <element signature="e#27737#33326#0" expanded="false" />
+            <element signature="e#33553#34984#0" expanded="false" />
+            <element signature="e#35149#35160#0" expanded="false" />
+            <element signature="e#36826#36853#0" expanded="false" />
+            <element signature="e#37121#39657#0" expanded="false" />
+            <element signature="e#53381#55707#0" expanded="false" />
+            <marker date="1460643285023" expanded="true" signature="11742:11759" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="13262:13283" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="15492:15506" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="18764:18798" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="19109:19143" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="23143:23160" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="24553:24574" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="28666:28680" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="35390:35407" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="36895:36916" placeholder="..." />
+            <marker date="1460643285023" expanded="true" signature="41033:41047" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
