@@ -1,8 +1,8 @@
 <?php
 /**
  * Created by Lee.
- * Date: 2016/4/5 0005 9:36
- * Description:查询行业相关信息
+ * Date: 2016/4/11 0011 14:51
+ * Description:股票资讯预览
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
 require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
@@ -11,11 +11,13 @@ if (CheckLogin::check() == -1) {
     print_r(json_encode(array("status" => -1, "result" => "未知登录状态")));
     return;
 }
-$url = JindowinConfig::$requireUrl . "subscribe/1/query_industry.fcgi";
+$stockcode = isset($_POST['stockcode']) ? $_POST['stockcode'] : "";
+$url = JindowinConfig::$requireUrl . "message/1/message_code.fcgi";
 $result = RequestUtil::get($url,
     array(
         "user_id" => $_SESSION['user_id'],
-        "token" => $_SESSION['token']
+        "token" => $_SESSION["token"],
+        "code" => $stockcode.","
     ));
 $jsonresult = json_decode($result, true);
 

@@ -38,8 +38,8 @@ $result = RequestUtil::get($url,
         "start_time" => $start_time,
         "end_time" => $end_time,
         "time_inval" => $time_inval,
-        "stock_code" => $stock_code,
+        "stock_code" => empty($stock_code) ? "" : $stock_code . ",",
         "section" => $section,
-        "industry" => $section
+        "industry" => $industry
     ));
 print_r($result);
