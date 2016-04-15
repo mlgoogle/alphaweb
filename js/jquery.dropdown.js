@@ -1,3 +1,4 @@
+
 /* globals jQuery, window, document */
 (function(factory) {
     if (typeof define === 'function' && define.amd) {

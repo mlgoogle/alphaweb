@@ -9,6 +9,7 @@ $uname = $myCookie->get("uname");
 <head>
     <title>快讯</title>
     <meta charset="utf-8">
+    <meta property="wb:webmaster" content="2a4447f19ff23d2f" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css?v=1.0" rel="stylesheet">
@@ -72,24 +73,6 @@ $uname = $myCookie->get("uname");
                             <input id="search-input" type="search" placeholder="创建关于以下内容的快讯" autocomplete="off"
                                    spellcheck="false" autocorrect="off" tabindex="1">
                         </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--提示框-->
-<div class="container hide" id="allTips">
-    <div class="bs-docs-section">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="bs-component">
-                    <div class="alert alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <p>这是一堆警告内容</p>
-                        <button type="button" class="btn btn-default" id="testtest">
-                            测试弹出分享按钮
-                        </button>
                     </div>
                 </div>
             </div>
@@ -168,10 +151,17 @@ $uname = $myCookie->get("uname");
             <div class="col-md-10 col-md-offset-1">
                 <div class="bs-component">
                     <div class="jumbotron">
-                        <h5 style="padding-bottom: 10px; font-weight: 600;">将为您“<?php echo $uname; ?>
-                            ”创建每天早上09:00的快讯</h5>
-                        <a class="btn btn-raised btn-info" id="create-mynews" href="javascript:void(0)" style="background-color: #0068b7;">创建快讯</a>
-                        <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
+                        <?php
+                        if(empty($uname)) {
+                           echo "<input class=\"input-sm col-md-4\" id='receive_email' type='email' style='margin-top: 11px;border: 1px solid gray;border-radius: 0;height: 35px;' placeholder='输入接收邮件创建快讯'>";
+                        }else{
+                        ?>
+                        <?php
+                            echo "<h5 id='show_sub_info' style=\"padding-bottom: 10px; font-weight: 600;\"></h5>";
+                        }
+                        ?>
+                            <a class="btn btn-raised btn-info" id="create_mynews" style="background-color: #0068b7;">创建快讯</a>
+                            <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
                     </div>
                 </div>
             </div>
@@ -196,7 +186,7 @@ $uname = $myCookie->get("uname");
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">订阅设置</h4>
+                <h4 class="modal-title" id="setting-storage" data-set-type="all" data-set-val="">订阅设置</h4>
             </div>
             <div class="modal-body">
                 <div id="settings" class="row">
@@ -233,9 +223,9 @@ $uname = $myCookie->get("uname");
                             <div class="col-md-9">
                                 <select id="receiveTimes" class="form-control">
                                     <option value="1">实时</option>
-                                    <option value="2">每半小时一次</option>
-                                    <option value="3">每小时一次</option>
-                                    <option value="4">每两小时一次</option>
+                                    <option value="30">每半小时一次</option>
+                                    <option value="60">每小时一次</option>
+                                    <option value="120">每两小时一次</option>
                                     <option value="0">自定义</option>
                                 </select>
                             </div>
@@ -365,6 +355,7 @@ $uname = $myCookie->get("uname");
 </html>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
+<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
 <script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger-theme-future.min.js?v=1.0"></script>
 <script src="js/ripples.min.js?v=1.0"></script>
@@ -375,6 +366,7 @@ $uname = $myCookie->get("uname");
 <script src="js/stickUp.min.js?v=1.0"></script>
 <script src="js/jindowin-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
+<script src="js/common.min.js?v=1.0"></script>
 
 <script>
     jQuery(function ($) {

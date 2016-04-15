@@ -61,4 +61,34 @@ jQuery(function ($) {
             }
         });
     });
+    $(".news-like").click(function(){
+        $(this).tips({
+            msg:"敬请期待",
+            side: 3,
+            time:1,
+            color:"#999",
+            bg:"rgba(238,238,238,0.5)",
+            y:-5
+        })
+    })
+    $(".news-unlike").click(function(){
+        $(this).tips({
+            msg:"敬请期待",
+            side: 3,
+            time:1,
+            color:"#999",
+            bg:"rgba(238,238,238,0.5)",
+            y:-5
+        })
+    })
+    $(".news-share").click(function(){
+        $(this).tips({
+            msg:"敬请期待",
+            side: 3,
+            time:1,
+            color:"#999",
+            bg:"rgba(238,238,238,0.5)",
+            y:-5
+        })
+    })
 });

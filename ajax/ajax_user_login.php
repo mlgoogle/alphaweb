@@ -17,11 +17,18 @@ if (empty($user_name) || empty($password)) {
     print_r(json_encode(array("status" => 0, "result" => "账号或密码为空")));
     return;
 }
+$md5Password=md5($password);
+$a=substr($md5Password,0,2);
+$b=substr($md5Password,2,12);
+$c=substr($md5Password,14,16);
+$d=substr($md5Password,30,2);
+$newPwd=$a.chr(rand(97, 122)).$b.chr(rand(97, 122)).$c.chr(rand(97, 122)).$d;
+
 $result = RequestUtil::get($url,
     array(
         "platform_id" => $platform_id,
         "user_name" => $user_name,
-        "password" => $password . ",",
+        "password" => $newPwd . ",",
         "user_type" => $user_type
     ));
 $jsonresult = json_decode($result, true);
