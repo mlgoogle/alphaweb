@@ -10,7 +10,7 @@ $uname = $myCookie->get("uname");
     <title>快讯</title>
     <meta charset="utf-8">
     <meta property="wb:webmaster" content="2a4447f19ff23d2f" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css?v=1.0" rel="stylesheet">
     <link href="css/bootstrap-material-design.min.css?v=1.0" rel="stylesheet">
@@ -355,7 +355,7 @@ $uname = $myCookie->get("uname");
 </html>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
-<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
+
 <script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger-theme-future.min.js?v=1.0"></script>
 <script src="js/ripples.min.js?v=1.0"></script>
@@ -364,6 +364,7 @@ $uname = $myCookie->get("uname");
 <script src="js/jquery.dropdown.min.js?v=1.0"></script>
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
 <script src="js/stickUp.min.js?v=1.0"></script>
+<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
 <script src="js/jindowin-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
 <script src="js/common.min.js?v=1.0"></script>

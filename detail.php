@@ -122,13 +122,15 @@ $referenceJsonResult = json_decode($referenceResult);
                         $detail = $jsonresult['result'][0]['detail'];
                         $newHtml = "";
                         if (!empty($detail)) {
-
-                            $detailArray = explode('#$%', $detail);
+                            $detailArray = explode('\n', $detail);
+                            $i=0;
                             foreach ($detailArray as $item) {
-                                $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "</p>";
-                            }
-                            if (strlen($newHtml) > 300) {
-                                $newHtml = substr($newHtml, 0, 300) . "……" . "<a href='" . $jsonresult['result'][0]['url'] . "'>查看详情</a>";
+                                $i++;
+                                if($i==count($detailArray)){
+                                    $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "……<a href='" . $jsonresult['result'][0]['url'] . "'>查看详情</a></p>";
+                                }else{
+                                    $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "</p>";
+                                }
                             }
                             echo  $newHtml;
                         }
@@ -161,7 +163,7 @@ $referenceJsonResult = json_decode($referenceResult);
                 </div>
                 <div class="col-md-3 text-right news-bottom-btn">
                     <i class="icon iconfont news-like">&#xe688;</i>
-                    <i class="icon iconfont news-unlike">&#xf013b;</i>
+                    <i class="icon iconfont news-unlike">&#xe67b;</i>
                     <i class="icon iconfont news-share">&#xe610;</i>
                 </div>
             </div>
@@ -229,7 +231,6 @@ $referenceJsonResult = json_decode($referenceResult);
                         echo "<span class=\"col-md-3\"><i class='fa " . ($item->subscribe == "1" ? "fa-check" : "fa-plus") . "' data-user-val=\"" . $item->name . "\" data-user-type=\"industry\"></i></span>";
                         echo "</div>";
                     }
-
                     echo "</div>";
                     echo "</div>";
                 }
@@ -244,7 +245,6 @@ $referenceJsonResult = json_decode($referenceResult);
                         echo "<span class=\"col-md-3\"><i class='fa " . ($item->subscribe == "1" ? "fa-check" : "fa-plus") . "' data-user-val=\"" . $item->name . "\" data-user-type=\"section\"></i></span>";
                         echo "</div>";
                     }
-
                     echo "</div>";
                     echo "</div>";
                 }

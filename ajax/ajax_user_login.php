@@ -47,10 +47,10 @@ if ($jsonresult['status'] != "0") {
     $_SESSION['token'] = $utoken;    //token
     $_SESSION['user_type'] = 1;
     if ($autologin == "true") {
-        $myCookie = new Cookies();//设置过期时间为15天
-        $myCookie->set("uid", $uid,1296000);
-        $myCookie->set("uname", $uname,1296000);
-        $myCookie->set("utoken", $utoken,1296000);
+        $myCookie = new Cookies();//设置过期时间为1天
+        $myCookie->set("uid", $uid,86400);
+        $myCookie->set("uname", $uname,86400);
+        $myCookie->set("utoken", $utoken,86400);
     }
     return;
 } else {

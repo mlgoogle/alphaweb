@@ -424,14 +424,14 @@ var jindowin = {
                 gpHtml.push("<h3 style=\"padding-bottom: 10px;\">资讯预览</h3>");
                 gpHtml.push("<div class=\"container\"><table class=\"table\">");
                 gpHtml.push("<tr>");
-                gpHtml.push("<td>查看热度:" + resultData.result.follow_add.toPercent() + "</td>");
-                gpHtml.push("<td>搜索热度:" + resultData.result.search_add.toPercent() + "</td>");
-                gpHtml.push("<td>关注热度:" + resultData.result.visit_add.toPercent() + "</td>");
+                gpHtml.push("<td>查看热度:" + resultData.result.follow_percent.toPercent() + "</td>");
+                gpHtml.push("<td>搜索热度:" + resultData.result.search_percent.toPercent() + "</td>");
+                gpHtml.push("<td>关注热度:" + resultData.result.visit_percent.toPercent() + "</td>");
                 gpHtml.push("</tr>");
                 gpHtml.push("<tr>");
-                gpHtml.push("<td>查看增量:" + resultData.result.follow_percent.toPercent() + "</td>");
-                gpHtml.push("<td>搜索增量:" + resultData.result.search_percent.toPercent() + "</td>");
-                gpHtml.push("<td>关注增量:" + resultData.result.visit_percent.toPercent() + "</td>");
+                gpHtml.push("<td>查看增量:" + resultData.result. follow_add.toPercent() + "</td>");
+                gpHtml.push("<td>搜索增量:" + resultData.result.search_add.toPercent() + "</td>");
+                gpHtml.push("<td>关注增量:" + resultData.result.visit_add.toPercent() + "</td>");
                 gpHtml.push("</tr>");
                 gpHtml.push("</table></div>");
             }
@@ -465,7 +465,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('\n', '') : resultData.result[i].detail).replace('\n', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -500,7 +500,7 @@ var jindowin = {
                     $(this).attr("src", "imgs/news_default_1.png");
                 });
                 $("#stock_emotion").bind("mouseenter", function () {
-                    jindowin.showTips($(this), {msg: emotionTips, side: 3, time: 1});
+                    jindowin.showTips($(this), {msg: emotionTips, side: 3, time: 1000});
                 });
                 $(".list-news-bottom .text-right .look-up").each(function () {
                     var $this = $(this);
@@ -550,10 +550,11 @@ var jindowin = {
                             bg: "rgba(238,238,238,0.5)",
                             y: 8
                         });
-                        $(".weibo-share").bind("click", function () {
+                        $(".weibo-share").bind("click", function (e) {
                             newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                            e.stopPropagation();
                         });
-                        $(".tweibo-share").bind("click", function () {
+                        $(".tweibo-share").bind("click", function (e) {
                             newsShare.tencentWeiBoShare({
                                 wb_url: shareUrl,
                                 wb_appkey: '',
@@ -561,8 +562,9 @@ var jindowin = {
                                 wb_pic: '',
                                 wb_site: ''
                             });
+                            e.stopPropagation();
                         });
-                        $(".qqzone-share").bind("click", function () {
+                        $(".qqzone-share").bind("click", function (e) {
                             newsShare.qzoneShare({
                                 url: shareUrl,
                                 desc: shareContent,
@@ -570,6 +572,7 @@ var jindowin = {
                                 title: shareTitle,
                                 site: "筋斗云"
                             });
+                            e.stopPropagation();
                         });
                     });
                 });
@@ -621,29 +624,27 @@ var jindowin = {
                 hyHtml.push("                                <h4>金融热门股票</h4>");
                 hyHtml.push("                                <div class=\"container hot-stock\">");
                 for (var i = 0; i < resultData.result.stock.length; i++) {
-                    hyHtml.push("                                    <div class=\"col-md-4\">");
-                    hyHtml.push("                                        <div class=\"panel panel-default\">");
-                    hyHtml.push("                                            <div class=\"panel-heading\">" + resultData.result.stock[i].name + "(" + resultData.result.stock[i].code + ")</div>");
-                    hyHtml.push("                                            <div class=\"panel-body\">");
-                    hyHtml.push("                                                <table class=\"table text-left\">");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>查看：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>查看增量：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>搜索：" + resultData.result.stock[i].search_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>搜索增量：" + resultData.result.stock[i].search_percent.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>关注：" + resultData.result.stock[i].follow_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>关注增量：" + resultData.result.stock[i].follow_percent.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                </table>");
-                    hyHtml.push("                                            </div>");
-                    hyHtml.push("                                        </div>");
-                    hyHtml.push("                                    </div>");
+                    hyHtml.push("<div class=\"col-md-4\">");
+                    hyHtml.push("<div class=\"panel panel-default\">");
+                    hyHtml.push("<div class=\"panel-heading\">" + resultData.result.stock[i].name + "(" + resultData.result.stock[i].code + ")</div>");
+                    hyHtml.push("<div class=\"panel-body\">");
+                    hyHtml.push("<table class=\"table text-left\">");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>查看：" + resultData.result.stock[i].visit_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>查看增量：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>搜索：" + resultData.result.stock[i].search_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>搜索增量：" + resultData.result.stock[i].search_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>关注：" + resultData.result.stock[i].follow_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>关注增量：" + resultData.result.stock[i].follow_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("</table>");
+                    hyHtml.push("</div></div></div>");
                 }
-                hyHtml.push("                                </div>");
+                hyHtml.push("</div>");
                 //</editor-fold>
             }
         });
@@ -676,7 +677,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('\n', '') : resultData.result[i].detail).replace('\n', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -758,10 +759,11 @@ var jindowin = {
                             bg: "rgba(238,238,238,0.5)",
                             y: 8
                         });
-                        $(".weibo-share").bind("click", function () {
+                        $(".weibo-share").bind("click", function (e) {
                             newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                            e.stopPropagation();
                         });
-                        $(".tweibo-share").bind("click", function () {
+                        $(".tweibo-share").bind("click", function (e) {
                             newsShare.tencentWeiBoShare({
                                 wb_url: shareUrl,
                                 wb_appkey: '',
@@ -769,8 +771,9 @@ var jindowin = {
                                 wb_pic: '',
                                 wb_site: ''
                             });
+                            e.stopPropagation();
                         });
-                        $(".qqzone-share").bind("click", function () {
+                        $(".qqzone-share").bind("click", function (e) {
                             newsShare.qzoneShare({
                                 url: shareUrl,
                                 desc: shareContent,
@@ -778,6 +781,7 @@ var jindowin = {
                                 title: shareTitle,
                                 site: "筋斗云"
                             });
+                            e.stopPropagation();
                         });
                     });
                 });
@@ -828,27 +832,24 @@ var jindowin = {
                 hyHtml.push("<h4>金融热门股票</h4>");
                 hyHtml.push("<div class=\"container hot-stock\">");
                 for (var i = 0; i < resultData.result.stock.length; i++) {
-                    hyHtml.push("                                    <div class=\"col-lg-4\">");
-                    hyHtml.push("                                        <div class=\"panel panel-default\">");
-                    hyHtml.push("                                            <div class=\"panel-heading\">" + resultData.result.stock[i].name + "(" + resultData.result.stock[i].code + ")</div>");
-                    hyHtml.push("                                            <div class=\"panel-body\">");
-                    hyHtml.push("                                                <table class=\"table text-left\">");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>查看：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>查看增量：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>搜索：" + resultData.result.stock[i].search_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>搜索增量：" + resultData.result.stock[i].search_percent.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                    <tr>");
-                    hyHtml.push("                                                        <td>关注：" + resultData.result.stock[i].follow_add.toPercent() + "</td>");
-                    hyHtml.push("                                                        <td>关注增量：" + resultData.result.stock[i].follow_percent.toPercent() + "</td>");
-                    hyHtml.push("                                                    </tr>");
-                    hyHtml.push("                                                </table>");
-                    hyHtml.push("                                            </div>");
-                    hyHtml.push("                                        </div>");
-                    hyHtml.push("                                    </div>");
+                    hyHtml.push("<div class=\"col-lg-4\">");
+                    hyHtml.push("<div class=\"panel panel-default\">");
+                    hyHtml.push("<div class=\"panel-heading\">" + resultData.result.stock[i].name + "(" + resultData.result.stock[i].code + ")</div>");
+                    hyHtml.push("<div class=\"panel-body\">");
+                    hyHtml.push("<table class=\"table text-left\">");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>查看：" + resultData.result.stock[i].visit_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>查看增量：" + resultData.result.stock[i].visit_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>搜索：" + resultData.result.stock[i].search_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>搜索增量：" + resultData.result.stock[i].search_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("<tr>");
+                    hyHtml.push("<td>关注：" + resultData.result.stock[i].follow_percent.toPercent() + "</td>");
+                    hyHtml.push("<td>关注增量：" + resultData.result.stock[i].follow_add.toPercent() + "</td>");
+                    hyHtml.push("</tr>");
+                    hyHtml.push("</table></div></div></div>");
                 }
                 hyHtml.push("</div>");
                 //</editor-fold>
@@ -883,7 +884,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('\n', '') : resultData.result[i].detail).replace('\n', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -965,10 +966,11 @@ var jindowin = {
                             bg: "rgba(238,238,238,0.5)",
                             y: 8
                         });
-                        $(".weibo-share").bind("click", function () {
+                        $(".weibo-share").bind("click", function (e) {
                             newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                            e.stopPropagation();
                         });
-                        $(".tweibo-share").bind("click", function () {
+                        $(".tweibo-share").bind("click", function (e) {
                             newsShare.tencentWeiBoShare({
                                 wb_url: shareUrl,
                                 wb_appkey: '',
@@ -976,8 +978,9 @@ var jindowin = {
                                 wb_pic: '',
                                 wb_site: ''
                             });
+                            e.stopPropagation();
                         });
-                        $(".qqzone-share").bind("click", function () {
+                        $(".qqzone-share").bind("click", function (e) {
                             newsShare.qzoneShare({
                                 url: shareUrl,
                                 desc: shareContent,
@@ -985,6 +988,7 @@ var jindowin = {
                                 title: shareTitle,
                                 site: "筋斗云"
                             });
+                            e.stopPropagation();
                         });
                     });
                 });
@@ -1029,7 +1033,7 @@ var jindowin = {
                                 stockHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.stock[j]) break;
-                                    stockHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.stock[j].stock_name + "(" + result.stock[j].stock_code + ")','stock')\"><span>" + result.stock[j].stock_name + "(" + result.stock[j].stock_code + ")</span></td>";
+                                    stockHtml += "<tr id='"+result.stock[j].stock_code+"'><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.stock[j].stock_name + "(" + result.stock[j].stock_code + ")','stock')\"><span>" + result.stock[j].stock_name + "(" + result.stock[j].stock_code + ")</span></td>";
                                     stockHtml += "<td><i class='fa fa-plus' data-user-val='" + result.stock[j].stock_code + "' data-user-type='stock'></i></td>";
                                     stockHtml += "</tr>"
                                 }
@@ -1120,7 +1124,7 @@ var jindowin = {
                                 industryHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.industry[j]) break;
-                                    industryHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.industry[j].hy_name + "','industry')\"><span>" + result.industry[j].hy_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.industry[j].hy_name + "' data-user-type='industry'></i></td></tr>";
+                                    industryHtml += "<tr id='" + result.industry[j].hy_name + "'><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.industry[j].hy_name + "','industry')\"><span>" + result.industry[j].hy_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.industry[j].hy_name + "' data-user-type='industry'></i></td></tr>";
                                 }
                                 industryHtml += '</tbody></table></div>';
                             }
@@ -1231,7 +1235,7 @@ var jindowin = {
                                 sectionHtml += ' <div class="col-md-6 ' + (i >= 2 ? "hide" : "") + '"><table class="table table-hover"><tbody>';
                                 for (var j = pageStart; j < pageEnd; j++) {
                                     if (!result.section[j]) break;
-                                    sectionHtml += "<tr><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.section[j].gn_name + "','section')\"><span>" + result.section[j].gn_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.section[j].gn_name + "' data-user-type='section'></i></td></tr>";
+                                    sectionHtml += "<tr id='" + result.section[j].gn_name + "'><td><img src='imgs/icon.png'></td><td onclick=\"jindowin.searchResultShow('" + result.section[j].gn_name + "','section')\"><span>" + result.section[j].gn_name + "</span></td><td><i class='fa fa-plus' data-user-val='" + result.section[j].gn_name + "' data-user-type='section'></i></td></tr>";
                                 }
                                 sectionHtml += '</tbody></table></div>';
                             }
@@ -1715,7 +1719,7 @@ var jindowin = {
      * 绑定我的订阅中的删除事件
      */
     bindSubscribeDel: function () {
-        $("#myNewsHead tbody tr td:last-child i[class='fa fa-times']").on("click", function () {
+        $("#myNewsHead tbody tr td:last-child i[class='fa fa-times']").on("click", function (e) {
             var $this = $(this);
             var dataSetType = $($this).attr("data-set-type");
             var dataSetVal = $($this).attr("data-set-val");
@@ -1741,6 +1745,7 @@ var jindowin = {
                     })
                 }
             });
+            e.stopPropagation();
         })
     },
 
@@ -1748,12 +1753,13 @@ var jindowin = {
      * 绑定我的订阅中的编辑事件
      */
     bindSubscribeEdit: function () {
-        $("#myNewsHead tbody tr td:last-child i[class='fa fa-pencil']").on("click", function () {
+        $("#myNewsHead tbody tr td:last-child i[class='fa fa-pencil']").on("click", function (e) {
             var $this = $(this);
             var dataSetType = $($this).attr("data-set-type");
             var dataSetVal = $($this).attr("data-set-val");
             $("#setting-storage").attr("data-set-type", dataSetType).attr("data-set-val", dataSetVal);
             $("#complete-dialog").modal("show");
+            e.stopPropagation();
         })
     },
 
@@ -1812,7 +1818,10 @@ $.fn.extend({
         });
     }
 });
-$("#create_mynews").bind("click", function () {
+/**
+ * 未登录时创建快讯激活
+ */
+$("#create_mynews").bind("click", function (e) {
     var $this = $(this);
     if ($("#show_sub_info").length > 0) {
         var stime = userSubSetting.startTime;
@@ -1856,41 +1865,47 @@ $("#create_mynews").bind("click", function () {
             $.globalMessenger().post({message: '请输入正确的邮箱地址', type: 'error', showCloseButton: true, hideAfter: 2});
         }
     }
+    e.stopPropagation();
 });
 
 /**
  * 我的快讯-查看所有
  */
-$("#showMyAll").bind("click", function () {
+$("#showMyAll").bind("click", function (e) {
     jindowin.showorhide($(this));
+    e.stopPropagation();
 });
 
 /**
  * 快讯推荐-股票-查看所有
  */
-$("#rec-gp-all").bind("click", function () {
+$("#rec-gp-all").bind("click", function (e) {
     jindowin.showorhide($(this));
+    e.stopPropagation();
 });
 
 /**
  * 快讯行业-股票-查看所有
  */
-$("#rec-hy-all").bind("click", function () {
+$("#rec-hy-all").bind("click", function (e) {
     jindowin.showorhide($(this));
+    e.stopPropagation();
 });
 
 /**
  * 快讯概念-股票-查看所有
  */
-$("#rec-gn-all").bind("click", function () {
+$("#rec-gn-all").bind("click", function (e) {
     jindowin.showorhide($(this));
+    e.stopPropagation();
 });
 
 /**
  * 设置快讯-确定
  */
-$("#settingOk").bind("click", function () {
+$("#settingOk").bind("click", function (e) {
     jindowin.settings();
+    e.stopPropagation();
 });
 
 /**
@@ -1917,59 +1932,54 @@ $("#cbSummary").change(function () {
 /**
  * 搜索框改变事件
  */
-$("#search-input").bind("input propertychange", function () {
+$("#search-input").bind("input propertychange", function (e) {
     if ($(this).val() === "") {
         jindowin.toggleIndexInfo(true);
     }
+    e.stopPropagation();
 });
 
 /**
  * 微信图标点击事件
  */
-$("#wechat").bind("click", function () {
+$("#wechat").bind("click", function (e) {
     var wechatTop = jindowin.docHeight / 2 - 110;
     $("#wechat-dialog").css("top", wechatTop + "px")
     $("#wechat-dialog").modal();
+    e.stopPropagation();
 });
 
 
 /**
  * 显示选项按钮事件
  */
-$(".show-my-setting").bind("click", function () {
+$(".show-my-setting").bind("click", function (e) {
     $("#complete-dialog").modal();
-});
-
-/**
- * 标题内-订阅
- */
-$(".info-subscription").bind("click", function () {
-    if ($(this).html() === "订阅") {
-        $(this).html("已订阅");
-    } else {
-        $(this).html("订阅");
-    }
+    e.stopPropagation();
 });
 
 /**
  * 绑定登录按钮事件
  */
-$("#btn-login").bind("click", function () {
+$("#btn-login").bind("click", function (e) {
     jindowin.userLogin();
+    e.stopPropagation();
 });
 
 /**
  * 绑定注册按钮事件
  */
-$("#btn-register").bind("click", function () {
+$("#btn-register").bind("click", function (e) {
     jindowin.userRegister();
+    e.stopPropagation();
 
 });
 /**
  * 绑定头部登录按钮
  */
-$("#top-user-name").bind("click", function () {
+$("#top-user-name").bind("click", function (e) {
     $("#login-dialog").css("top", jindowin.docHeight / 2 - 165 + "px").modal();
+    e.stopPropagation();
 })
 
 /**
