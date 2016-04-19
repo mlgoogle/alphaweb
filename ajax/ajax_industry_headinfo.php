@@ -2,7 +2,7 @@
 /**
  * Created by Lee.
  * Date: 2016/4/11 0011 14:51
- * Description:行业热门股票
+ * Description:行业\概念热门股票
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
 require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
@@ -12,13 +12,24 @@ if (CheckLogin::check() == -1) {
     return;
 }
 $hyname = isset($_POST['hyname']) ? $_POST['hyname'] : "";
-$url = JindowinConfig::$requireUrl . "message/1/message_hy.fcgi";
-$result = RequestUtil::get($url,
-    array(
-        "user_id" => $_SESSION['user_id'],
-        "token" => $_SESSION["token"],
-        "hy" => $hyname . ","
-    ));
+$gnname = isset($_POST['gnname']) ? $_POST['gnname'] : "";
+$hy_array = array(
+    "user_id" => $_SESSION['user_id'],
+    "token" => $_SESSION["token"],
+    "hy" => $hyname . ","
+);
+$gn_array = array(
+    "user_id" => $_SESSION['user_id'],
+    "token" => $_SESSION["token"],
+    "gn" => $gnname . ","
+);
+$url = JindowinConfig::$requireUrl . "message/1/message_hy_gn.fcgi";
+if (!empty($hyname)) {
+    $result = RequestUtil::get($url, $hy_array);
+} else {
+    $result = RequestUtil::get($url, $gn_array);
+}
+
 $jsonresult = json_decode($result, true);
 
 if ($jsonresult['status'] != "0") {

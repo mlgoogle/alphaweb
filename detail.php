@@ -26,13 +26,11 @@ if ($jsonresult['status'] == "0") {
     return;
 }
 
-//if (empty($jsonresult['result'][0]['detail'])) {
-//    echo("<div class=\"spinner\"><div class=\"double-bounce1\"></div><div class=\"double-bounce2\"></div></div><div class=\"tips\">筋斗云正在帮你跳转到原文</div><style>.spinner{width:60px;height:60px;position:relative;margin:100px auto}.tips{margin:0 auto;width:200px;height:50px;font-family:Microsoft YaHei,arial,sans-serif,\"微软雅黑\";margin-top:-90px;color:#a1a1a1}.double-bounce1,.double-bounce2{width:100%;height:100%;border-radius:50%;background-color:#005cb7;opacity:0.6;position:absolute;top:0;left:0;-webkit-animation:bounce 2.0s infinite ease-in-out;animation:bounce 2.0s infinite ease-in-out}.double-bounce2{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0.0)}50%{-webkit-transform:scale(1.0)}}@keyframes bounce{0%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}50%{transform:scale(1.0);-webkit-transform:scale(1.0)}}</style>");
-//    header("Location: " . $jsonresult['result'][0]['url']);
-//    exit;
-//}
-//echo  $result;
-
+if (empty($jsonresult['result'][0]['detail'])) {
+    echo("<div class=\"spinner\"><div class=\"double-bounce1\"></div><div class=\"double-bounce2\"></div></div><div class=\"tips\">筋斗云正在帮你跳转到原文</div><style>.spinner{width:60px;height:60px;position:relative;margin:100px auto}.tips{margin:0 auto;width:200px;height:50px;font-family:Microsoft YaHei,arial,sans-serif,\"微软雅黑\";margin-top:-90px;color:#a1a1a1}.double-bounce1,.double-bounce2{width:100%;height:100%;border-radius:50%;background-color:#005cb7;opacity:0.6;position:absolute;top:0;left:0;-webkit-animation:bounce 2.0s infinite ease-in-out;animation:bounce 2.0s infinite ease-in-out}.double-bounce2{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0.0)}50%{-webkit-transform:scale(1.0)}}@keyframes bounce{0%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}50%{transform:scale(1.0);-webkit-transform:scale(1.0)}}</style>");
+    echo "<script>window.location.href='" . $jsonresult['result'][0]['url'] . "'</script>";
+    exit;
+}
 $releaseUrl = JindowinConfig::$requireUrl . "news/1/related_news.fcgi";//获取相关联的新闻
 $releaseResult = RequestUtil::get($releaseUrl,
     array(
@@ -121,14 +119,20 @@ $referenceJsonResult = json_decode($referenceResult);
                     </h6>
                     <div class="detail-content">
                         <?php
-                            $detail=$jsonresult['result'][0]['detail'];
-                            if(!empty($detail)){
-                                $detailArray=explode('#$%',$detail);
-                                foreach ($detailArray as $item){
-                                    echo "<p>".preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item))."</p>";
-                                }
+                        $detail = $jsonresult['result'][0]['detail'];
+                        $newHtml = "";
+                        if (!empty($detail)) {
+
+                            $detailArray = explode('#$%', $detail);
+                            foreach ($detailArray as $item) {
+                                $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "</p>";
                             }
-                    ?>
+                            if (strlen($newHtml) > 300) {
+                                $newHtml = substr($newHtml, 0, 300) . "……" . "<a href='" . $jsonresult['result'][0]['url'] . "'>查看详情</a>";
+                            }
+                            echo  $newHtml;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

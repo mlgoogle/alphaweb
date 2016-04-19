@@ -63,8 +63,8 @@ var sinaData = {
  * 新闻分享
  * @type {{weiboShare: newsShare.weiboShare, tencentWeiBoShare: newsShare.tencentWeiBoShare, qzoneShare: newsShare.qzoneShare}}
  */
-var newsShare={
-    weiboShare:function(shareOption){
+var newsShare = {
+    weiboShare: function (shareOption) {
         var defaults = {
             wb_url: '',
             wb_appkey: '',
@@ -77,7 +77,7 @@ var newsShare={
         var openurl = "http://service.weibo.com/share/share.php?url=" + shareOption.wb_url + "&appkey=" + shareOption.wb_appkey + "&title=" + shareOption.wb_title + "&pic=" + shareOption.wb_pic + "&ralateUid=" + shareOption.wb_ralateUid + "&language=" + shareOption.wb_language + "";
         window.open(openurl, "", "height=650,width=450");
     },
-    tencentWeiBoShare:function(shareOption){
+    tencentWeiBoShare: function (shareOption) {
         var defaults = {
             wb_url: '',
             wb_appkey: '',
@@ -86,10 +86,10 @@ var newsShare={
             wb_site: ''
         };
         var shareOption = $.extend(defaults, shareOption);
-        var openurl = 'http://v.t.qq.com/share/share.php?title='+shareOption.wb_title+'&url='+shareOption.wb_url+'&appkey='+shareOption.wb_appkey+'&site='+shareOption.wb_site+'&pic='+shareOption.wb_pic+'';
+        var openurl = 'http://v.t.qq.com/share/share.php?title=' + shareOption.wb_title + '&url=' + shareOption.wb_url + '&appkey=' + shareOption.wb_appkey + '&site=' + shareOption.wb_site + '&pic=' + shareOption.wb_pic + '';
         window.open(openurl, "", "height=650,width=450");
     },
-    qzoneShare:function(shareOption){
+    qzoneShare: function (shareOption) {
         var defaults = {
             url: '',
             showcount: '0',
@@ -99,8 +99,8 @@ var newsShare={
             site: '',
             pics: '',
             style: '201',
-            width:'39',
-            height:'39'
+            width: '39',
+            height: '39'
         };
         var shareOption = $.extend(defaults, shareOption);
         var s = [];
@@ -182,8 +182,8 @@ var jindowin = {
         }
         $("#startTime").html(timeHtml.join(''));
         $("#endTime").html(timeHtml.join(''));
-        $("#endTime").dropdown({ "autoinit": ".select" });
-        $("#startTime").dropdown({ "autoinit": ".select" });
+        $("#endTime").dropdown({"autoinit": ".select"});
+        $("#startTime").dropdown({"autoinit": ".select"});
         $("#receiveTimes").dropdown();
     },
 
@@ -234,7 +234,7 @@ var jindowin = {
         var stime = parseInt($("#startTime").val()) * 60;
         var etime = parseInt($("#endTime").val()) * 60;
         if (stime > etime) {
-            $.globalMessenger().post({ message: '开始时间不能大于结束时间', type: 'error', showCloseButton: true, hideAfter: 2 });
+            $.globalMessenger().post({message: '开始时间不能大于结束时间', type: 'error', showCloseButton: true, hideAfter: 2});
             return;
         }
         var timeinval = $("#receiveTimes").val();
@@ -247,9 +247,14 @@ var jindowin = {
         } else {
             jindowin.addSubscribe(stime, etime, timeinval, setType === "stock" ? setValue : "", setType === "industry" ? setValue : "", setType === "section" ? setValue : "", null, function (settingResult) {
                 if (settingResult.status === 1) {
-                    $.globalMessenger().post({ message: '接收订阅设置成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                    $.globalMessenger().post({
+                        message: '接收订阅设置成功',
+                        type: 'success',
+                        showCloseButton: true,
+                        hideAfter: 2
+                    });
                 } else {
-                    $.globalMessenger().post({ message: '接收订阅设置异常', type: 'error', showCloseButton: true, hideAfter: 2 });
+                    $.globalMessenger().post({message: '接收订阅设置异常', type: 'error', showCloseButton: true, hideAfter: 2});
                 }
             });
         }
@@ -288,7 +293,7 @@ var jindowin = {
     toggleIndexInfo: function (show) {
         if (show) {
             $("#setting-storage").attr("data-set-type", "all").attr("data-set-val", "");
-            $("#create_mynews").attr("data-user-val","").attr("data-user-type","");
+            $("#create_mynews").attr("data-user-val", "").attr("data-user-type", "");
             $(".mynews").removeClass("hide");
             $(".recommendnews").removeClass("hide");
             $(".settingnews").addClass("hide");
@@ -460,7 +465,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%','') : resultData.result[i].detail).replace('#$%','') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -485,17 +490,17 @@ var jindowin = {
                     var showResult = "";
                     if (diff > 0) {
                         showResult = "¥" + resultSinaData.currentmoney + "<span style='font-size: 12px;padding-left: 15px'>+" + diff.toFixed(2) + "&nbsp;&nbsp;(+" + (diff / resultSinaData.yesterdayclose * 100).toFixed(2) + "%)</span>";
-                        $(".stock-money").html(showResult).css({ color: "#d32f2f" });
+                        $(".stock-money").html(showResult).css({color: "#d32f2f"});
                     } else {
                         showResult = "¥" + resultSinaData.currentmoney + "<span style='font-size: 12px;padding-left: 15px'>" + diff.toFixed(2) + "&nbsp;&nbsp;(" + (diff / resultSinaData.yesterdayclose * 100).toFixed(2) + "%)</span>";
-                        $(".stock-money").html(showResult).css({ color: "#249587" });
+                        $(".stock-money").html(showResult).css({color: "#249587"});
                     }
                 });
                 $("img").one("error", function () {
                     $(this).attr("src", "imgs/news_default_1.png");
                 });
                 $("#stock_emotion").bind("mouseenter", function () {
-                    jindowin.showTips($(this), { msg: emotionTips, side: 3, time: 1 });
+                    jindowin.showTips($(this), {msg: emotionTips, side: 3, time: 1});
                 });
                 $(".list-news-bottom .text-right .look-up").each(function () {
                     var $this = $(this);
@@ -523,24 +528,49 @@ var jindowin = {
                 });
                 $(".list-news-bottom .text-right .transmit-news").each(function () {
                     var $this = $(this);
-                    var newsId=$($this).attr("data-set-id");
-                    var newsDate=$($this).attr("data-set-date");
-                    var shareUrl=location.host+"/detail?id="+newsId+"&date="+newsDate;
-                    var shareTitle=$("#"+newsId).find("h4").html();
-                    var shareContent=$("#"+newsId).find(".list-news-content>p").html();
-                    if(shareContent&&shareContent!==""){
-                        if(shareContent.length>=120){
-                            shareContent=shareContent.substring(0,120);
+                    var newsId = $($this).attr("data-set-id");
+                    var newsDate = $($this).attr("data-set-date");
+                    var shareUrl = location.host + "/detail?id=" + newsId + "&date=" + newsDate;
+                    var shareTitle = $("#" + newsId).find("h4").html();
+                    var shareContent = $("#" + newsId).find(".list-news-content>p").html();
+                    if (shareContent && shareContent !== "") {
+                        if (shareContent.length >= 120) {
+                            shareContent = shareContent.substring(0, 120);
                         }
-                    }else{
-                        shareContent=shareTitle;
+                    } else {
+                        shareContent = shareTitle;
                     }
-                    var shareTips="<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
-                    $($this).click(function(){
-                        $($this).tips({ msg:shareTips, side: 3, time:1, color:"#999", bg:"rgba(238,238,238,0.5)", y:8 });
-                        $(".weibo-share").bind("click",function(){ newsShare.weiboShare({ wb_url:shareUrl, wb_appkey:"129266167", wb_title:shareTitle }); });
-                        $(".tweibo-share").bind("click",function(){ newsShare.tencentWeiBoShare({ wb_url: shareUrl, wb_appkey: '', wb_title: shareTitle, wb_pic: '', wb_site: '' }); });
-                        $(".qqzone-share").bind("click",function(){ newsShare.qzoneShare({ url:shareUrl, desc:shareContent, summary:shareContent, title:shareTitle, site:"筋斗云" }); });
+                    var shareTips = "<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
+                    $($this).click(function () {
+                        $($this).tips({
+                            msg: shareTips,
+                            side: 3,
+                            time: 1,
+                            color: "#999",
+                            bg: "rgba(238,238,238,0.5)",
+                            y: 8
+                        });
+                        $(".weibo-share").bind("click", function () {
+                            newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                        });
+                        $(".tweibo-share").bind("click", function () {
+                            newsShare.tencentWeiBoShare({
+                                wb_url: shareUrl,
+                                wb_appkey: '',
+                                wb_title: shareTitle,
+                                wb_pic: '',
+                                wb_site: ''
+                            });
+                        });
+                        $(".qqzone-share").bind("click", function () {
+                            newsShare.qzoneShare({
+                                url: shareUrl,
+                                desc: shareContent,
+                                summary: shareContent,
+                                title: shareTitle,
+                                site: "筋斗云"
+                            });
+                        });
                     });
                 });
             }
@@ -560,7 +590,7 @@ var jindowin = {
 
         jindowin.getIndexIndustryHeadInfo(name, function () {
         }, function (resultData) {
-            if(resultData.status===1){
+            if (resultData.status === 1) {
                 hyHtml.push("<div class=\"container\">");
                 hyHtml.push("  <div class=\"col-md-2\">");
                 hyHtml.push("       <h3 style=\"font-weight: 600;\">" + name + "</h3>");
@@ -646,7 +676,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%','') : resultData.result[i].detail).replace('#$%','') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -678,7 +708,7 @@ var jindowin = {
                     $(this).attr("src", "imgs/news_default_2.png");
                 });
                 $("#industry_emotion").bind("mouseenter", function () {
-                    jindowin.showTips($(this), { msg: emotionTips, side: 2, time: 1 });
+                    jindowin.showTips($(this), {msg: emotionTips, side: 2, time: 1});
                 });
                 $(".list-news-bottom .text-right .look-up").each(function () {
                     var $this = $(this);
@@ -706,24 +736,49 @@ var jindowin = {
                 });
                 $(".list-news-bottom .text-right .transmit-news").each(function () {
                     var $this = $(this);
-                    var newsId=$($this).attr("data-set-id");
-                    var newsDate=$($this).attr("data-set-date");
-                    var shareUrl=location.host+"/detail?id="+newsId+"&date="+newsDate;
-                    var shareTitle=$("#"+newsId).find("h4").html();
-                    var shareContent=$("#"+newsId).find(".list-news-content>p").html();
-                    if(shareContent&&shareContent!==""){
-                        if(shareContent.length>=120){
-                            shareContent=shareContent.substring(0,120);
+                    var newsId = $($this).attr("data-set-id");
+                    var newsDate = $($this).attr("data-set-date");
+                    var shareUrl = location.host + "/detail?id=" + newsId + "&date=" + newsDate;
+                    var shareTitle = $("#" + newsId).find("h4").html();
+                    var shareContent = $("#" + newsId).find(".list-news-content>p").html();
+                    if (shareContent && shareContent !== "") {
+                        if (shareContent.length >= 120) {
+                            shareContent = shareContent.substring(0, 120);
                         }
-                    }else{
-                        shareContent=shareTitle;
+                    } else {
+                        shareContent = shareTitle;
                     }
-                    var shareTips="<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
-                    $($this).click(function(){
-                        $($this).tips({ msg:shareTips, side: 3, time:1, color:"#999", bg:"rgba(238,238,238,0.5)", y:8 });
-                        $(".weibo-share").bind("click",function(){ newsShare.weiboShare({ wb_url:shareUrl, wb_appkey:"129266167", wb_title:shareTitle }); });
-                        $(".tweibo-share").bind("click",function(){ newsShare.tencentWeiBoShare({ wb_url: shareUrl, wb_appkey: '', wb_title: shareTitle, wb_pic: '', wb_site: '' }); });
-                        $(".qqzone-share").bind("click",function(){ newsShare.qzoneShare({ url:shareUrl, desc:shareContent, summary:shareContent, title:shareTitle, site:"筋斗云" }); });
+                    var shareTips = "<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
+                    $($this).click(function () {
+                        $($this).tips({
+                            msg: shareTips,
+                            side: 3,
+                            time: 1,
+                            color: "#999",
+                            bg: "rgba(238,238,238,0.5)",
+                            y: 8
+                        });
+                        $(".weibo-share").bind("click", function () {
+                            newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                        });
+                        $(".tweibo-share").bind("click", function () {
+                            newsShare.tencentWeiBoShare({
+                                wb_url: shareUrl,
+                                wb_appkey: '',
+                                wb_title: shareTitle,
+                                wb_pic: '',
+                                wb_site: ''
+                            });
+                        });
+                        $(".qqzone-share").bind("click", function () {
+                            newsShare.qzoneShare({
+                                url: shareUrl,
+                                desc: shareContent,
+                                summary: shareContent,
+                                title: shareTitle,
+                                site: "筋斗云"
+                            });
+                        });
                     });
                 });
             }
@@ -741,8 +796,7 @@ var jindowin = {
         hyHtml.push("<div class=\"gn-infos\">");
         hyHtml.push("<div class=\"gn-hotstock\">");
 
-        jindowin.getIndexIndustryHeadInfo(name, function () {
-        }, function (resultData) {
+        jindowin.getIndexSectionHeadInfo(name,null,function (resultData) {
             if (resultData.status === 1) {
                 hyHtml.push("<div class=\"container\">");
                 hyHtml.push("  <div class=\"col-md-2\">");
@@ -829,7 +883,7 @@ var jindowin = {
                         html.push("</div>");
                         html.push("<div class=\"list-news-content\">");
                         if (resultData.result[i].detail.length > 0) {
-                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%','') : resultData.result[i].detail).replace('#$%','') + "");
+                            html.push("<p>" + (resultData.result[i].detail.length > 120 ? resultData.result[i].detail.substr(0, 100).replace('#$%', '') : resultData.result[i].detail).replace('#$%', '') + "");
                             html.push("……<a href='detail.php?id=" + resultData.result[i].id + "&date=" + resultData.result[i].time + "' target='_blank'><i class='fa fa-link text-info'></i>详情</a></p>");
                         }
                         html.push("</div>");
@@ -860,8 +914,8 @@ var jindowin = {
                 $("img").one("error", function () {
                     $(this).attr("src", "imgs/news_default_2.png");
                 });
-                $("#industry_emotion").bind("mouseenter", function () {
-                    jindowin.showTips($(this), { msg: emotionTips, side: 2, time: 1 });
+                $("#section_emotion").bind("mouseenter", function () {
+                    jindowin.showTips($(this), {msg: emotionTips, side: 2, time: 1});
                 });
                 $(".list-news-bottom .text-right .look-up").each(function () {
                     var $this = $(this);
@@ -889,24 +943,49 @@ var jindowin = {
                 });
                 $(".list-news-bottom .text-right .transmit-news").each(function () {
                     var $this = $(this);
-                    var newsId=$($this).attr("data-set-id");
-                    var newsDate=$($this).attr("data-set-date");
-                    var shareUrl=location.host+"/detail?id="+newsId+"&date="+newsDate;
-                    var shareTitle=$("#"+newsId).find("h4").html();
-                    var shareContent=$("#"+newsId).find(".list-news-content>p").html();
-                    if(shareContent&&shareContent!==""){
-                        if(shareContent.length>=120){
-                            shareContent=shareContent.substring(0,120);
+                    var newsId = $($this).attr("data-set-id");
+                    var newsDate = $($this).attr("data-set-date");
+                    var shareUrl = location.host + "/detail?id=" + newsId + "&date=" + newsDate;
+                    var shareTitle = $("#" + newsId).find("h4").html();
+                    var shareContent = $("#" + newsId).find(".list-news-content>p").html();
+                    if (shareContent && shareContent !== "") {
+                        if (shareContent.length >= 120) {
+                            shareContent = shareContent.substring(0, 120);
                         }
-                    }else{
-                        shareContent=shareTitle;
+                    } else {
+                        shareContent = shareTitle;
                     }
-                    var shareTips="<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
-                    $($this).click(function(){
-                        $($this).tips({ msg:shareTips, side: 3, time:1, color:"#999", bg:"rgba(238,238,238,0.5)", y:8 });
-                        $(".weibo-share").bind("click",function(){ newsShare.weiboShare({ wb_url:shareUrl, wb_appkey:"129266167", wb_title:shareTitle }); });
-                        $(".tweibo-share").bind("click",function(){ newsShare.tencentWeiBoShare({ wb_url: shareUrl, wb_appkey: '', wb_title: shareTitle, wb_pic: '', wb_site: '' }); });
-                        $(".qqzone-share").bind("click",function(){ newsShare.qzoneShare({ url:shareUrl, desc:shareContent, summary:shareContent, title:shareTitle, site:"筋斗云" }); });
+                    var shareTips = "<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
+                    $($this).click(function () {
+                        $($this).tips({
+                            msg: shareTips,
+                            side: 3,
+                            time: 1,
+                            color: "#999",
+                            bg: "rgba(238,238,238,0.5)",
+                            y: 8
+                        });
+                        $(".weibo-share").bind("click", function () {
+                            newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+                        });
+                        $(".tweibo-share").bind("click", function () {
+                            newsShare.tencentWeiBoShare({
+                                wb_url: shareUrl,
+                                wb_appkey: '',
+                                wb_title: shareTitle,
+                                wb_pic: '',
+                                wb_site: ''
+                            });
+                        });
+                        $(".qqzone-share").bind("click", function () {
+                            newsShare.qzoneShare({
+                                url: shareUrl,
+                                desc: shareContent,
+                                summary: shareContent,
+                                title: shareTitle,
+                                site: "筋斗云"
+                            });
+                        });
                     });
                 });
             }
@@ -977,7 +1056,19 @@ var jindowin = {
      * @param backFn
      */
     getIndexStockHeadInfo: function (stockcode, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_stock_headinfo.php", dataType: "json", type: "post", async: false, data: { stockcode: stockcode }, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_stock_headinfo.php",
+            dataType: "json",
+            type: "post",
+            async: false,
+            data: {stockcode: stockcode},
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
 
     /**
@@ -987,7 +1078,18 @@ var jindowin = {
      * @param backFn
      */
     getIndexStockDetail: function (name, page, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_get_news.php", dataType: "json", type: "post", data: { stock_code: name, news_type: 1, page: page }, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_get_news.php",
+            dataType: "json",
+            type: "post",
+            data: {stock_code: name, news_type: 1, page: page},
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
 
     /**
@@ -1043,7 +1145,19 @@ var jindowin = {
      * @param backFn
      */
     getIndexIndustryHeadInfo: function (name, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_industry_headinfo.php", dataType: "json", type: "post", async: false, data: { section: name }, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_industry_headinfo.php",
+            dataType: "json",
+            type: "post",
+            async: false,
+            data: {hyname: name},
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
 
     /**
@@ -1054,9 +1168,41 @@ var jindowin = {
      * @param backFn   请求完成执行函数
      */
     getIndexIndustryDetail: function (name, page, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_get_news.php", dataType: "json", type: "post", data: { hy_name: name, news_type: 2, page: page }, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_get_news.php",
+            dataType: "json",
+            type: "post",
+            data: {hy_name: name, news_type: 2, page: page},
+            beforeSend: function () {
+                beforeFn && beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
-
+    /**
+     * 概念-热门股票
+     * @param name
+     * @param page
+     * @param beforeFn
+     * @param backFn
+     */
+    getIndexSectionHeadInfo: function (name, beforeFn, backFn) {
+        $.ajax({
+            url: "ajax/ajax_industry_headinfo.php",
+            dataType: "json",
+            type: "post",
+            async: false,
+            data: {gnname: name},
+            beforeSend: function () {
+                beforeFn && beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
+    },
     /**
      * 获取首页推荐概念
      */
@@ -1111,7 +1257,18 @@ var jindowin = {
      * @param backFn
      */
     getIndexSectionDetail: function (name, page, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_get_news.php", dataType: "json", type: "post", data: {section:name, news_type: 3, page: page }, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_get_news.php",
+            dataType: "json",
+            type: "post",
+            data: {section: name, news_type: 3, page: page},
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
 
     /**
@@ -1135,7 +1292,12 @@ var jindowin = {
                             $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
                             $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
                             jindowin.getMyNewsCount();
-                            $.globalMessenger().post({ message: '取消订阅【股票】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '取消订阅【股票】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                         }
                     });
                     return;
@@ -1162,7 +1324,12 @@ var jindowin = {
                             } else {
                                 $("#myNewsHead tbody tr:first-child").before(html.join(''));
                             }
-                            $.globalMessenger().post({ message: '订阅【股票】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '订阅【股票】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                             jindowin.checkOrNot($($this));
                             jindowin.getMyNewsCount();
                             jindowin.bindSubscribeDel();
@@ -1196,7 +1363,12 @@ var jindowin = {
                             $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
                             $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
                             jindowin.getMyNewsCount();
-                            $.globalMessenger().post({ message: '取消订阅【行业】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '取消订阅【行业】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                         }
                     });
                     return;
@@ -1227,7 +1399,12 @@ var jindowin = {
                             jindowin.getMyNewsCount();
                             jindowin.bindSubscribeDel();
                             jindowin.bindSubscribeEdit();
-                            $.globalMessenger().post({ message: '订阅【行业】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '订阅【行业】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                         }
                     });
                     return;
@@ -1257,7 +1434,12 @@ var jindowin = {
                             $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
                             $("#myNewsHead").find("i[data-set-val='" + $($this).attr("data-user-val") + "']").parent().parent().remove();
                             jindowin.getMyNewsCount();
-                            $.globalMessenger().post({ message: '取消订阅【概念】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '取消订阅【概念】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                         }
                     });
                     return;
@@ -1288,7 +1470,12 @@ var jindowin = {
                             jindowin.getMyNewsCount();
                             jindowin.bindSubscribeDel();
                             jindowin.bindSubscribeEdit();
-                            $.globalMessenger().post({ message: '订阅【概念】【' + $($this).parent().prev().html() + '】成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                            $.globalMessenger().post({
+                                message: '订阅【概念】【' + $($this).parent().prev().html() + '】成功',
+                                type: 'success',
+                                showCloseButton: true,
+                                hideAfter: 2
+                            });
                         }
                     });
                     return;
@@ -1309,12 +1496,17 @@ var jindowin = {
             dataType: "json",
             type: "post",
             cache: false,
-            data: { user_name: userEmail, password: userPwd, autologin: autoLogin, user_type: 1 },
+            data: {user_name: userEmail, password: userPwd, autologin: autoLogin, user_type: 1},
             beforeSend: function () {
             },
             success: function (resultData) {
                 if (resultData.status !== 1) {
-                    $.globalMessenger().post({ message: resultData.result, type: 'error', showCloseButton: true, hideAfter: 3 });
+                    $.globalMessenger().post({
+                        message: resultData.result,
+                        type: 'error',
+                        showCloseButton: true,
+                        hideAfter: 3
+                    });
                 } else {
                     $("#login-dialog").modal("hide");
                     // $("#top-user-name").html(resultData.result.user_name);
@@ -1334,21 +1526,27 @@ var jindowin = {
         var userPwd1 = $("#register-pwd-1").val();
         var userPwd2 = $("#register-pwd-2").val();
         if (userPwd1 !== userPwd2) {
-            $.globalMessenger().post({ message: '两次密码不同', type: 'error', showCloseButton: true, hideAfter: 2 }); return;
+            $.globalMessenger().post({message: '两次密码不同', type: 'error', showCloseButton: true, hideAfter: 2});
+            return;
         }
         $.ajax({
             url: "ajax/ajax_user_register.php",
             dataType: "json",
             type: "post",
-            data: { username: userEmail, password1: userPwd1, password2: userPwd2 },
+            data: {username: userEmail, password1: userPwd1, password2: userPwd2},
             beforeSend: function () {
             },
             success: function (result) {
                 if (result.status === 1) {
-                    $.globalMessenger().post({ message: '注册成功', type: 'success', showCloseButton: true, hideAfter: 2 });
+                    $.globalMessenger().post({message: '注册成功', type: 'success', showCloseButton: true, hideAfter: 2});
                     window.location.reload();
-                }else{
-                    $.globalMessenger().post({ message: result.result, type: 'success', showCloseButton: true, hideAfter: 2 });
+                } else {
+                    $.globalMessenger().post({
+                        message: result.result,
+                        type: 'success',
+                        showCloseButton: true,
+                        hideAfter: 2
+                    });
                 }
             }
         })
@@ -1372,8 +1570,27 @@ var jindowin = {
      * @param industry  关注的行业信息
      */
     addSubscribe: function (stime, etime, timeinval, stockcode, industry, section, beforeFn, backFn) {
-        var submitData = { start_time: stime, end_time: etime, time_inval: timeinval, stock_code: stockcode, section: section, industry: industry };
-        $.ajax({ url: "ajax/ajax_add_subscribe.php", dataType: "json", type: "post",cache:false, data: submitData, beforeSend: function () { beforeFn && beforeFn(); }, success: function (result) { backFn && backFn(result); } });
+        var submitData = {
+            start_time: stime,
+            end_time: etime,
+            time_inval: timeinval,
+            stock_code: stockcode,
+            section: section,
+            industry: industry
+        };
+        $.ajax({
+            url: "ajax/ajax_add_subscribe.php",
+            dataType: "json",
+            type: "post",
+            cache: false,
+            data: submitData,
+            beforeSend: function () {
+                beforeFn && beforeFn();
+            },
+            success: function (result) {
+                backFn && backFn(result);
+            }
+        });
     },
 
     /**
@@ -1383,9 +1600,31 @@ var jindowin = {
      * @param industry  关注的行业信息
      */
     delSubscribe: function (deltype, delval, beforeFn, backFn) {
-        var submitData = { stock_code: "", industry: "", section: "" };
-        switch (deltype) { case "stock": submitData.stock_code = delval; break; case "industry": submitData.industry = delval; break; case "section": submitData.section = delval; break; }
-        $.ajax({ url: "ajax/ajax_delete_subscribe.php", dataType: "json", type: "post",cache:false, data: submitData, beforeSend: function () { beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        var submitData = {stock_code: "", industry: "", section: ""};
+        switch (deltype) {
+            case "stock":
+                submitData.stock_code = delval;
+                break;
+            case "industry":
+                submitData.industry = delval;
+                break;
+            case "section":
+                submitData.section = delval;
+                break;
+        }
+        $.ajax({
+            url: "ajax/ajax_delete_subscribe.php",
+            dataType: "json",
+            type: "post",
+            cache: false,
+            data: submitData,
+            beforeSend: function () {
+                beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     },
 
     /**
@@ -1485,7 +1724,7 @@ var jindowin = {
             }, function (resultData) {
                 $($this).removeClass("fa-spin");
                 if (resultData.status === -1) {
-                    $("#login-dialog").modal({ backdrop: 'static', keyboard: false });
+                    $("#login-dialog").modal({backdrop: 'static', keyboard: false});
                     return;
                 }
                 if (resultData.status === 1) {
@@ -1493,7 +1732,12 @@ var jindowin = {
                         $("#myNewsHead tbody").find("tr").eq(5).removeClass("hide");
                         $(this).remove();
                         jindowin.getMyNewsCount();
-                        $.globalMessenger().post({ message: '订阅【' + $($this).parent().prev().find("a").html() + '】已删除.', type: 'success', showCloseButton: true, hideAfter: 2 });
+                        $.globalMessenger().post({
+                            message: '订阅【' + $($this).parent().prev().find("a").html() + '】已删除.',
+                            type: 'success',
+                            showCloseButton: true,
+                            hideAfter: 2
+                        });
                     })
                 }
             });
@@ -1539,7 +1783,19 @@ var jindowin = {
      * @param backFn
      */
     lookUpAndDown: function (newsid, newsdate, types, beforeFn, backFn) {
-        $.ajax({ url: "ajax/ajax_set_news.php", dataType: "json", type: "post",cache:false,data: { news_id: newsid, newsdate: newsdate, commit_type: types }, beforeSend: function () { beforeFn && beforeFn(); }, success: function (resultData) { backFn && backFn(resultData); } });
+        $.ajax({
+            url: "ajax/ajax_set_news.php",
+            dataType: "json",
+            type: "post",
+            cache: false,
+            data: {news_id: newsid, newsdate: newsdate, commit_type: types},
+            beforeSend: function () {
+                beforeFn && beforeFn();
+            },
+            success: function (resultData) {
+                backFn && backFn(resultData);
+            }
+        });
     }
 }
 
@@ -1556,23 +1812,23 @@ $.fn.extend({
         });
     }
 });
-$("#create_mynews").bind("click",function(){
-    var $this=$(this);
+$("#create_mynews").bind("click", function () {
+    var $this = $(this);
     if ($("#show_sub_info").length > 0) {
-        var stime=userSubSetting.startTime;
-        var etime=userSubSetting.endTime;
-        var timeinval=userSubSetting.timeinval;
-        var dataType=$this.attr("data-user-type");
-        var dataValue=$this.attr("data-user-val");
+        var stime = userSubSetting.startTime;
+        var etime = userSubSetting.endTime;
+        var timeinval = userSubSetting.timeinval;
+        var dataType = $this.attr("data-user-type");
+        var dataValue = $this.attr("data-user-val");
 
-        jindowin.addSubscribe(stime,etime,timeinval,dataType==="stock"?dataValue.substring(dataValue.indexOf("(") + 1, dataValue.indexOf(")")):"",dataType==="industry"?dataValue:"",dataType==="section"?dataValue:"", null, function (subResult) {
+        jindowin.addSubscribe(stime, etime, timeinval, dataType === "stock" ? dataValue.substring(dataValue.indexOf("(") + 1, dataValue.indexOf(")")) : "", dataType === "industry" ? dataValue : "", dataType === "section" ? dataValue : "", null, function (subResult) {
             if (subResult.status === 1) {
                 var html = [];
                 html.push("<tr>");
-                html.push("<td><a onclick=\"jindowin.searchResultShow('" + dataValue + "','"+dataType+"')\">" + dataValue + "</a></td>");
+                html.push("<td><a onclick=\"jindowin.searchResultShow('" + dataValue + "','" + dataType + "')\">" + dataValue + "</a></td>");
                 html.push("<td class=\"text-right\">");
-                html.push("<i class=\"fa fa-pencil\" data-set-type='"+dataType+"' data-set-val='" + dataValue + "'></i>");
-                html.push("<i class=\"fa fa-times\" data-set-type='"+dataType+"' data-set-val='" + dataValue + "'></i>");
+                html.push("<i class=\"fa fa-pencil\" data-set-type='" + dataType + "' data-set-val='" + dataValue + "'></i>");
+                html.push("<i class=\"fa fa-times\" data-set-type='" + dataType + "' data-set-val='" + dataValue + "'></i>");
                 html.push("</td>");
                 html.push("</tr>");
                 if ($("#myNewsHead tbody tr").length === 0) {
@@ -1583,16 +1839,21 @@ $("#create_mynews").bind("click",function(){
                 jindowin.getMyNewsCount();
                 jindowin.bindSubscribeDel();
                 jindowin.toggleIndexInfo(true);
-            }else{
-                $.globalMessenger().post({ message: '已创建该快讯订阅', type: 'error', showCloseButton: true, hideAfter: 2 });
+            } else {
+                $.globalMessenger().post({message: '已创建该快讯订阅', type: 'error', showCloseButton: true, hideAfter: 2});
             }
         });
     } else {
         var receiveEmail = $("#receive_email").val();
         if (receiveEmail !== "" && Util.regEmail(receiveEmail)) {
-            $.globalMessenger().post({ message: '订阅信息已发送至您的邮箱【' + receiveEmail + '】', type: 'success', showCloseButton: true, hideAfter: 5 });
+            $.globalMessenger().post({
+                message: '订阅信息已发送至您的邮箱【' + receiveEmail + '】',
+                type: 'success',
+                showCloseButton: true,
+                hideAfter: 5
+            });
         } else {
-            $.globalMessenger().post({ message: '请输入正确的邮箱地址', type: 'error', showCloseButton: true, hideAfter: 2 });
+            $.globalMessenger().post({message: '请输入正确的邮箱地址', type: 'error', showCloseButton: true, hideAfter: 2});
         }
     }
 });
@@ -1725,10 +1986,10 @@ $("#search-input").typeahead({
     dynamic: true,
     emptyTemplate: '未找到 "{{query}}" 的相关信息',
     source: {
-        "股票": { url: ["ajax/ajax_search.php?message={{query}},", "stock"] },
-        "行业": { url: ["ajax/ajax_search.php?message={{query}},", "hy"] },
-        "概念": { url: ["ajax/ajax_search.php?message={{query}},", "gn"] },
-        "热点事件": { url: ["ajax/ajax_search.php?message={{query}},", "rd"] }
+        "股票": {url: ["ajax/ajax_search.php?message={{query}},", "stock"]},
+        "行业": {url: ["ajax/ajax_search.php?message={{query}},", "hy"]},
+        "概念": {url: ["ajax/ajax_search.php?message={{query}},", "gn"]},
+        "热点事件": {url: ["ajax/ajax_search.php?message={{query}},", "rd"]}
     },
     callback: {
         onClickAfter: function (node, a, item) {
@@ -1760,16 +2021,16 @@ Number.prototype.toPercent = function () {
  * 数字转换成xx万/xx千万/xx亿格式
  * @returns {string}
  */
-Number.prototype.toNewNumber=function(){
-    if(typeof(this) !== "undefined"){
-        if(this>10000&&this<10000000){
-            return (this/10000).toFixed(2)+"万";
+Number.prototype.toNewNumber = function () {
+    if (typeof(this) !== "undefined") {
+        if (this > 10000 && this < 10000000) {
+            return (this / 10000).toFixed(2) + "万";
         }
-        if(this>10000000&&this<100000000){
-            return (this/10000000).toFixed(2)+"千万";
+        if (this > 10000000 && this < 100000000) {
+            return (this / 10000000).toFixed(2) + "千万";
         }
-        if(this>100000000){
-            return (this/100000000).toFixed(2)+"亿";
+        if (this > 100000000) {
+            return (this / 100000000).toFixed(2) + "亿";
         }
     }
     return this.toString();
@@ -1779,7 +2040,7 @@ Number.prototype.toNewNumber=function(){
  * @returns {string}
  */
 String.prototype.toStockCode = function () {
-    if(this){
+    if (this) {
         var sub = this.toString().substr(0, 1);
         if (sub === "5" || sub == "6") {
             return "sh" + this;

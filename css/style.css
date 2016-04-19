@@ -98,7 +98,16 @@ footer > div { cursor: pointer; color: lightgray; }
 .hy-hotstock .container h4{padding-left: 0;}
 .stock-money{font-weight: 600;}
 
-
+.gn-hotstock table>tbody>tr>td{border: none;}
+.gn-hotstock hr{margin: 0;}
+.gn-hotstock .container{padding-left: 0;}
+.gn-hotstock .container .col-md-1{padding-left: 0;padding-right: 0;}
+.gn-hotstock .container .col-md-4{padding: 5px 10px 5px 10px;}
+.gn-hotstock .container .col-md-3:first-child{padding-left: 0;padding-right: 0;}
+.gn-hotstock .container .col-md-2:last-child{padding-left: 0;padding-right: 0;margin-top: 5px;}
+.gn-hotstock .container .col-md-2:first-child{padding-left: 0;padding-right: 0;}
+.gn-hotstock .container .col-md-2.text-right h5{margin-top: 25px;}
+.gn-hotstock .container h4{padding-left: 0;}
 
 /*详情中的新闻列表*/
 .list-news-top h4{color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
