@@ -3,38 +3,36 @@
 <head>
     <title>快讯</title>
     <meta charset="utf-8">
-    <meta property="wb:webmaster" content="2a4447f19ff23d2f" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        html,body{padding: 0;margin: 0;}
+        html,body{padding: 0;margin: 0;background-color: #f6f7f9;}
         a{color: #1347b3;cursor: pointer;}
-        .container,.email-head,.email-info,.welcome{font-family: "microsoft yahei", sans-serif;color: #474747;}
+        .container,.email-head,.email-info,.welcome{font-family: "microsoft yahei", sans-serif;color: #474747;background-color: #FFFFFF;}
         .container{
             width: 680px;
             height: 582px;
-            margin: 200px auto 0;
+            margin: 0 auto;
             -webkit-box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2),0 8px 8px 0 rgba(0,0,0,0.19);
             box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2),0 8px 8px 0 rgba(0,0,0,0.19);
             border-radius: 1px;
             border: 0;
         }
-        .email-head{background: url("imgs/header2.png");  height: 88px;}
-        .content{ width: 596px; height: 437px;padding: 0 42px 0 42px;}
+        .email-head{background: url("http://jindowin.iwookong.com/imgs/header2.gif");  height: 88px;}
+        .content{ width: 596px; height: 437px;padding: 0 42px 0 42px;position: relative;}
         .top-hr{height: 1px;border: none;border-top: 1px solid #eeeeee;margin: 42px 42px 15px 42px;}
         .welcome{font-size: 18px;}
         .email-info{margin-top: 45px;font-size: 14px;text-align:justify; text-justify:inter-ideograph;}
         .active{margin-top: 45px;font-size: 14px;}
         .info{margin-top: 45px;}
         .info p{margin: 5px 0;font-size: 14px;}
-        .left-pic{float: left;margin-top: 60px; margin-left: -40px;}
-        .right-pic{float: right;margin-top: 52px;margin-right: -42px;}
+        .left-pic{position: absolute;left: 2px;bottom:0;}
+        .right-pic{position: absolute;right: 2px;bottom:0;}
     </style>
 </head>
 <body>
 <!--主体内容-->
-<div class="container">
-<div class="email-head"></div>
+<div class="container" id="container">
+    <div class="email-head"></div>
     <hr class="top-hr">
     <div class="content">
         <span class="welcome">欢迎!</span>
@@ -50,12 +48,17 @@
             <p><a href="http://jindowin.iwookong.com">http://jindowin.iwookong.com</a></p>
         </div>
         <div class="left-pic">
-            <img src="imgs/cloud1.png" style="width: 152px;height: 83px;">
+            <img src="http://jindowin.iwookong.com/imgs/cloud1.png" style="width: 152px;height: 83px;">
         </div>
         <div class="right-pic">
-            <img src="imgs/cloud2.png" style="width: 125px;height: 93px;">
+            <img src="http://jindowin.iwookong.com/imgs/cloud2.png" style="width: 125px;height: 93px;">
         </div>
     </div>
 </div>
 </body>
+<script>
+    var con=document.getElementById("container");
+    var height=window.innerHeight/2-291;
+    con.style.cssText = "margin-top:"+height+"px;";
+</script>
 </html>

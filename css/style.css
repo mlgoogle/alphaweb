@@ -19,6 +19,15 @@ footer > div { cursor: pointer; color: lightgray; }
 
 /*快讯推荐模块*/
 #gp-container,#hy-container,#gn-container{margin-top: 15px;}
+.list-head-text{width: 40px;
+   height: 40px;
+   text-align: center;
+   line-height: 40px;
+   border-radius: 40px;
+   color: #FFFFFF;
+   font-size: 14px;font-family: "microsoft yahei", sans-serif;
+   -webkit-box-shadow: 0 0 3px #EEEEEE inset;
+   box-shadow: 0 0 3px #EEEEEE inset;vertical-align: text-bottom;margin-bottom: 0;}
 .label-head-gp,.label-head-hy,.label-head-gn{ display: inline; padding: .2em 1.6em .3em; font-size: 18px; font-weight: 400; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: .25em; -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19); box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.19); border-radius: 2px; border: 0 }
 .label-head-gp{ background-color:#0068B7; }
 .label-head-hy{ background-color:#0077D1; }
@@ -26,7 +35,7 @@ footer > div { cursor: pointer; color: lightgray; }
 #allrecommend  table{margin-bottom: 0;border-collapse:collapse;}
 #allrecommend  footer{margin-top: 20px;}
 #allrecommend  table tr{min-width: 220px;}
-#allrecommend  table tr td:first-child{width: 5%;}
+#allrecommend  table tr td:first-child{vertical-align: middle; padding: 0 0 0 5px;width: 5%;}
 #allrecommend  table tr td:last-child{text-align: right;}
 #allrecommend  table tr td:last-child i:hover{color: gray;}
 #allrecommend  table > thead > tr > th,
@@ -38,8 +47,8 @@ footer > div { cursor: pointer; color: lightgray; }
 
 /*头部搜索框模块*/
 #search {position: relative;font-size: 18px;margin: -20px auto 0px;  }
-#search label {position: absolute;  }
-#search-input{font-size: 14px;border: 1px solid gray;color: #727272;height: 50px;width: 100%;font-weight: 400;margin-bottom: 20px;}
+#search label {position: absolute; }
+#search-input{font-size: 14px;border: 1px solid gray;color: #727272;height: 50px;width: 100%;font-weight: 400;margin-bottom: 20px;background-color: white;}
 #search label:first-child{margin-top: 9px; margin-left: 9px;  }
 #search i:first-child{ color:#0f0f0f; padding-left: 5px;}
 #search #search-input, #search .hint { padding-left: 42px; padding-right: 43px; }
@@ -50,6 +59,7 @@ footer > div { cursor: pointer; color: lightgray; }
 .search-box{background: url("../imgs/top-pic-search.png"); z-index: 999; -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2),0 3px 3px 0 rgba(0,0,0,0.19); box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2),0 3px 3px 0 rgba(0,0,0,0.19); padding: 0; width: 100%; }
 .search-box label{color: #0055aa;font-size: 14px;}
 .search-box .typeahead-container{height: 90px;padding-top: 20px;z-index: 99;}
+.search-clear{top: 15px;display: inline-block;right: 15px;}
 
 /*我的快讯-设置按钮*/
 #setting-button{ position: absolute; top: 35px; right: 0; font-weight: bold; padding: 5px 42px; }
@@ -75,6 +85,7 @@ footer > div { cursor: pointer; color: lightgray; }
 .hot-stock table{font-size: 12px;margin:5px 0 5px 0;color: #666666;}
 .hot-stock table tr td{padding: 5px 0 5px 0;border:none;}
 .hy-hotstock,.gp-hotstock,.hy-xw,.gp-xw h4{color:#767676;}
+
 .gp-hotstock table>tbody>tr>td{border: none;}
 .gp-hotstock hr{margin: 0;}
 .gp-hotstock .container{padding-left: 0;}
@@ -177,7 +188,7 @@ footer > div { cursor: pointer; color: lightgray; }
 .up-and-down .look-down p{font-size: 12px;color: #545454;margin-top: 15px;}
 .up-and-down .look-up i:hover{color: #f44336;}
 .look-up-hover{color: #f44336;}
-.news-bottom-btn i{margin-left: 5px;padding-right: 5px;}
+
 
 /*新闻详情右侧关联新闻/股票*/
 .detail-right>.panel.panel-default>.panel-heading{padding:15px 15px 0 0;border-bottom: 2px solid #08237a;background-color: #FFFFFF;font-size: 18px;color: #545454;font-family: "黑体", "microsoft yahei", sans-serif;}
@@ -198,6 +209,7 @@ footer > div { cursor: pointer; color: lightgray; }
 .stock_emo_tips .em_nochange{color: #3D82F0;}
 
 /*新闻详情底部按钮*/
-.news-bottom-btn .news-like:hover{color: yellow;}
-.news-bottom-btn .news-unlike:hover{color:orangered;}
-.news-bottom-btn .news-share:hover{color: blue;}
+.news-bottom-btn i{margin-left: 5px;padding-right: 5px;font-size: 1.5em;}
+.news-bottom-btn .news-like:hover{color: #e3cf7a;}
+.news-bottom-btn .news-unlike:hover{color:#c9302c;}
+.news-bottom-btn .news-share:hover{color: #56B6E7;}

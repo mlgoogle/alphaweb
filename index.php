@@ -9,7 +9,7 @@ $uname = $myCookie->get("uname");
 <head>
     <title>快讯</title>
     <meta charset="utf-8">
-    <meta property="wb:webmaster" content="2a4447f19ff23d2f" />
+    <meta property="wb:webmaster" content="2a4447f19ff23d2f"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css?v=1.0" rel="stylesheet">
@@ -27,9 +27,9 @@ $uname = $myCookie->get("uname");
 </head>
 <body>
 <!--头部菜单&搜索框-->
-<div class="navbar navbar-inverse hidden-print top-pic">
-    <div class="container" style="height: 164px;">
-        <div class="navbar-header">
+<div class="navbar navbar-inverse hidden-print top-pic" id="search-bar-parent">
+    <div class="container" id="search-bar-pre" style="height: 164px;">
+        <div class="navbar-header" id="fix-bar-pre">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target=".navbar-responsive-collapse">
                 <span class="icon-bar"></span>
@@ -37,7 +37,7 @@ $uname = $myCookie->get("uname");
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="imgs/logo.png" style="width: 136px; height: 30px;">
+                <img src="imgs/logo_bak.png" style="width: 136px; height: 30px;">
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
@@ -61,7 +61,7 @@ $uname = $myCookie->get("uname");
             </p>
         </div>
     </div>
-    <div class="col-md-12 search-box">
+    <div class="col-md-12 search-box" id="search-fix">
         <div class="container">
             <div class="col-md-10 col-md-offset-1" style="padding-left: 5px; padding-right: 5px">
                 <div class="typeahead-container">
@@ -70,14 +70,16 @@ $uname = $myCookie->get("uname");
                             <label for="search-input">
                                 <i class="icon iconfont">&#xe622;</i>
                             </label>
-                            <input id="search-input" type="search" placeholder="创建关于以下内容的快讯" autocomplete="off"
-                                   spellcheck="false" autocorrect="off" tabindex="1">
+                            <input id="search-input" type="search" placeholder="创建关于以下内容的快讯" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                            <label for="search-input" class="search-clear" style="display: none;">
+                                <i class="fa fa-times"></i>
+                            </label>
                         </section>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div asid>
 </div>
 <!--主体内容-->
 <div class="container">
@@ -152,16 +154,17 @@ $uname = $myCookie->get("uname");
                 <div class="bs-component">
                     <div class="jumbotron">
                         <?php
-                        if(empty($uname)) {
-                           echo "<input class=\"input-sm col-md-4\" id='receive_email' type='email' style='margin-top: 11px;border: 1px solid gray;border-radius: 0;height: 35px;' placeholder='输入接收邮件创建快讯'>";
-                        }else{
-                        ?>
-                        <?php
+                        if (empty($uname)) {
+                            echo "<input class=\"input-sm col-md-4\" id='receive_email' type='email' style='margin-top: 11px;border: 1px solid gray;border-radius: 0;height: 35px;' placeholder='输入接收邮件创建快讯'>";
+                        } else {
+                            ?>
+                            <?php
                             echo "<h5 id='show_sub_info' style=\"padding-bottom: 10px; font-weight: 600;\"></h5>";
                         }
                         ?>
-                            <a class="btn btn-raised btn-info" id="create_mynews" style="background-color: #0068b7;">创建快讯</a>
-                            <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
+                        <a class="btn btn-raised btn-info" id="create_mynews"
+                           style="background-color: #0068b7;">创建快讯</a>
+                        <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
                     </div>
                 </div>
             </div>
@@ -222,9 +225,8 @@ $uname = $myCookie->get("uname");
                             <label for="receiveTimes" class="col-md-3 control-label">接收频次</label>
                             <div class="col-md-9">
                                 <select id="receiveTimes" class="form-control">
-                                    <option value="1">实时</option>
                                     <option value="30">每半小时一次</option>
-                                    <option value="60">每小时一次</option>
+                                    <option value="60" selected="selected">每小时一次</option>
                                     <option value="120">每两小时一次</option>
                                     <option value="0">自定义</option>
                                 </select>
@@ -233,7 +235,7 @@ $uname = $myCookie->get("uname");
                         <div class="form-group hide" id="userDefineBox">
                             <div class="col-md-9 col-md-offset-3">
                                 <input class="form-control" type="number" min="0" max="96" id="userDefineTimes"
-                                       placeholder="自定义接收频次(小时/次)">
+                                       placeholder="自定义接收频次">
                             </div>
                         </div>
                     </div>
@@ -355,7 +357,6 @@ $uname = $myCookie->get("uname");
 </html>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
-
 <script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger-theme-future.min.js?v=1.0"></script>
 <script src="js/ripples.min.js?v=1.0"></script>
@@ -363,7 +364,6 @@ $uname = $myCookie->get("uname");
 <script src="js/selecttime.min.js?v=1.0"></script>
 <script src="js/jquery.dropdown.min.js?v=1.0"></script>
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
-<script src="js/stickUp.min.js?v=1.0"></script>
 <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
 <script src="js/jindowin-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
@@ -372,17 +372,29 @@ $uname = $myCookie->get("uname");
 <script>
     jQuery(function ($) {
         $.material.init();
+        var t = Util.queryString("t");
+        var v = Util.queryString("v");
+        if (t && v) {
+            jindowin.searchResultShow(v, t);
+        }
         jindowin.initSelectTimes();
         jindowin.getIndexStock();
         jindowin.getIndexIndustry();
         jindowin.getIndexSection();
         jindowin.querySubscribe();
-
-        $(document).ready(function () {
-
-            $('.search-box').stickUp({
-                marginTop: 'auto'
-            });
+        $(window).scroll(function (event) {
+            var st = $(this).scrollTop();
+            var a = document.getElementById("search-bar-pre").clientHeight;
+            if (st >= a) {
+                if (!$("#search-fix").hasClass("navbar-fixed-top")) {
+                    $("#search-fix").addClass("navbar-fixed-top");
+                    $("#search-bar-parent").css("height",254);
+                }
+            } else {
+                $("#fix-parent").css("height",164);
+                $("#search-fix").removeClass("navbar-fixed-top");
+            }
+            event.stopPropagation();
         });
     });
 </script>

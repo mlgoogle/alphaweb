@@ -61,34 +61,73 @@ jQuery(function ($) {
             }
         });
     });
-    $(".news-like").click(function(){
+    $(".news-like").hover(function () {
         $(this).tips({
-            msg:"敬请期待",
+            msg: "敬请期待",
             side: 3,
-            time:1,
-            color:"#999",
-            bg:"rgba(238,238,238,0.5)",
-            y:-5
+            time: 1,
+            color: "#999",
+            bg: "rgba(238,238,238,0.5)",
+            y: -5
         })
-    })
-    $(".news-unlike").click(function(){
+    });
+    $(".news-unlike").hover(function () {
         $(this).tips({
-            msg:"敬请期待",
+            msg: "敬请期待",
             side: 3,
-            time:1,
-            color:"#999",
-            bg:"rgba(238,238,238,0.5)",
-            y:-5
+            time: 1,
+            color: "#999",
+            bg: "rgba(238,238,238,0.5)",
+            y: -5
         })
-    })
-    $(".news-share").click(function(){
-        $(this).tips({
-            msg:"敬请期待",
+    });
+    $(".news-share").hover(function (e) {
+        var $this = $(this);
+        var shareTips = "<div class='news-share'><i class=\"icon iconfont weibo-share\">&#xe606;</i><i class=\"icon iconfont tweibo-share\">&#xe65c;</i><i class=\"icon iconfont qqzone-share\">&#xe686;</i></div>";
+        $($this).tips({
+            msg: shareTips,
             side: 3,
-            time:1,
-            color:"#999",
-            bg:"rgba(238,238,238,0.5)",
-            y:-5
-        })
-    })
+            time: 1,
+            color: "#999",
+            bg: "rgba(238,238,238,0.5)",
+            y: -8
+        });
+        var newsId = $($this).attr("data-set-id");
+        var newsDate = $($this).attr("data-set-date");
+        var shareUrl = location.host + "/detail?id=" + newsId + "&date=" + newsDate;
+        var shareTitle = $(".detail-title").html().replace(/\s+/g, "");
+        var shareContent = $(".detail-content").html().replace(/\s+/g, "");
+        if (shareContent && shareContent !== "") {
+            if (shareContent.length >= 120) {
+                shareContent = shareContent.substring(0, 120);
+            }
+        } else {
+            shareContent = shareTitle;
+        }
+        $(".weibo-share").bind("click", function (e) {
+            newsShare.weiboShare({wb_url: shareUrl, wb_appkey: "129266167", wb_title: shareTitle});
+            e.stopPropagation();
+        });
+        $(".tweibo-share").bind("click", function (e) {
+            newsShare.tencentWeiBoShare({
+                wb_url: shareUrl,
+                wb_appkey: '',
+                wb_title: shareTitle,
+                wb_pic: '',
+                wb_site: ''
+            });
+            e.stopPropagation();
+        });
+        $(".qqzone-share").bind("click", function (e) {
+            newsShare.qzoneShare({
+                url: shareUrl,
+                desc: shareContent,
+                summary: shareContent,
+                title: shareTitle,
+                site: "筋斗云"
+            });
+            e.stopPropagation();
+        });
+        e.stopPropagation();
+    });
 });

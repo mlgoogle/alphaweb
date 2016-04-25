@@ -35,22 +35,8 @@ $result = RequestUtil::get($url,
     ));
 
 $jsonresult = json_decode($result, true);
-echo $result;
 if ($jsonresult['status'] != "0") {
-//    $uid = $jsonresult['result']['user_info']['user_id'];
-//    $uname = $jsonresult['result']['user_info']['user_name'];
-//    $utoken = $jsonresult['result']['user_info']['token'];
-//    print_r(json_encode(array("status" => 1, "result" => array(
-//        "user_id" => $uid,
-//        "user_name" => $uname
-//    ))));
-//    $_SESSION['user_id'] = $uid;   //用户ID
-//    $_SESSION['token'] = $utoken;    //token
-//    $_SESSION['user_type'] = 1;
-//    $myCookie = new Cookies();//设置过期时间为15天
-//    $myCookie->set("uid", $uid,1296000);
-//    $myCookie->set("uname", $uname,1296000);
-//    $myCookie->set("utoken", $utoken,1296000);
+    print_r($result);
     return;
 } else {
     print_r(json_encode(array("status" => 0, "result" => $jsonresult['msg'])));

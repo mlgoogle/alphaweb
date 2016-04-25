@@ -10,5 +10,5 @@
  */
 class JindowinConfig
 {
-    public static $requireUrl = "http://222.73.34.92/cgi-bin/jindowin/";
+    public static $requireUrl = "http://api.stock.miglab.com/cgi-bin/jarvis/";
 }

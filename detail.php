@@ -3,6 +3,7 @@ require_once(dirname(__FILE__) . "/common/Cookies.class.php");
 require_once(dirname(__FILE__) . "/common/Request.class.php");
 require_once(dirname(__FILE__) . "/common/JindowinConfig.class.php");
 require_once(dirname(__FILE__) . "/common/CheckUserLogin.class.php");
+require_once(dirname(__FILE__) . "/common/Utility.class.php");
 
 $myCookie = new Cookies();
 $uid = $myCookie->get("uid");
@@ -10,10 +11,30 @@ $uname = $myCookie->get("uname");
 $id = isset($_GET['id']) ? $_GET['id'] : "";
 $date = isset($_GET['date']) ? $_GET['date'] : "";
 if (empty($id) && empty($date)) {
+    echo "参数为空";
     return;
 }
-$url = JindowinConfig::$requireUrl . "news/1/news_detail.fcgi";
-$result = RequestUtil::get($url,
+$session_uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
+if (empty($session_uid)) {
+    $url = JindowinConfig::$requireUrl . "/user/1/user_login.fcgi";
+    $login_result = RequestUtil::get($url,
+        array(
+            "user_type" => 0
+        ));
+    $login_jsonresult = json_decode($login_result, true);
+    $_SESSION['user_id'] = $login_jsonresult['result']['user_info']['user_id'];   //用户ID
+    $_SESSION['token'] = $login_jsonresult['result']['user_info']['token'];    //token
+    $_SESSION['user_name'] = $login_jsonresult['result']['user_info']['user_name'];    //user_name
+    $_SESSION['user_type'] = 0;
+}
+
+$tempdate = explode('|', $id);
+if (!empty($tempdate[1])) {
+    $date = $tempdate[1];
+    $id=$tempdate[0];
+}
+$news_detail_url = JindowinConfig::$requireUrl . "news/1/news_detail.fcgi";
+$result = RequestUtil::get($news_detail_url,
     array(
         "user_id" => $_SESSION['user_id'],      //用户唯一标识
         "token" => $_SESSION['token'],          //用户登录标识
@@ -21,12 +42,12 @@ $result = RequestUtil::get($url,
         "date" => urlencode($date)
     ));
 $jsonresult = json_decode($result, true);
-
 if ($jsonresult['status'] == "0") {
+    echo "获取新闻详情失败";
     return;
 }
 
-if (empty($jsonresult['result'][0]['detail'])) {
+if (empty($jsonresult['result'][0]['detail']) && !empty($jsonresult['result'][0]['url'])) {
     echo("<div class=\"spinner\"><div class=\"double-bounce1\"></div><div class=\"double-bounce2\"></div></div><div class=\"tips\">筋斗云正在帮你跳转到原文</div><style>.spinner{width:60px;height:60px;position:relative;margin:100px auto}.tips{margin:0 auto;width:200px;height:50px;font-family:Microsoft YaHei,arial,sans-serif,\"微软雅黑\";margin-top:-90px;color:#a1a1a1}.double-bounce1,.double-bounce2{width:100%;height:100%;border-radius:50%;background-color:#005cb7;opacity:0.6;position:absolute;top:0;left:0;-webkit-animation:bounce 2.0s infinite ease-in-out;animation:bounce 2.0s infinite ease-in-out}.double-bounce2{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}@-webkit-keyframes bounce{0%,100%{-webkit-transform:scale(0.0)}50%{-webkit-transform:scale(1.0)}}@keyframes bounce{0%,100%{transform:scale(0.0);-webkit-transform:scale(0.0)}50%{transform:scale(1.0);-webkit-transform:scale(1.0)}}</style>");
     echo "<script>window.location.href='" . $jsonresult['result'][0]['url'] . "'</script>";
     exit;
@@ -51,7 +72,6 @@ $referenceResult = RequestUtil::get($referenceUrl,
     ));
 $referenceJsonResult = json_decode($referenceResult);
 //echo $referenceResult;
-//echo $_SESSION['user_id'] . "|" . $_SESSION['token'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -82,7 +102,7 @@ $referenceJsonResult = json_decode($referenceResult);
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="imgs/logo.png" style="width: 136px; height: 30px;">
+                <img src="imgs/logo_bak.png" style="width: 136px; height: 30px;">
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
@@ -102,9 +122,7 @@ $referenceJsonResult = json_decode($referenceResult);
     </div>
 </div>
 
-<!--主体内容-->
 <div class="container">
-    <!--我的快讯模块-->
     <div class="bs-docs-section">
         <div class="jumbotron col-md-8">
 
@@ -123,16 +141,16 @@ $referenceJsonResult = json_decode($referenceResult);
                         $newHtml = "";
                         if (!empty($detail)) {
                             $detailArray = explode('\n', $detail);
-                            $i=0;
+                            $i = 0;
                             foreach ($detailArray as $item) {
                                 $i++;
-                                if($i==count($detailArray)){
+                                if ($i == count($detailArray)) {
                                     $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "……<a href='" . $jsonresult['result'][0]['url'] . "'>查看详情</a></p>";
-                                }else{
+                                } else {
                                     $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "</p>";
                                 }
                             }
-                            echo  $newHtml;
+                            echo $newHtml;
                         }
                         ?>
                     </div>
@@ -162,9 +180,10 @@ $referenceJsonResult = json_decode($referenceResult);
 
                 </div>
                 <div class="col-md-3 text-right news-bottom-btn">
-                    <i class="icon iconfont news-like">&#xe688;</i>
-                    <i class="icon iconfont news-unlike">&#xe67b;</i>
-                    <i class="icon iconfont news-share">&#xe610;</i>
+                    <i class="fa  fa-star news-like"></i>
+                    <i class="fa  fa-filter news-unlike"></i>
+                    <i class="fa  fa-share-alt news-share" data-set-id="<?php echo $jsonresult['result'][0]['id'] ?>"
+                       data-set-date="<?php echo $jsonresult['result'][0]['time'] ?>"></i>
                 </div>
             </div>
             <div class="row up-and-down">
@@ -213,7 +232,16 @@ $referenceJsonResult = json_decode($referenceResult);
                     echo "<div class=\"panel-body\">";
                     foreach ($referenceJsonResult->stock as $item) {
                         echo "<div class=\"container\">";
-                        echo "<span class=\"col-md-9\">" . $item->name . "[" . $item->code . "]</span>";
+                        $sinadata = UtilityTools::getSinaData($item->code);
+                        if ($sinadata != null) {
+                            if ($sinadata[3] > $sinadata[2]) {
+                                echo "<span class=\"col-md-9\" style='color: rgb(211, 47, 47);'>" . $item->name . "[" . $item->code . "]</span>";
+                            } else {
+                                echo "<span class=\"col-md-9\" style='color: rgb(36, 149, 135);'>" . $item->name . "[" . $item->code . "]</span>";
+                            }
+                        } else {
+                            echo "<span class=\"col-md-9\">" . $item->name . "[" . $item->code . "]</span>";
+                        }
                         echo "<span class=\"col-md-3\"><i class='fa " . ($item->subscribe == "1" ? "fa-check" : "fa-plus") . "' data-user-val=\"" . $item->code . "\" data-user-type=\"stock\"></i></span>";
                         echo "</div>";
                     }
@@ -263,6 +291,93 @@ $referenceJsonResult = json_decode($referenceResult);
             </div>
             <div class="modal-body text-center">
                 <img src="imgs/qrcode.png">
+            </div>
+        </div>
+    </div>
+</div>
+<!--登录&&注册-弹框-->
+<div id="login-dialog" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-msm">
+        <div class="modal-content">
+            <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <span href="#user-login" id="home-tab" role="tab" data-toggle="tab" aria-controls="user-login"
+                          aria-expanded="true">用户登录</span>
+                </li>
+                <li role="presentation" class="">
+                    <span href="#user-register" role="tab" id="profile-tab" data-toggle="tab"
+                          aria-controls="user-register" aria-expanded="false">邮箱注册</span>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="user-login" aria-labelledby="home-tab">
+                    <div class="row-content">
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="email" id="login-email" class="form-control" placeholder="请输入登录邮箱"
+                                               maxlength="18">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="login-pwd" class="form-control" placeholder="请输入登录密码"
+                                               maxlength="16">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <div class="checkbox">
+                                            <label style="font-size: 12px;">
+                                                <input type="checkbox" id="cb-autologin">&nbsp;&nbsp;&nbsp;&nbsp;自动登录
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-info" type="button" id="btn-login"
+                                           value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="user-register" aria-labelledby="profile-tab">
+                    <div class="row-content">
+                        <div class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="email" id="register-email" class="form-control"
+                                               placeholder="请输入注册邮箱">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="register-pwd-1" class="form-control"
+                                               placeholder="请输入注册密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        <input type="password" id="register-pwd-2" class="form-control"
+                                               placeholder="请再次输入注册密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-info" type="button" id="btn-register"
+                                           value="注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
