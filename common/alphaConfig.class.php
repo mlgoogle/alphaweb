@@ -6,9 +6,9 @@
  */
 
 /**
- * Class JindowinConfig 配置文件
+ * Class alphaConfig 配置文件
  */
-class JindowinConfig
+class alphaConfig
 {
     public static $requireUrl = "http://api.stock.miglab.com/cgi-bin/jarvis/";
 }

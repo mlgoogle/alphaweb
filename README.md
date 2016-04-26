@@ -1,2 +1,2 @@
-# jindowin
+# alpha
 新闻快讯

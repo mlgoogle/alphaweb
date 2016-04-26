@@ -5,7 +5,7 @@
  * Description: 添加用户订阅
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 if (CheckLogin::check() != 1) {
     print_r(json_encode(array("status" => -1, "result" => "用户未登录")));
@@ -30,7 +30,7 @@ if (empty($stock_code) && empty($section) && empty($industry)) {
     print_r(json_encode(array("status" => 0, "result" => "关注项为空")));
     return;
 }
-$url = JindowinConfig::$requireUrl . "subscribe/1/add_subscribe.fcgi";
+$url = alphaConfig::$requireUrl . "subscribe/1/add_subscribe.fcgi";
 $result = RequestUtil::get($url,
     array(
         "user_id" => $_SESSION['user_id'],

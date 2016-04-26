@@ -5,7 +5,7 @@
  * Description:获取新闻
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 if (CheckLogin::check() == -1) {
     print_r(json_encode(array("status" => -1, "result" => "未知登录状态")));
@@ -17,7 +17,7 @@ $news_type = isset($_POST['news_type']) ? $_POST['news_type'] : "";
 $section = isset($_POST['section']) ? $_POST['section'] : "";
 $page = isset($_POST['page']) ? $_POST['page'] : 0;
 
-$url = JindowinConfig::$requireUrl . "/news/1/get_news.fcgi";
+$url = alphaConfig::$requireUrl . "/news/1/get_news.fcgi";
 $result = RequestUtil::get($url,
     array(
         "user_id" => $_SESSION['user_id'],      //用户唯一标识

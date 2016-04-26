@@ -5,7 +5,7 @@
  * Description:新闻看涨看跌
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 if (CheckLogin::check() != 1) {
     print_r(json_encode(array("status" => -1, "result" => "用户未登录")));
@@ -19,7 +19,7 @@ if (empty($news_id) || empty($commit_type) || empty($date)) {
     print_r(json_encode(array("status" => 0, "result" => "参数错误")));
     return;
 }
-$url = JindowinConfig::$requireUrl . "news/1/set_news.fcgi";
+$url = alphaConfig::$requireUrl . "news/1/set_news.fcgi";
 $result = RequestUtil::get($url,
     array(
         "user_id" => $_SESSION['user_id'],

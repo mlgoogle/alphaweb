@@ -46,7 +46,7 @@ class UtilityTools
     public static function getSinaData($stockCode)
     {
         $url = "http://hq.sinajs.cn/list=" . self::changeStockCode($stockCode);
-        $result = RequestUtil::get($url);
+        $result = mb_convert_encoding(RequestUtil::get($url),"utf-8","gbk");
         $sinaData = explode('=', $result);
         if (!empty($sinaData[1]) && !strstr($sinaData[1], "FAILED")) {
             $valArr = explode(',', $sinaData[1]);

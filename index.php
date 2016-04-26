@@ -37,7 +37,7 @@ $uname = $myCookie->get("uname");
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="imgs/logo_bak.png" style="width: 136px; height: 30px;">
+                <img src="imgs/logo.png" style="width: 136px; height: 30px;">
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
@@ -70,7 +70,8 @@ $uname = $myCookie->get("uname");
                             <label for="search-input">
                                 <i class="icon iconfont">&#xe622;</i>
                             </label>
-                            <input id="search-input" type="search" placeholder="创建关于以下内容的快讯" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                            <input id="search-input" type="search" placeholder="创建关于以下内容的快讯" autocomplete="off"
+                                   spellcheck="false" autocorrect="off" tabindex="1">
                             <label for="search-input" class="search-clear" style="display: none;">
                                 <i class="fa fa-times"></i>
                             </label>
@@ -271,11 +272,11 @@ $uname = $myCookie->get("uname");
     <div class="modal-dialog modal-msm">
         <div class="modal-content">
             <ul id="myTabs" class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
+                <li role="presentation" class="active" id="login-li">
                     <span href="#user-login" id="home-tab" role="tab" data-toggle="tab" aria-controls="user-login"
                           aria-expanded="true">用户登录</span>
                 </li>
-                <li role="presentation" class="">
+                <li role="presentation" class="" id="register-li">
                     <span href="#user-register" role="tab" id="profile-tab" data-toggle="tab"
                           aria-controls="user-register" aria-expanded="false">邮箱注册</span>
                 </li>
@@ -353,8 +354,6 @@ $uname = $myCookie->get("uname");
         </div>
     </div>
 </div>
-</body>
-</html>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
@@ -365,36 +364,44 @@ $uname = $myCookie->get("uname");
 <script src="js/jquery.dropdown.min.js?v=1.0"></script>
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
 <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
-<script src="js/jindowin-index.min.js?v=1.0"></script>
+<script src="js/alpha-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
 <script src="js/common.min.js?v=1.0"></script>
 
 <script>
     jQuery(function ($) {
         $.material.init();
-        var t = Util.queryString("t");
-        var v = Util.queryString("v");
-        if (t && v) {
-            jindowin.searchResultShow(v, t);
+        var param = Util.queryString("p");
+        if(param){
+            var t=param.split('_')[0];
+            var v=param.split('_')[1];
+            if (t && v) {
+                alpha.searchResultShow(v, t);
+            }
         }
-        jindowin.initSelectTimes();
-        jindowin.getIndexStock();
-        jindowin.getIndexIndustry();
-        jindowin.getIndexSection();
-        jindowin.querySubscribe();
+        alpha.initSelectTimes();
+        alpha.getIndexStock();
+        alpha.getIndexIndustry();
+        alpha.getIndexSection();
+        alpha.querySubscribe();
         $(window).scroll(function (event) {
             var st = $(this).scrollTop();
             var a = document.getElementById("search-bar-pre").clientHeight;
             if (st >= a) {
                 if (!$("#search-fix").hasClass("navbar-fixed-top")) {
                     $("#search-fix").addClass("navbar-fixed-top");
-                    $("#search-bar-parent").css("height",254);
+                    $("#search-bar-parent").css("height", 254);
                 }
             } else {
-                $("#fix-parent").css("height",164);
+                $("#fix-parent").css("height", 164);
                 $("#search-fix").removeClass("navbar-fixed-top");
             }
             event.stopPropagation();
         });
     });
 </script>
+<div style="display: none;">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1258763697&web_id=1258763697" language="JavaScript"></script>
+</div>
+</body>
+</html>

@@ -5,11 +5,11 @@
  * Description:用户注册信息验证
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 require_once(dirname(__FILE__) . "/../common/VerifyAction.class.php");
 $email = isset($_POST['email']) ? $_POST['email'] : "";
-if (!empty($email)) {
+if (empty($email)) {
     print_r(json_encode(array("status" => 0, "result" => "邮箱不能为空")));
     return;
 }
@@ -17,7 +17,7 @@ if (!VerifyAction::isEmail($email)) {
     print_r(json_encode(array("status" => 0, "result" => "邮箱格式不正确")));
     return;
 }
-$url = JindowinConfig::$requireUrl . "user/1/user_attr.fcgi";
+$url = alphaConfig::$requireUrl . "user/1/user_attr.fcgi";
 $result = RequestUtil::get($url,
     array(
         "email" => $email

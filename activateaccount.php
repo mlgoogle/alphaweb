@@ -2,12 +2,12 @@
 session_start();
 require_once(dirname(__FILE__) . "/common/Request.class.php");
 require_once(dirname(__FILE__) . "/common/Cookies.class.php");
-require_once(dirname(__FILE__) . "/common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/common/alphaConfig.class.php");
 $user_email = isset($_GET['email']) ? $_GET['email'] : "";
 $param = isset($_GET['param']) ? $_GET['param'] : "";
 $isSucces = false;
 if (!empty($user_email) && !empty($param)) {
-    $emailUrl = JindowinConfig::$emailUrl . "verify_email.fcgi";
+    $emailUrl = alphaConfig::$requireUrl . "user/1/verify_email.fcgi";
     $result = RequestUtil::get($emailUrl, array(
         "email" => $user_email,
         "param" => $param
@@ -17,7 +17,7 @@ if (!empty($user_email) && !empty($param)) {
     if ($jsonresult['status'] != "0") {
         $uid = $jsonresult['result']['user_info']['user_id'];
         $uname = $jsonresult['result']['user_info']['user_name'];
-        $ulevel = $jsonresult['result']['user_info']['user_level'];
+        $ulevel = $jsonresult['result']['user_info']['use  r_level'];
         $utoken = $jsonresult['result']['user_info']['token'];
         $_SESSION['user_id'] = $uid;   //用户ID
         $_SESSION['token'] = $utoken;    //token
@@ -77,7 +77,7 @@ if (!empty($user_email) && !empty($param)) {
 <body>
 <div class="container">
     <div class="head">
-        <img src="imgs/header.png" style="width: 100%;height: 196px;">
+        <img src="imgs/top-pic-1.png" style="width: 100%;height: 164px;">
     </div>
     <div class="tip-box">
         <p class="result">

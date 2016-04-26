@@ -5,7 +5,7 @@
  * Description:行业\概念热门股票
  */
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 if (CheckLogin::check() == -1) {
     print_r(json_encode(array("status" => -1, "result" => "未知登录状态")));
@@ -23,7 +23,7 @@ $gn_array = array(
     "token" => $_SESSION["token"],
     "gn" => $gnname . ","
 );
-$url = JindowinConfig::$requireUrl . "message/1/message_hy_gn.fcgi";
+$url = alphaConfig::$requireUrl . "message/1/message_hy_gn.fcgi";
 if (!empty($hyname)) {
     $result = RequestUtil::get($url, $hy_array);
 } else {

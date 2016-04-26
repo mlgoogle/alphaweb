@@ -6,7 +6,7 @@
  */
 session_start();
 require_once(dirname(__FILE__) . "/../common/Request.class.php");
-require_once(dirname(__FILE__) . "/../common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/../common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/../common/CheckUserLogin.class.php");
 require_once(dirname(__FILE__) . "/../common/Cookies.class.php");
 
@@ -34,7 +34,7 @@ class CheckLogin
          * 游客登录
          */
         if (empty($user_id) || empty($token) || $user_type == 0) {
-            $url = JindowinConfig::$requireUrl . "/user/1/user_login.fcgi";
+            $url = alphaConfig::$requireUrl . "/user/1/user_login.fcgi";
             $result = RequestUtil::get($url,
                 array(
                     "user_type" => 0

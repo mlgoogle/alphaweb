@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . "/common/Cookies.class.php");
 require_once(dirname(__FILE__) . "/common/Request.class.php");
-require_once(dirname(__FILE__) . "/common/JindowinConfig.class.php");
+require_once(dirname(__FILE__) . "/common/alphaConfig.class.php");
 require_once(dirname(__FILE__) . "/common/CheckUserLogin.class.php");
 require_once(dirname(__FILE__) . "/common/Utility.class.php");
 
@@ -16,7 +16,7 @@ if (empty($id) && empty($date)) {
 }
 $session_uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
 if (empty($session_uid)) {
-    $url = JindowinConfig::$requireUrl . "/user/1/user_login.fcgi";
+    $url = alphaConfig::$requireUrl . "/user/1/user_login.fcgi";
     $login_result = RequestUtil::get($url,
         array(
             "user_type" => 0
@@ -31,9 +31,9 @@ if (empty($session_uid)) {
 $tempdate = explode('|', $id);
 if (!empty($tempdate[1])) {
     $date = $tempdate[1];
-    $id=$tempdate[0];
+    $id = $tempdate[0];
 }
-$news_detail_url = JindowinConfig::$requireUrl . "news/1/news_detail.fcgi";
+$news_detail_url = alphaConfig::$requireUrl . "news/1/news_detail.fcgi";
 $result = RequestUtil::get($news_detail_url,
     array(
         "user_id" => $_SESSION['user_id'],      //用户唯一标识
@@ -52,7 +52,7 @@ if (empty($jsonresult['result'][0]['detail']) && !empty($jsonresult['result'][0]
     echo "<script>window.location.href='" . $jsonresult['result'][0]['url'] . "'</script>";
     exit;
 }
-$releaseUrl = JindowinConfig::$requireUrl . "news/1/related_news.fcgi";//获取相关联的新闻
+$releaseUrl = alphaConfig::$requireUrl . "news/1/related_news.fcgi";//获取相关联的新闻
 $releaseResult = RequestUtil::get($releaseUrl,
     array(
         "user_id" => $_SESSION['user_id'],
@@ -62,7 +62,7 @@ $releaseResult = RequestUtil::get($releaseUrl,
     ));
 $releaseJsonResult = json_decode($releaseResult);
 
-$referenceUrl = JindowinConfig::$requireUrl . "news/1/news_reference.fcgi";//获取关联股票/新闻
+$referenceUrl = alphaConfig::$requireUrl . "news/1/news_reference.fcgi";//获取关联股票/新闻
 $referenceResult = RequestUtil::get($referenceUrl,
     array(
         "user_id" => $_SESSION['user_id'],
@@ -102,7 +102,7 @@ $referenceJsonResult = json_decode($referenceResult);
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="imgs/logo_bak.png" style="width: 136px; height: 30px;">
+                <img src="imgs/logo.png" style="width: 136px; height: 30px;">
             </a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="header-right-icon">
@@ -145,7 +145,7 @@ $referenceJsonResult = json_decode($referenceResult);
                             foreach ($detailArray as $item) {
                                 $i++;
                                 if ($i == count($detailArray)) {
-                                    $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "……<a href='" . $jsonresult['result'][0]['url'] . "'>查看详情</a></p>";
+                                    $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "......<a href='" . $jsonresult['result'][0]['url'] . "'>阅读原文</a></p>";
                                 } else {
                                     $newHtml .= "<p>" . preg_replace('/(\s|\&nbsp\;|　|\xc2\xa0)/', "", strip_tags($item)) . "</p>";
                                 }
@@ -161,7 +161,17 @@ $referenceJsonResult = json_decode($referenceResult);
                 <div class="col-md-9">
                     <?php
                     if (!empty($jsonresult['result'][0]['stock'])) {
-                        echo "<div class=\"news-tip-gp\">股票：<span>" . $jsonresult['result'][0]['stock'] . "</span></div>";
+                        $code = $jsonresult['result'][0]['stock'];
+                        $stockCodes = explode(',', $jsonresult['result'][0]['stock']);
+                        if (count($stockCodes) > 1) {
+                            $stocksHtml = "";
+                            foreach ($stockCodes as $s) {
+                                $stocksHtml .= UtilityTools::getSinaData($s)[1] . "(" . $code . ")";
+                            }
+                        } else {
+                            $oneStock = UtilityTools::getSinaData($code);
+                            echo "<div class=\"news-tip-gp\">股票：<span>" . str_replace('"', '', $oneStock[0]) . "(" . $code . ")</span></div>";
+                        }
                         ?>
                         <?php
                     } ?>
@@ -389,6 +399,6 @@ $referenceJsonResult = json_decode($referenceResult);
 <script src="js/ripples.min.js?v=1.0"></script>
 <script src="js/material.min.js?v=1.0"></script>
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
-<script src="js/jindowin-index.min.js?v=1.0"></script>
+<script src="js/alpha-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
-<script src="js/jindowin-detail.min.js?v=1.0"></script>
+<script src="js/alpha-detail.min.js?v=1.0"></script>

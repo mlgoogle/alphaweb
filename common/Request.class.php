@@ -31,7 +31,8 @@ class RequestUtil
         }
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36');
-        curl_setopt($ch, CURLOPT_ENCODING,"");
+        curl_setopt($ch, CURLOPT_ENCODING, "");
+
         //设置cookie
         if (isset($cookie)) curl_setopt($ch, CURLOPT_COOKIE, $cookie);
         //设置cookie请求文件
@@ -68,7 +69,7 @@ class RequestUtil
              charset=UTF-8"
         );
         //参数设置
-        curl_setopt($ch, CURLOPT_HTTPHEADER,$this_header);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this_header);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);

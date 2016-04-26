@@ -11,7 +11,7 @@ $platform_id = isset($_POST['platform_id']) ? $_POST['platform_id'] : 1;
 $user_name = isset($_POST['username']) ? $_POST['username'] : "";
 $password1 = isset($_POST['password1']) ? $_POST['password1'] : "";
 $password2 = isset($_POST['password2']) ? $_POST['password2'] : "";
-$url = JindowinConfig::$requireUrl . "user/1/user_register.fcgi";
+$url = alphaConfig::$requireUrl . "user/1/user_register.fcgi";
 if (empty($user_name) || empty($password1) || empty($password2)) {
     print_r(json_encode(array("status" => 0, "result" => "账号或密码为空")));
     return;
