@@ -26,7 +26,6 @@ class CheckLogin
             $_SESSION['token'] = $utoken;
             $_SESSION['user_type'] = 1;
         }
-
         $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
         $token = isset($_SESSION['token']) ? $_SESSION['token'] : "";
         $user_type = isset($_SESSION['user_type']) ? $_SESSION['user_type'] : 0;

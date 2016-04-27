@@ -27,7 +27,7 @@ class UtilityTools
                     return "sz" . $stockcode;
                     break;
                 case "3":
-                    return $stockcode;
+                    return "sz" . $stockcode;
                     break;
                 case "4":
                     return $stockcode;

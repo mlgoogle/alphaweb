@@ -162,15 +162,17 @@ $referenceJsonResult = json_decode($referenceResult);
                     <?php
                     if (!empty($jsonresult['result'][0]['stock'])) {
                         $code = $jsonresult['result'][0]['stock'];
+
                         $stockCodes = explode(',', $jsonresult['result'][0]['stock']);
                         if (count($stockCodes) > 1) {
                             $stocksHtml = "";
                             foreach ($stockCodes as $s) {
-                                $stocksHtml .= UtilityTools::getSinaData($s)[1] . "(" . $code . ")";
+                                $thisStock=UtilityTools::getSinaData($stock);
+                                $stocksHtml .= $thisStock[0] . "(" . $code . ")";
                             }
                         } else {
                             $oneStock = UtilityTools::getSinaData($code);
-                            echo "<div class=\"news-tip-gp\">股票：<span>" . str_replace('"', '', $oneStock[0]) . "(" . $code . ")</span></div>";
+                            echo "<div class=\"news-tip-gp\">股票：<span>" . str_replace('"', '', $oneStock[0]) . "(" . strtoupper(UtilityTools::changeStockCode($code)) . ")</span></div>";
                         }
                         ?>
                         <?php
@@ -245,12 +247,12 @@ $referenceJsonResult = json_decode($referenceResult);
                         $sinadata = UtilityTools::getSinaData($item->code);
                         if ($sinadata != null) {
                             if ($sinadata[3] > $sinadata[2]) {
-                                echo "<span class=\"col-md-9\" style='color: rgb(211, 47, 47);'>" . $item->name . "[" . $item->code . "]</span>";
+                                echo "<span class=\"col-md-9\" style='color: rgb(211, 47, 47);'>" . $item->name . "[" . strtoupper(UtilityTools::changeStockCode($item->code)) . "]</span>";
                             } else {
-                                echo "<span class=\"col-md-9\" style='color: rgb(36, 149, 135);'>" . $item->name . "[" . $item->code . "]</span>";
+                                echo "<span class=\"col-md-9\" style='color: rgb(36, 149, 135);'>" . $item->name . "[" . strtoupper(UtilityTools::changeStockCode($item->code)) . "]</span>";
                             }
                         } else {
-                            echo "<span class=\"col-md-9\">" . $item->name . "[" . $item->code . "]</span>";
+                            echo "<span class=\"col-md-9\">" . $item->name . "[" . UtilityTools::changeStockCode($item->code) . "]</span>";
                         }
                         echo "<span class=\"col-md-3\"><i class='fa " . ($item->subscribe == "1" ? "fa-check" : "fa-plus") . "' data-user-val=\"" . $item->code . "\" data-user-type=\"stock\"></i></span>";
                         echo "</div>";

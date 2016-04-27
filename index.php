@@ -370,11 +370,21 @@ $uname = $myCookie->get("uname");
 
 <script>
     jQuery(function ($) {
+        var DEFAULT_VERSION = "8.0";
+        var ua = navigator.userAgent.toLowerCase();
+        var isIE = ua.indexOf("msie") > -1;
+        var safariVersion;
+        if (isIE) {
+            safariVersion = ua.match(/msie ([\d.]+)/)[1];
+            if (safariVersion <= DEFAULT_VERSION) {
+                window.location.href = "updatebrowser.html";
+            }
+        }
         $.material.init();
         var param = Util.queryString("p");
-        if(param){
-            var t=param.split('_')[0];
-            var v=param.split('_')[1];
+        if (param) {
+            var t = param.split('_')[0];
+            var v = param.split('_')[1];
             if (t && v) {
                 alpha.searchResultShow(v, t);
             }

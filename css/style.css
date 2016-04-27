@@ -196,7 +196,7 @@ footer > div { cursor: pointer; color: lightgray; }
 .panel.panel-default{box-shadow: none;margin-bottom: 0;}
 .detail-right .panel-body{padding: 15px 0 0 0;}
 .detail-right .panel-body div{background: url("../imgs/gl_1.png");height: 30px;width: 216px;margin-bottom: 10px;padding-left: 10px;line-height: 30px;cursor: pointer;}
-.detail-right .panel-body .col-md-9{padding-left: 0;}
+.detail-right .panel-body .col-md-9{padding-left: 0;padding-right: 0;}
 .detail-right .panel-body .col-md-3{padding-left: 0;}
 .detail-right .panel-body .container i:hover{color: gray;}
 

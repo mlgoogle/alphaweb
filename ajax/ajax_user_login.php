@@ -56,9 +56,9 @@ if ($jsonresult['status'] != "0") {
     $_SESSION['token'] = $utoken;    //token
     $_SESSION['user_type'] = 1;
     $myCookie = new Cookies();//设置过期时间为1天
-    $myCookie->set("uid", $uid, 86400);
-    $myCookie->set("uname", $uname, 86400);
-    $myCookie->set("utoken", $utoken, 86400);
+    $myCookie->set("uid", $uid, 43200);
+    $myCookie->set("uname", $uname, 43200);
+    $myCookie->set("utoken", $utoken, 43200);
     return;
 } else {
     print_r(json_encode(array("status" => 0, "result" => $jsonresult['msg'])));
