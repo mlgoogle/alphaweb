@@ -409,9 +409,12 @@ var alpha = {
         var gpHtml = [];
         var stockcode = name.substring(name.indexOf("(") + 1, name.indexOf(")")).replace('SH', '').replace('SZ', '');
         var start = store.get(stockcode);
-        if (!start && typeof(start) !== undefined) {
+        if (!start && typeof(start) !== "undefined") {
             start = store.get("defaultset").start_time;
+        }else{
+            start=540;
         }
+
         $("#show_sub_info").html("我们将为您\"" + $("#top-user-exit span").html() + "\"创建每天<span id='show-time'>" + (start / 60) + "</span>:00的快讯");
         var stockName = name.split('(')[0];
         $("#complete-dialog").attr("data-set-type", "stock").attr("data-set-val", stockcode);
