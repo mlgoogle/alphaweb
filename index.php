@@ -18,7 +18,8 @@ $uname = $myCookie->get("uname");
     <link rel="stylesheet" href="plugins/messenger/css/messenger-spinner.min.css?v=1.0">
     <link rel="stylesheet" href="plugins/messenger/css/messenger-theme-air.min.css?v=1.0">
     <link href="css/ripples.min.css?v=1.0" rel="stylesheet">
-    <link href="css/jquery.dropdown.min.css?v=1.0" rel="stylesheet">
+<!--    <link href="css/jquery.dropdown.min.css?v=1.0" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css?v=1.0">
     <link rel="stylesheet" href="css/style.min.css?v=1.0">
     <link rel="stylesheet" href="css/animate.min.css?v=1.0">
@@ -57,7 +58,7 @@ $uname = $myCookie->get("uname");
         <div class="col-md-10 col-md-offset-1" style="padding-left: 0; padding-right: 0;">
             <h2>快讯</h2>
             <p class="toptips">
-                随时跟踪网上是否由您感兴趣的股票新内容
+                随时跟踪网上是否有您感兴趣的股票新内容
             </p>
         </div>
     </div>
@@ -100,12 +101,13 @@ $uname = $myCookie->get("uname");
                         </footer>
                     </div>
                     <div id="setting-button">
-                        <i class="fa fa-cog" data-toggle="modal" data-target="#complete-dialog"></i>
+                        <i class="fa fa-cog" id="btn-setting"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--快讯推荐模块-->
     <div class="bs-docs-section recommendnews">
         <div class="row">
@@ -163,14 +165,14 @@ $uname = $myCookie->get("uname");
                             echo "<h5 id='show_sub_info' style=\"padding-bottom: 10px; font-weight: 600;\"></h5>";
                         }
                         ?>
-                        <a class="btn btn-raised btn-info" id="create_mynews"
-                           style="background-color: #0068b7;">创建快讯</a>
+                        <a class="btn btn-raised btn-info" id="create_mynews" style="background-color: #0068b7;">创建快讯</a>
                         <a class="show-my-setting" href="javascript:void(0)" style="margin-left: 40px;">显示选项</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--快讯列表模块-->
     <div class="bs-docs-section newsinfo hide">
         <div class="row">
@@ -188,68 +190,7 @@ $uname = $myCookie->get("uname");
 <div id="complete-dialog" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-lsm">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="setting-storage" data-set-type="all" data-set-val="">订阅设置</h4>
-            </div>
-            <div class="modal-body">
-                <div id="settings" class="row">
-                    <div class="col-xs-12">
-                        <div class="checkbox">
-                            <label>
-                                <input id="cbReceiveTime" type="checkbox"> &nbsp;&nbsp;接收时间
-                            </label>
-                        </div>
-                        <p class="text-muted">选择接收快讯的时间</p>
-                        <div class="form-group hide" id="receiveBox">
-                            <label for="startTime" class="col-md-3 control-label">开始时间</label>
-                            <div class="col-md-9">
-                                <select id="startTime" class="form-control"></select>
-                            </div>
-                            <label for="endTime" class="col-md-3 control-label">结束时间</label>
-                            <div class="col-md-9">
-                                <select id="endTime" class="form-control"></select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <hr>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="checkbox">
-                            <label>
-                                <input id="cbSummary" type="checkbox"> &nbsp;&nbsp;接收摘要
-                            </label>
-                        </div>
-                        <p class="text-muted">在一封电子邮件中囊括所有查询通知</p>
-                        <div class="form-group hide" id="summaryBox">
-                            <label for="receiveTimes" class="col-md-3 control-label">接收频次</label>
-                            <div class="col-md-9">
-                                <select id="receiveTimes" class="form-control">
-                                    <option value="30">每半小时一次</option>
-                                    <option value="60" selected="selected">每小时一次</option>
-                                    <option value="120">每两小时一次</option>
-                                    <option value="0">自定义</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group hide" id="userDefineBox">
-                            <div class="col-md-9 col-md-offset-3">
-                                <input class="form-control" type="number" min="0" max="96" id="userDefineTimes"
-                                       placeholder="自定义接收频次">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-danger" data-dismiss="modal">
-                    <span>取消</span>
-                </a>
-                <a class="btn btn-info" id="settingOk">
-                    <span>确定</span>
-                </a>
-            </div>
+
         </div>
     </div>
 </div>
@@ -273,12 +214,10 @@ $uname = $myCookie->get("uname");
         <div class="modal-content">
             <ul id="myTabs" class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active" id="login-li">
-                    <span href="#user-login" id="home-tab" role="tab" data-toggle="tab" aria-controls="user-login"
-                          aria-expanded="true">用户登录</span>
+                    <span href="#user-login" id="home-tab" role="tab" data-toggle="tab" aria-controls="user-login" aria-expanded="true">用户登录</span>
                 </li>
                 <li role="presentation" class="" id="register-li">
-                    <span href="#user-register" role="tab" id="profile-tab" data-toggle="tab"
-                          aria-controls="user-register" aria-expanded="false">邮箱注册</span>
+                    <span href="#user-register" role="tab" id="profile-tab" data-toggle="tab" aria-controls="user-register" aria-expanded="false">邮箱注册</span>
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
@@ -289,15 +228,13 @@ $uname = $myCookie->get("uname");
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="email" id="login-email" class="form-control" placeholder="请输入登录邮箱"
-                                               maxlength="18">
+                                        <input type="email" id="login-email" class="form-control" placeholder="请输入登录邮箱" maxlength="18">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                        <input type="password" id="login-pwd" class="form-control" placeholder="请输入登录密码"
-                                               maxlength="16">
+                                        <input type="password" id="login-pwd" class="form-control" placeholder="请输入登录密码" maxlength="16">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -310,8 +247,7 @@ $uname = $myCookie->get("uname");
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="btn btn-info" type="button" id="btn-login"
-                                           value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录">
+                                    <input class="btn btn-info" type="button" id="btn-login" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录">
                                 </div>
                             </fieldset>
                         </div>
@@ -324,27 +260,23 @@ $uname = $myCookie->get("uname");
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="email" id="register-email" class="form-control"
-                                               placeholder="请输入注册邮箱">
+                                        <input type="email" id="register-email" class="form-control" placeholder="请输入注册邮箱">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                        <input type="password" id="register-pwd-1" class="form-control"
-                                               placeholder="请输入注册密码">
+                                        <input type="password" id="register-pwd-1" class="form-control" placeholder="请输入注册密码">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                        <input type="password" id="register-pwd-2" class="form-control"
-                                               placeholder="请再次输入注册密码">
+                                        <input type="password" id="register-pwd-2" class="form-control" placeholder="请再次输入注册密码">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="btn btn-info" type="button" id="btn-register"
-                                           value="注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册">
+                                    <input class="btn btn-info" type="button" id="btn-register" value="注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册">
                                 </div>
                             </fieldset>
                         </div>
@@ -356,59 +288,21 @@ $uname = $myCookie->get("uname");
 </div>
 <script src="js/jquery-1.10.2.min.js?v=1.0"></script>
 <script src="js/bootstrap.min.js?v=1.0"></script>
+<script src="js/store.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger.min.js?v=1.0"></script>
 <script src="plugins/messenger/js/messenger-theme-future.min.js?v=1.0"></script>
 <script src="js/ripples.min.js?v=1.0"></script>
 <script src="js/material.min.js?v=1.0"></script>
 <script src="js/selecttime.min.js?v=1.0"></script>
-<script src="js/jquery.dropdown.min.js?v=1.0"></script>
+<!--<script src="js/jquery.dropdown.min.js?v=1.0"></script>-->
+<script src="js/bootstrap-select.min.js?v=1.0"></script>
 <script src="js/jquery.typeahead.min.js?v=1.0"></script>
 <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
-<script src="js/alpha-index.min.js?v=1.0"></script>
 <script src="js/jquery.tips.min.js?v=1.0"></script>
 <script src="js/common.min.js?v=1.0"></script>
-
+<script src="js/alpha-index.min.js?v=1.0"></script>
 <script>
-    jQuery(function ($) {
-        var DEFAULT_VERSION = "8.0";
-        var ua = navigator.userAgent.toLowerCase();
-        var isIE = ua.indexOf("msie") > -1;
-        var safariVersion;
-        if (isIE) {
-            safariVersion = ua.match(/msie ([\d.]+)/)[1];
-            if (safariVersion <= DEFAULT_VERSION) {
-                window.location.href = "updatebrowser.html";
-            }
-        }
-        $.material.init();
-        var param = Util.queryString("p");
-        if (param) {
-            var t = param.split('_')[0];
-            var v = param.split('_')[1];
-            if (t && v) {
-                alpha.searchResultShow(v, t);
-            }
-        }
-        alpha.initSelectTimes();
-        alpha.getIndexStock();
-        alpha.getIndexIndustry();
-        alpha.getIndexSection();
-        alpha.querySubscribe();
-        $(window).scroll(function (event) {
-            var st = $(this).scrollTop();
-            var a = document.getElementById("search-bar-pre").clientHeight;
-            if (st >= a) {
-                if (!$("#search-fix").hasClass("navbar-fixed-top")) {
-                    $("#search-fix").addClass("navbar-fixed-top");
-                    $("#search-bar-parent").css("height", 254);
-                }
-            } else {
-                $("#fix-parent").css("height", 164);
-                $("#search-fix").removeClass("navbar-fixed-top");
-            }
-            event.stopPropagation();
-        });
-    });
+   
 </script>
 <div style="display: none;">
     <script src="http://s11.cnzz.com/z_stat.php?id=1258763697&web_id=1258763697" language="JavaScript"></script>
